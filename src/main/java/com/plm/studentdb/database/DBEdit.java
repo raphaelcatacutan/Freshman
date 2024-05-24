@@ -21,18 +21,18 @@ public class DBEdit {
 
         // If record not found, handle appropriately
         // If record found, prompt user to edit fields
-        System.out.print("Enter new name: ");
+        System.out.print("Enter name: ");
         String newName = scanner.nextLine();
-        System.out.print("Enter new course: ");
+        System.out.print("Enter course: ");
         String newCourse = scanner.nextLine();
-        System.out.print("Enter new year: ");
+        System.out.print("Enter year: ");
         int newYear = scanner.nextInt();
-        System.out.print("Enter new final grade: ");
+        System.out.print("Enter final grade: ");
         double newFinalGrade = scanner.nextDouble();
-        System.out.print("Enter new GWA: ");
+        System.out.print("Enter GWA: ");
         double newGWA = scanner.nextDouble();
         scanner.nextLine();
-        System.out.print("Enter new status: ");
+        System.out.print("Enter status: ");
         String newStatus = scanner.nextLine();
 
         // Update record in the MYSQL database
@@ -49,8 +49,6 @@ public class DBEdit {
             System.out.println("Record updated successfully.");
         } catch (SQLException e) {
             throw new RuntimeException("Error updating student record: " + e.getMessage());
-        } finally {
-            scanner.close();
         }
     }
 }
