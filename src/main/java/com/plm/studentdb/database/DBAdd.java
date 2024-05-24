@@ -6,8 +6,7 @@ import java.sql.SQLException;
 public class DBAdd {
     public static void addStudentRecord(int studentId, String name, String course, int year, double finalGrade, double gwa, String status) {
         String insertQuery = "INSERT INTO studentdb.student_record (student_id, name, course, year, final_grade, gwa, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        //Hello
-        //Welcome, Ishang!
+
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery)) {
             pstmt.setInt(1, studentId);
             pstmt.setString(2, name);
