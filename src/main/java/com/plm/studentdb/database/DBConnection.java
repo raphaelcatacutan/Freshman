@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 public class DBConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/";
@@ -59,5 +60,6 @@ public class DBConnection {
         DBAdd.addStudentRecord(202334102, "Raphael Catacutan", "BSCS", 1, 1.00, 1.00, "Regular");
         DBAdd.addStudentRecord(202334019, "Jeshaiah Mulleno", "BSCS", 1, 1.00, 1.00, "Regular");
         DBEdit.editStudentRecord();
+        DBRemove.removeStudentRecord();
     }
 }
