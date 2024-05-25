@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821abc21-cf15-4791-9b91-238a7f619cf7" name="Changes" comment="Back-end Operations Update">
+    <list default="true" id="821abc21-cf15-4791-9b91-238a7f619cf7" name="Changes" comment="Back-end Operations View Added!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/plm/studentdb/database/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/plm/studentdb/database/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/plm/studentdb/database/DBSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/plm/studentdb/database/DBSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/plm/studentdb/database/DBView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/plm/studentdb/database/DBView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,13 +121,22 @@
       <option name="project" value="LOCAL" />
       <updated>1716653052414</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Back-end Operations View Added!!!">
+      <option name="closed" value="true" />
+      <created>1716654888239</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716654888239</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Testing Pushing in Github" />
     <MESSAGE value="Syncing Successful!!!" />
     <MESSAGE value="Back-end Operations Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Back-end Operations Update" />
+    <MESSAGE value="Back-end Operations View Added!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Back-end Operations View Added!!!" />
   </component>
 </project>
