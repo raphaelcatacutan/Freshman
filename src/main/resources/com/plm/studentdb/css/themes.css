@@ -1,0 +1,44 @@
+.background {
+    -fx-background-color: #16122b;
+}
+
+.accent1 {
+    -fx-background-color: #24204b;
+}
+
+.accent2 {
+    -fx-background-color: #6e53de;
+}
+
+.accent3 {
+    -fx-background-color: linear-gradient(to bottom, #B478FD 0%, #6e53dd 100%);
+}
+
+.accent4 {
+    -fx-background-color: linear-gradient(to bottom, #34046D 0%, #6102ba 100%);
+}
+
+.accent5 {
+    -fx-background-color: #3a3653;
+}
+
+.accent2.border {
+    -fx-border-color: #6e53de;
+    -fx-background-color: transparent;
+}
+
+
+.label-text {
+    -fx-text-fill: #fefefe;
+}
+
+.default-color0.chart-pie { -fx-pie-color: #8e44ad; -fx-border-color: transparent; }
+.default-color1.chart-pie { -fx-pie-color: #9b59b6; -fx-border-color: transparent; }
+.default-color2.chart-pie { -fx-pie-color: #af7ac5; -fx-border-color: transparent; }
+.default-color3.chart-pie { -fx-pie-color: #bb8fce; -fx-border-color: transparent; }
+.default-color4.chart-pie { -fx-pie-color: #d2b4de; -fx-border-color: transparent; }
+.default-color5.chart-pie { -fx-pie-color: #6c3483; -fx-border-color: transparent; }
+.default-color6.chart-pie { -fx-pie-color: #76448a; -fx-border-color: transparent; }
+.default-color7.chart-pie { -fx-pie-color: #884ea0; -fx-border-color: transparent; }
+.default-color8.chart-pie { -fx-pie-color: #a569bd; -fx-border-color: transparent; }
+.default-color9.chart-pie { -fx-pie-color: #c39bd3; -fx-border-color: transparent; }

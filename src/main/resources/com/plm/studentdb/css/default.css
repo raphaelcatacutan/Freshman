@@ -1,0 +1,9 @@
+
+.label, .tooltip, .button {
+    -fx-font-family: "Poppins";
+}
+
+.label.bold, .button.bold {
+    -fx-font-family: "Poppins";
+    -fx-font-weight: bold; /* 'bold' should be without quotes */
+}
