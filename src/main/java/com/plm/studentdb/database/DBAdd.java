@@ -4,7 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DBAdd {
-    public static void addStudentRecord(int studentId, String name, String college, String course, int year, double firstSemGwa, double secondSemGwa, double totalGwa, String status, int yearEnrolled) {
+    public static void addStudentRecord(int studentId, String name, String college, String course, int year, double firstSemGwa, double secondSemGwa, int yearEnrolled) {
+        double totalGwa = (firstSemGwa + secondSemGwa) / 2;
+        String status = totalGwa <= 3.00 ? "Regular" : "Irregular";
         String insertQuery = "INSERT INTO studentdb.student_record (student_id, name, college, course, year, first_sem_gwa, second_sem_gwa, total_gwa, status, year_enrolled) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery)) {
@@ -23,5 +25,4 @@ public class DBAdd {
             throw new RuntimeException(e);
         }
     }
-
 }
