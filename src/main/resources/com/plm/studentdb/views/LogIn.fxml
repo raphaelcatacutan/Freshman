@@ -59,7 +59,7 @@
                   </DropShadow>
                </effect>
             </TextField>
-            <Button layoutX="175.0" layoutY="525.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="197.0" style="-fx-background-color: #0F5996;" text="Log in" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="151.0" layoutY="524.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="197.0" style="-fx-background-color: #0F5996;" text="Log in" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial" size="25.0" />
                </font>
@@ -71,23 +71,6 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button layoutX="175.0" layoutY="601.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="197.0" style="-fx-background-color: #0F5996;" text="Sign up" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="25.0" />
-               </font>
-               <effect>
-                  <DropShadow offsetY="4.0">
-                     <color>
-                        <Color red="0.5686274766921997" green="0.5568627715110779" blue="0.5568627715110779" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
-            <Text layoutX="183.0" layoutY="691.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot password?">
-               <font>
-                  <Font name="Arial" size="20.0" />
-               </font>
-            </Text>
             <ImageView fitHeight="42.0" fitWidth="37.0" layoutX="31.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/user.png" />
