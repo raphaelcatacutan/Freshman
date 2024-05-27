@@ -39,5 +39,6 @@ build/
 
 ### Custom ###
 /.idea/
+.idea/
 /target/
 **/tests/**

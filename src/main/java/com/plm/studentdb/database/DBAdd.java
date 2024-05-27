@@ -4,17 +4,22 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DBAdd {
-    public static void addStudentRecord(int studentId, String name, String course, int year, double finalGrade, double gwa, String status) {
-        String insertQuery = "INSERT INTO studentdb.student_record (student_id, name, course, year, final_grade, gwa, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public static void addStudentRecord(int studentId, String name, String college, String course, int year, double firstSemGwa, double secondSemGwa, int yearEnrolled) {
+        double totalGwa = (firstSemGwa + secondSemGwa) / 2;
+        String status = totalGwa <= 3.00 ? "Regular" : "Irregular";
+        String insertQuery = "INSERT INTO studentdb.student_record (student_id, name, college, course, year, first_sem_gwa, second_sem_gwa, total_gwa, status, year_enrolled) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery)) {
             pstmt.setInt(1, studentId);
             pstmt.setString(2, name);
-            pstmt.setString(3, course);
-            pstmt.setInt(4, year);
-            pstmt.setDouble(5, finalGrade);
-            pstmt.setDouble(6, gwa);
-            pstmt.setString(7, status);
+            pstmt.setString(3, college);
+            pstmt.setString(4, course);
+            pstmt.setInt(5, year);
+            pstmt.setDouble(6, firstSemGwa);
+            pstmt.setDouble(7, secondSemGwa);
+            pstmt.setDouble(8, totalGwa);
+            pstmt.setString(9, status);
+            pstmt.setInt(10, yearEnrolled);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
