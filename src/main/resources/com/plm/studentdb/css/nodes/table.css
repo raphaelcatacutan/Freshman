@@ -1,0 +1,91 @@
+/* Table View General Styling */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* Column Header Styling */
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+}
+
+/* Style the header row with rounded corners */
+.table-view .column-header-background {
+    -fx-background-radius: 10 10 0 0;
+    -fx-background-color: #24204b;
+    -fx-border-radius: 10 10 0 0;
+    -fx-border-color: transparent;
+}
+
+/* Ensure the entire table view has rounded corners */
+.table-view {
+    -fx-background-radius: 10;
+}
+
+/* Center the text vertically in table rows */
+.table-view .table-row-cell .table-cell {
+    -fx-alignment: CENTER;
+    -fx-font-size: 14px;
+}
+
+/* Header Label Styling */
+.table-view .column-header .label {
+    -fx-font-family: "Arial";
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-padding: 15px 0px 15px 0px;
+    -fx-alignment: CENTER;
+}
+
+/* Row Cell Styling */
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 20px 20px 10px;
+    -fx-background-insets: 8px;
+    -fx-font-family: "Arial";
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+}
+
+/* Transparent background for empty rows */
+.table-view .table-row-cell:empty {
+    -fx-background-color: transparent!important;
+}
+
+/* Alternating Row Colors with Padding for Spacing Effect and Rounded Corners */
+.table-view .table-row-cell:odd {
+    -fx-background-color: #24204b;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: #24204b;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+}
+
+/* Cell Content Alignment */
+.table-view .table-cell {
+    -fx-alignment: CENTER;
+    -fx-padding: 10px;
+    -fx-border-width: 0;
+    -fx-text-fill: white;
+}
+
+/* Row Selection Styling */
+.table-view .table-row-cell:focused, .table-view .table-row-cell:selected {
+    -fx-background-color: #32334d;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+}
+
+/* Row Hover Styling */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #32334d;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+}

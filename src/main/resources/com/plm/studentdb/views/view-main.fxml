@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,7 +20,7 @@
          <children>
             <StackPane alignment="TOP_RIGHT" prefHeight="744.0" prefWidth="101.0" style="-fx-background-radius: 30;" styleClass="accent1">
                <children>
-                  <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="207.0" prefWidth="104.0">
+                  <VBox fx:id="vbxNavIndicator" alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="207.0" prefWidth="104.0">
                      <children>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="75.0" styleClass="background">
                            <children>
@@ -37,30 +38,8 @@
                         </AnchorPane>
                      </children>
                      <StackPane.margin>
-                        <Insets top="223.0" />
+                        <Insets top="277.0" />
                      </StackPane.margin>
-                  </VBox>
-                  <VBox alignment="CENTER_RIGHT" prefHeight="760.0" prefWidth="101.0" spacing="30.0">
-                     <children>
-                        <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/setting.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/setting.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/setting.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <padding>
-                        <Insets right="26.0" />
-                     </padding>
                   </VBox>
                   <VBox alignment="TOP_RIGHT" spacing="30.0">
                      <children>
@@ -75,6 +54,37 @@
                            <image>
                               <Image url="@../assets/icons/setting.png" />
                            </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets right="26.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER_RIGHT" prefHeight="760.0" prefWidth="101.0" spacing="30.0">
+                     <children>
+                        <ImageView fx:id="navDashboard" fitHeight="28.0" fitWidth="23.0" onMouseClicked="#navigateDashboard" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/setting.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="navStudents" fitHeight="28.0" fitWidth="23.0" onMouseClicked="#navigateStudents" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/setting.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="navSettings" fitHeight="28.0" fitWidth="23.0" onMouseClicked="#navigateSettings" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/setting.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                      <padding>
@@ -125,10 +135,11 @@
                         <Insets left="30.0" right="30.0" />
                      </padding>
                   </HBox>
-                  <StackPane prefHeight="711.0" prefWidth="1098.0">
+                  <StackPane fx:id="stkViews" prefHeight="711.0" prefWidth="1098.0">
                      <children>
-                        <fx:include source="view-dashboard.fxml" />
-                        <fx:include source="view-students.fxml" />
+                        <fx:include fx:id="viewStudents" source="view-students.fxml" />
+                        <fx:include fx:id="viewSettings" source="view-settings.fxml" />
+                        <fx:include fx:id="viewDashboard" source="view-dashboard.fxml" />
                      </children>
                   </StackPane>
                </children>
@@ -142,5 +153,6 @@
    <stylesheets>
       <URL value="@../css/themes.css" />
       <URL value="@../css/default.css" />
+      <URL value="@../css/nodes/scrollbar.css" />
    </stylesheets>
 </AnchorPane>
