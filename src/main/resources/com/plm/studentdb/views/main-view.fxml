@@ -95,7 +95,7 @@
                         <Pane prefHeight="134.0" prefWidth="74.0" />
                         <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/icons/setting.png" />
+                              <Image url="@../assets/icons/Log%20Out%20Sample%20(4).png" />
                            </image>
                         </ImageView>
                      </children>
