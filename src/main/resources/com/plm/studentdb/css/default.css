@@ -1,12 +1,4 @@
 
-.label, .tooltip, .button {
-    -fx-font-family: "Poppins";
-}
-
-.label.bold, .button.bold {
-    -fx-font-weight: bold; /* 'bold' should be without quotes */
-}
-
 TextField, TextArea {
     -fx-context-menu: none;
 }

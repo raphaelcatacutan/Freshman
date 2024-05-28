@@ -424,7 +424,7 @@
                               </StackPane>
                               <StackPane alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="450.0">
                                  <children>
-                                    <VBox alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #EAD307;" styleClass="accent1">
+                                    <VBox fx:id="vbxDashboardQuickView" alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #EAD307;" styleClass="accent1">
                                        <children>
                                           <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="119.0" style="-fx-background-color: 504394;" text="View" textFill="WHITE">
                                              <font>
