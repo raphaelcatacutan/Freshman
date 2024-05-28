@@ -1,6 +1,7 @@
 package com.plm.studentdb.views;
 
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,6 +24,8 @@ public class ViewLogin {
     private final String predefinedUsername = "admin@plm.edu.ph";
     private final String predefinedPassword = "123456";
 
+    @FXML private Parent viewMain;
+
     @FXML
     public void logInButton() {
         String enteredUsername = userID.getText();
@@ -30,8 +33,13 @@ public class ViewLogin {
 
         if (predefinedUsername.equals(enteredUsername) && predefinedPassword.equals(enteredPassword)) {
             loginStatus.setText("Login Successful!");
+            viewMain.toFront();
         } else {
             loginStatus.setText("Invalid Username or Password!");
         }
+    }
+
+    public void setViewMain(Parent viewMain) {
+        this.viewMain = viewMain;
     }
 }
