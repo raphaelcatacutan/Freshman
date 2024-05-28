@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="anpStudentsMessageView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="450.0" style="-fx-background-color: #e9e9e9; -fx-background-radius: 20;" visible="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.StudentsMessage">
    <children>
-      <Button layoutX="326.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#close" prefHeight="38.0" prefWidth="73.0" style="-fx-background-color: #4b77b5; -fx-border-color: BLACK;" text="CLOSE" textFill="WHITE">
+      <Button layoutX="190.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#close" prefHeight="38.0" prefWidth="73.0" style="-fx-background-color: #4b77b5; -fx-border-color: BLACK;" text="CLOSE" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

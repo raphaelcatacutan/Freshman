@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="anpStudentsAddView" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: #e9e9e9; -fx-background-radius: 20;" visible="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.StudentsAdd">
    <children>
-      <Label layoutX="39.0" layoutY="43.0" text="Edit Student Information" textFill="#ffd722">
+      <Label layoutX="39.0" layoutY="43.0" text="Add Student Information" textFill="#ffd722">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
@@ -23,7 +23,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txfStudentsViewId" layoutX="33.0" layoutY="152.0" prefHeight="35.0" prefWidth="180.0" text="2023-XXXXX" />
+      <TextField fx:id="txfStudentsViewId" layoutX="33.0" layoutY="152.0" prefHeight="35.0" prefWidth="180.0" text="2023XXXXX" />
       <Label layoutX="249.0" layoutY="127.0" prefHeight="25.0" prefWidth="109.0" text="Student Name">
          <font>
             <Font name="System Bold" size="16.0" />
