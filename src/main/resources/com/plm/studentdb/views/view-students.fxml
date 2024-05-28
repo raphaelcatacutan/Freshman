@@ -35,7 +35,7 @@
                      </effect>
                   </Label>
                   <Pane prefHeight="28.0" prefWidth="429.0" HBox.hgrow="ALWAYS" />
-                  <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="35.0" prefWidth="110.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Add" textFill="#92f06e">
+                  <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Add" textFill="#92f06e">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
@@ -47,19 +47,7 @@
                         </ImageView>
                      </graphic>
                   </Label>
-                  <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Delete" textFill="#e15656">
-                     <font>
-                        <Font name="Arial Bold" size="13.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/Delete-Icon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-                  <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="116.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Edit" textFill="#ffca7a">
+                  <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Edit" textFill="#ffca7a">
                      <font>
                         <Font name="Arial Bold" size="13.0" />
                      </font>
@@ -67,6 +55,18 @@
                         <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/icons/Edit-Icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Delete" textFill="#d15858">
+                     <font>
+                        <Font name="Arial Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/Delete-Icon.png" />
                            </image>
                         </ImageView>
                      </graphic>

@@ -26,7 +26,7 @@
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="75.0" style="-fx-background-radius: 40 0 0 40; -fx-background-color: dddddd;" styleClass="background">
                            <children>
-                              <AnchorPane layoutX="20.8" layoutY="20.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.6" prefWidth="75.2" style="-fx-background-radius: 50; -fx-background-color: #9a9a9a;" styleClass="accent2" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0" />
+                              <AnchorPane layoutX="20.8" layoutY="20.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.6" prefWidth="75.2" style="-fx-background-radius: 50; -fx-background-color: #9a9a9a;" styleClass="accent2" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="10.0" />
                            </children></AnchorPane>
                         <AnchorPane layoutX="39.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="75.0" style="-fx-background-color: dddddd;" styleClass="background">
                            <children>
@@ -59,7 +59,7 @@
                   </VBox>
                   <VBox alignment="CENTER_RIGHT" prefHeight="778.0" prefWidth="100.0" spacing="30.0">
                      <children>
-                        <ImageView fx:id="navDashboard" fitHeight="30.0" fitWidth="40.0" onMouseClicked="#navigateDashboard" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="navDashboard" fitHeight="28.0" fitWidth="26.0" onMouseClicked="#navigateDashboard" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/icons/dsicon6.png" />
                            </image>
@@ -67,18 +67,18 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <VBox.margin>
-                              <Insets bottom="10.0" left="20.0" right="-5.0" />
+                              <Insets bottom="8.0" right="-1.5" />
                            </VBox.margin>
                         </ImageView>
-                        <ImageView fx:id="navStudents" fitHeight="45.0" fitWidth="25.0" onMouseClicked="#navigateStudents" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="navStudents" fitHeight="25.0" fitWidth="24.0" onMouseClicked="#navigateStudents" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/icons/table.png" />
+                              <Image url="@../assets/icons/table%20sample%203.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <VBox.margin>
-                              <Insets bottom="5.0" top="-12.0" />
+                              <Insets top="-8.0" />
                            </VBox.margin>
                         </ImageView>
                         <ImageView fx:id="navSettings" fitHeight="28.0" fitWidth="23.0" onMouseClicked="#navigateSettings" pickOnBounds="true" preserveRatio="true">
