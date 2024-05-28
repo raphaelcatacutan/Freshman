@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="200.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewDelstudrec">
+   <children>
+      <Button layoutX="239.0" layoutY="132.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="73.0" style="-fx-background-color: #4b77b5; -fx-border-color: BLACK;" text="OK" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="124.0" layoutY="132.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="81.0" style="-fx-border-color: BLACK;" text="Cancel">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="29.0" layoutY="88.0" prefHeight="25.0" prefWidth="405.0" text="Are you sure you want to delete the selected student record?">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="48.0" text="DELETE STUDENT RECORD" textFill="#f50000">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+         <effect>
+            <DropShadow height="10.0" radius="5.75" width="15.0">
+               <color>
+                  <Color red="0.5394737124443054" green="0.43207845091819763" blue="0.43207845091819763" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>
