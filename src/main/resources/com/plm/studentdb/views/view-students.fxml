@@ -80,14 +80,14 @@
                      <children>
                         <VBox prefHeight="67.0" prefWidth="784.0" spacing="5.0">
                            <children>
-                              <Label graphicTextGap="10.0" styleClass="label-text" text="Find Student ID" textFill="WHITE">
+                              <Label graphicTextGap="10.0" styleClass="label-text" text="Find Student Record" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold Italic" size="14.0" />
                                  </font>
                                  <effect>
                                     <DropShadow />
                                  </effect></Label>
-                              <TextField opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student Number">
+                              <TextField opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
                                  <effect>
                                     <Glow />
                                  </effect>
