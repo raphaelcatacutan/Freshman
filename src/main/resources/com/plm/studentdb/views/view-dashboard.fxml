@@ -31,7 +31,7 @@
                               <Image url="@../assets/icons/PLM%20logo.png" />
                            </image>
                         </ImageView>
-                        <Label styleClass="bold" text="PLM" textFill="#970f0f">
+                        <Label text="PLM" textFill="#970f0f">
                            <VBox.margin>
                               <Insets left="50.0" top="-50.0" />
                            </VBox.margin>
@@ -39,7 +39,7 @@
                               <Font name="System Bold" size="28.0" />
                            </font>
                         </Label>
-                        <Label styleClass="bold" text="Student Record System | " textFill="WHITE">
+                        <Label text="Student Record System | " textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
@@ -95,7 +95,7 @@
                   </VBox>
                   <VBox prefHeight="274.0" prefWidth="626.0" spacing="10.0" style="-fx-background-radius: 30;">
                      <children>
-                        <Label styleClass="bold" text="AY 2023-2024" textFill="#970f0f">
+                        <Label text="AY 2023-2024" textFill="#970f0f">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -110,7 +110,7 @@
                                     <Image url="@../assets/icons/student%20icon.png" />
                                  </image>
                               </ImageView>
-                              <Label graphicTextGap="8.0" styleClass="label-text" text="128,129">
+                              <Label graphicTextGap="8.0" styleClass="label-text" text="128, 129">
                                  <font>
                                     <Font size="35.0" />
                                  </font>
@@ -202,7 +202,7 @@
                <children>
                   <VBox prefHeight="293.0" prefWidth="430.0" spacing="20.0" style="-fx-background-radius: 30;">
                      <children>
-                        <Label prefHeight="58.0" prefWidth="452.0" styleClass="bold" text="Welcome Admin!" textFill="WHITE">
+                        <Label prefHeight="58.0" prefWidth="452.0" text="Welcome Admin!" textFill="WHITE">
                            <font>
                               <Font size="48.0" />
                            </font>
@@ -217,7 +217,7 @@
                               </DropShadow>
                            </effect>
                         </Label>
-                        <Label styleClass="bold" text="Statistics" textFill="#070707">
+                        <Label text="Statistics" textFill="#070707">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -357,7 +357,7 @@
                   </VBox>
                   <VBox prefHeight="251.0" prefWidth="623.0" spacing="10.0" style="-fx-background-radius: 30;">
                      <children>
-                        <Label prefHeight="35.0" prefWidth="266.0" styleClass="bold" text="Quick Actions">
+                        <Label prefHeight="35.0" prefWidth="266.0" text="Quick Actions">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -369,9 +369,9 @@
                            <children>
                               <StackPane alignment="TOP_CENTER" prefHeight="250.0" prefWidth="450.0">
                                  <children>
-                                    <VBox fx:id="addWindowButton" alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #BF2525;" styleClass="accent4">
+                                    <VBox fx:id="vbxDashboardQuickAdd" alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #BF2525;" styleClass="accent4">
                                        <children>
-                                          <Button fx:id="addWinButtonText" mnemonicParsing="false" onAction="#addWinButton" prefHeight="65.0" prefWidth="119.0" style="-fx-background-color: 504394;" styleClass="bold" text="Add" textFill="WHITE">
+                                          <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="119.0" style="-fx-background-color: 504394;" text="Add" textFill="WHITE">
                                              <VBox.margin>
                                                 <Insets top="10.0" />
                                              </VBox.margin>
@@ -426,7 +426,7 @@
                                  <children>
                                     <VBox alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #EAD307;" styleClass="accent1">
                                        <children>
-                                          <Button fx:id="viewButton" mnemonicParsing="false" onAction="#initialize" prefHeight="65.0" prefWidth="119.0" style="-fx-background-color: 504394;" styleClass="bold" text="View" textFill="WHITE">
+                                          <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="119.0" style="-fx-background-color: 504394;" text="View" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="30.0" />
                                              </font>
@@ -478,7 +478,7 @@
                                  <children>
                                     <VBox alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #0f5a96;" styleClass="accent1">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="115.0" style="-fx-background-color: 504394;" styleClass="bold" text="Print" textFill="WHITE">
+                                          <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="115.0" style="-fx-background-color: 504394;" text="Print" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="30.0" />
                                              </font>

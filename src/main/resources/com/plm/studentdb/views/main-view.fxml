@@ -11,54 +11,54 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewMain">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.MainView">
    <children>
       <HBox prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: dddddd;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <StackPane alignment="TOP_RIGHT" prefHeight="744.0" prefWidth="101.0" style="-fx-background-radius: 30; -fx-background-color: #a19b9b;" styleClass="accent1">
+            <StackPane alignment="TOP_RIGHT" prefHeight="744.0" prefWidth="101.0" style="-fx-background-radius: 20; -fx-background-color: #a19b9b;">
                <children>
                   <VBox fx:id="vbxNavIndicator" alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="207.0" prefWidth="104.0">
                      <children>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="75.0" style="-fx-background-color: dddddd;">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="75.0" style="-fx-background-color: #dddddd;">
                            <children>
-                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="75.0" style="-fx-background-radius: 0 0 35 0; -fx-background-color: #a19b9b;" styleClass="accent1" />
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="65.6" prefWidth="75.2" style="-fx-background-radius: 0 0 35 0; -fx-background-color: #a19b9b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </AnchorPane>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="75.0" style="-fx-background-radius: 40 0 0 40; -fx-background-color: dddddd;" styleClass="background">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="67.0" prefWidth="75.0" style="-fx-background-radius: 40 0 0 40; -fx-background-color: #dddddd;">
                            <children>
-                              <AnchorPane layoutX="20.8" layoutY="20.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.6" prefWidth="75.2" style="-fx-background-radius: 50; -fx-background-color: #9a9a9a;" styleClass="accent2" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="10.0" />
-                           </children></AnchorPane>
-                        <AnchorPane layoutX="39.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="75.0" style="-fx-background-color: dddddd;" styleClass="background">
-                           <children>
-                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="75.0" style="-fx-background-radius: 0 35 0 0; -fx-background-color: #a19b9b;" styleClass="accent1" />
+                              <AnchorPane layoutX="20.8" layoutY="20.8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="65.6" prefWidth="75.2" style="-fx-background-radius: 50; -fx-background-color: #9a9a9a;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="10.0" />
                            </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></AnchorPane>
+                        <AnchorPane layoutX="39.0" layoutY="324.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="65.0" prefWidth="75.0" style="-fx-background-color: #dddddd;">
+                           <children>
+                              <AnchorPane style="-fx-background-radius: 0 35 0 0; -fx-background-color: #a19b9b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets></AnchorPane>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </AnchorPane>
                      </children>
                      <StackPane.margin>
-                        <Insets top="277.0" />
+                        <Insets top="223.0" />
                      </StackPane.margin>
                   </VBox>
-                  <VBox alignment="TOP_RIGHT" spacing="30.0">
+                  <VBox alignment="TOP_RIGHT" prefHeight="778.0" prefWidth="100.0" spacing="30.0">
                      <children>
-                        <Pane prefHeight="59.0" prefWidth="74.0" />
+                        <Pane layoutX="10.0" layoutY="64.0" prefHeight="50.0" prefWidth="74.0" />
                         <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/icons/setting.png" />
                            </image>
                         </ImageView>
-                        <Pane prefHeight="486.0" prefWidth="74.0" />
-                        <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/setting.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <padding>
-                        <Insets right="26.0" />
-                     </padding>
-                  </VBox>
-                  <VBox alignment="CENTER_RIGHT" prefHeight="778.0" prefWidth="100.0" spacing="30.0">
-                     <children>
+                        <Pane prefHeight="142.0" prefWidth="74.0" />
                         <ImageView fx:id="navDashboard" fitHeight="28.0" fitWidth="26.0" onMouseClicked="#navigateDashboard" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/icons/dsicon6.png" />
@@ -91,6 +91,12 @@
                            <VBox.margin>
                               <Insets bottom="5.0" top="-2.0" />
                            </VBox.margin>
+                        </ImageView>
+                        <Pane prefHeight="134.0" prefWidth="74.0" />
+                        <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/setting.png" />
+                           </image>
                         </ImageView>
                      </children>
                      <padding>

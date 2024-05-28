@@ -5,16 +5,19 @@ import com.plm.studentdb.models.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ViewStudents {
-    @FXML TableView<Student> tbvStudents = new TableView<>();
+    @FXML public TableView<Student> tbvStudents = new TableView<>();
+    @FXML public Parent studentsAddView;
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
+        // Table
         tbvStudents.setEditable(true);
 
         TableColumn<Student, Integer> idColumn = new TableColumn<>("ID");
@@ -54,6 +57,9 @@ public class ViewStudents {
 
         tbvStudents.setItems(studentsListTable);
         getData();
+
+        // Add Forms
+        studentsAddView.setVisible(false);
     }
 
     private void getData() {

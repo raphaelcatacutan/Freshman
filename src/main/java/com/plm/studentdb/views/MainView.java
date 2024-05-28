@@ -3,47 +3,54 @@ package com.plm.studentdb.views;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-public class ViewMain {
+public class MainView {
     @FXML StackPane stkViews;
 
-    @FXML AnchorPane viewDashboard;
-    @FXML AnchorPane viewStudents;
-    @FXML AnchorPane viewSettings;
-
+    @FXML Parent viewDashboard;
+    @FXML Parent viewStudents;
+    @FXML Parent viewSettings;
 
     @FXML ImageView navDashboard;
     @FXML ImageView navStudents;
     @FXML ImageView navSettings;
 
+    @FXML ViewDashboard viewDashboardController;
+    @FXML ViewStudents viewStudentsController;
+    @FXML ViewSettings viewSettingsController;
+
     @FXML VBox vbxNavIndicator;
 
-    AnchorPane[] views;
-    AnchorPane currentView = viewDashboard;
+    Parent[] views = new Parent[3];
+    Parent currentView = viewDashboard;
 
     @FXML void initialize() {
-        views = new AnchorPane[]{viewDashboard, viewStudents, viewSettings};
+        views = new Parent[]{viewDashboard, viewStudents, viewSettings};
         navigateDashboard();
+
+        viewDashboardController.vbxDashboardQuickAdd.setOnMouseClicked(ev -> {
+            navigateStudents();
+            viewStudentsController.studentsAddView.setVisible(true);
+        });
     }
 
     @FXML void navigateDashboard() {
-        navigationBarTransition(-53);
+        navigationBarTransition(0);
         navigationViewTransition(viewDashboard);
     }
 
     @FXML void navigateStudents() {
-        navigationBarTransition(0);
+        navigationBarTransition(53);
         navigationViewTransition(viewStudents);
     }
 
     @FXML void navigateSettings() {
-        navigationBarTransition(53);
+        navigationBarTransition(106);
         navigationViewTransition(viewSettings);
     }
 
@@ -53,8 +60,8 @@ public class ViewMain {
         transition.play();
     }
 
-    void navigationViewTransition(AnchorPane view) {
-        for (AnchorPane v: views) {
+    void navigationViewTransition(Parent view) {
+        for (Parent v: views) {
             if (v == view) {
                 if (v == currentView) continue;
                 FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.3), v);
