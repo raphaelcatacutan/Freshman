@@ -142,5 +142,6 @@
    <stylesheets>
       <URL value="@../css/themes.css" />
       <URL value="@../css/default.css" />
+      <URL value="@../css/nodes/scrollbar.css" />
    </stylesheets>
 </AnchorPane>

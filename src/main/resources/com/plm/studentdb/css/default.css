@@ -4,6 +4,9 @@
 }
 
 .label.bold, .button.bold {
-    -fx-font-family: "Poppins";
     -fx-font-weight: bold; /* 'bold' should be without quotes */
+}
+
+TextField, TextArea {
+    -fx-context-menu: none;
 }

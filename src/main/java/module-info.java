@@ -9,4 +9,6 @@ module com.plm.studentdb {
     exports com.plm.studentdb;
     exports com.plm.studentdb.views;
     opens com.plm.studentdb.views to javafx.fxml;
+    opens com.plm.studentdb.models to javafx.base;
+    exports com.plm.studentdb.models;
 }
