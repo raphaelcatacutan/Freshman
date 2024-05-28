@@ -31,7 +31,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="239.0" layoutY="142.0" prefHeight="35.0" prefWidth="229.0" text="Juan Dela Cruz" />
+      <TextField layoutX="239.0" layoutY="142.0" prefHeight="35.0" prefWidth="235.0" text="Juan Dela Cruz" />
       <Label layoutX="164.0" layoutY="193.0" text="Course">
          <font>
             <Font name="System Bold" size="16.0" />
