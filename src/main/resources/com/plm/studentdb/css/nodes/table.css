@@ -14,7 +14,7 @@
 /* Style the header row with rounded corners */
 .table-view .column-header-background {
     -fx-background-radius: 10 10 0 0;
-    -fx-background-color: #24204b;
+    -fx-background-color:  #a19b9b;
     -fx-border-radius: 10 10 0 0;
     -fx-border-color: transparent;
 }
@@ -57,15 +57,15 @@
 
 /* Alternating Row Colors with Padding for Spacing Effect and Rounded Corners */
 .table-view .table-row-cell:odd {
-    -fx-background-color: #24204b;
-    -fx-text-fill: white;
+    -fx-background-color: #dddddd;
+    -fx-text-fill: black;
     -fx-background-radius: 5px;
 }
 
 .table-view .table-row-cell:even {
-    -fx-background-color: #24204b;
+    -fx-background-color: #dddddd;
     -fx-background-radius: 5px;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 /* Cell Content Alignment */
@@ -73,19 +73,19 @@
     -fx-alignment: CENTER;
     -fx-padding: 10px;
     -fx-border-width: 0;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 /* Row Selection Styling */
 .table-view .table-row-cell:focused, .table-view .table-row-cell:selected {
-    -fx-background-color: #32334d;
+    -fx-background-color: #a19b9b;
     -fx-background-radius: 5px;
     -fx-text-fill: white;
 }
 
 /* Row Hover Styling */
 .table-view .table-row-cell:hover {
-    -fx-background-color: #32334d;
+    -fx-background-color: #a19b9b;
     -fx-background-radius: 5px;
     -fx-text-fill: white;
 }

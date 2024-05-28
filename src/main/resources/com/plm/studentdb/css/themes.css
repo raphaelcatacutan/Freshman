@@ -29,7 +29,8 @@
 
 
 .label-text {
-    -fx-text-fill: #000000;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 
 .default-color0.chart-pie { -fx-pie-color: #8e44ad; -fx-border-color: transparent; }

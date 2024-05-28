@@ -77,7 +77,7 @@
                   </DropShadow>
                </effect>
             </PasswordField>
-            <Button fx:id="logInButton" layoutX="151.0" layoutY="524.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="197.0" style="-fx-background-color: #0F5996;" text="Log in" textAlignment="CENTER" textFill="WHITE" onAction="#logInButton">
+            <Button fx:id="logInButton" layoutX="151.0" layoutY="524.0" mnemonicParsing="false" onAction="#logInButton" prefHeight="46.0" prefWidth="197.0" style="-fx-background-color: #0F5996;" text="Log in" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial" size="25.0" />
                </font>
@@ -94,7 +94,7 @@
                   <Image url="@../assets/icons/padlock.png" />
                </image>
             </ImageView>
-            <Label fx:id="loginStatus" layoutX="83.0" layoutY="590.0" prefHeight="46.0" prefWidth="365.0" textFill="GREEN" />
+            <Label fx:id="loginStatus" layoutX="83.0" layoutY="590.0" prefHeight="46.0" prefWidth="365.0" textFill="RED" />
          </children>
          <opaqueInsets>
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />

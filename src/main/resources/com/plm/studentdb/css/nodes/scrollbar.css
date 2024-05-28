@@ -28,12 +28,12 @@
 }
 /* Style the vertical scrollbar thumb */
 .table-view .scroll-bar:vertical .thumb {
-    -fx-background-color: #24204b; /* Change to your desired color */
+    -fx-background-color: #a19b9b; /* Change to your desired color */
 }
 
 /* Style the horizontal scrollbar thumb */
 .table-view .scroll-bar:horizontal .thumb {
-    -fx-background-color: #24204b; /* Change to your desired color */
+    -fx-background-color: #a19b9b; /* Change to your desired color */
 }
 
 .table-view .scroll-bar:vertical .increment-arrow,

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -25,72 +26,63 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="1070.0" spacing="20.0">
                <children>
-                  <Label graphicTextGap="10.0" text="All Students">
-                     <styleClass>
-                        <String fx:value="label-text" />
-                        <String fx:value="bold" />
-                     </styleClass>
+                  <Label graphicTextGap="10.0" styleClass="bold" text="All Students" textFill="WHITE">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="30.0" />
                      </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Label>
                   <Pane prefHeight="28.0" prefWidth="429.0" HBox.hgrow="ALWAYS" />
-                  <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="35.0" prefWidth="168.0" style="-fx-background-color: #27343f; -fx-background-radius: 5;" text="Add New" textFill="#2fff4e">
+                  <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="35.0" prefWidth="110.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Add" textFill="#92f06e">
                      <font>
-                        <Font size="13.0" />
+                        <Font name="Arial Bold" size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 150%; -fx-blend-mode: src_over;">
                            <image>
-                              <Image url="@../assets/icons/setting.png" />
+                              <Image url="@../assets/icons/Add-Icon.png" />
                            </image>
-                           <effect>
-                              <ColorAdjust hue="0.72" saturation="0.56" />
-                           </effect>
                         </ImageView>
                      </graphic>
                   </Label>
-                  <Label alignment="CENTER" graphicTextGap="8.0" layoutX="756.0" layoutY="10.0" prefHeight="35.0" prefWidth="187.0" style="-fx-background-color: #32334d; -fx-background-radius: 5;" text="Generate Report" textFill="#95dcff">
+                  <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Delete" textFill="#e15656">
                      <font>
-                        <Font size="13.0" />
+                        <Font name="Arial Bold" size="13.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assets/icons/setting.png" />
+                              <Image url="@../assets/icons/Delete-Icon.png" />
                            </image>
-                           <effect>
-                              <ColorAdjust hue="-0.83" saturation="0.56" />
-                           </effect>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="116.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Edit" textFill="#ffca7a">
+                     <font>
+                        <Font name="Arial Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/Edit-Icon.png" />
+                           </image>
                         </ImageView>
                      </graphic>
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="1070.0" spacing="20.0" style="-fx-background-radius: 15;" styleClass="accent1">
+            <HBox alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="1070.0" spacing="20.0" style="-fx-background-radius: 15; -fx-background-color: #a19b9b;">
                <children>
                   <VBox prefHeight="67.0" prefWidth="784.0" spacing="5.0">
                      <children>
-                        <Label graphicTextGap="10.0" styleClass="label-text" text="Filter List" />
-                        <AnchorPane prefHeight="46.0" prefWidth="491.0" style="-fx-background-radius: 10;" styleClass="background">
-                           <children>
-                              <Label graphicTextGap="8.0" layoutX="10.0" layoutY="10.0" prefHeight="39.2" prefWidth="480.0" styleClass="label-text" text="Search a keyword" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../assets/icons/setting.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
-                                 </padding>
-                              </Label>
-                           </children>
-                        </AnchorPane>
+                        <Label graphicTextGap="10.0" styleClass="label-text" text="Find Student ID" textFill="WHITE" />
+                        <TextField opacity="0.94" prefHeight="50.0" prefWidth="527.0" promptText="Enter Student Number">
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </TextField>
                      </children>
                   </VBox>
                   <VBox layoutX="30.0" layoutY="30.0" prefHeight="74.0" prefWidth="488.0" spacing="5.0">
@@ -98,7 +90,7 @@
                         <Label graphicTextGap="10.0" styleClass="label-text" text="Sort By" />
                         <AnchorPane prefHeight="49.0" prefWidth="446.0" style="-fx-background-radius: 10;" styleClass="background">
                            <children>
-                              <Label graphicTextGap="8.0" layoutX="10.0" layoutY="10.0" prefHeight="39.2" prefWidth="446.4" styleClass="label-text" text="Name (A-Z)" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label graphicTextGap="8.0" layoutX="10.0" layoutY="10.0" prefHeight="39.2" prefWidth="446.4" text="Name (A-Z)" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
@@ -122,7 +114,7 @@
                         <Label graphicTextGap="10.0" styleClass="label-text" text="Filter Year" />
                         <AnchorPane prefHeight="49.0" prefWidth="446.0" style="-fx-background-radius: 10;" styleClass="background">
                            <children>
-                              <Label graphicTextGap="8.0" layoutX="10.0" layoutY="10.0" prefHeight="39.2" prefWidth="446.4" styleClass="label-text" text="2023" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label graphicTextGap="8.0" layoutX="10.0" layoutY="10.0" prefHeight="39.2" prefWidth="446.4" text="2023" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font size="13.0" />
                                  </font>

@@ -1,11 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="710.0" prefWidth="1130.0" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewSettings">
     <stylesheets>
         <URL value="@../css/themes.css" />
         <URL value="@../css/default.css" />
+        <URL value="@../css/nodes/table.css" />
     </stylesheets>
+    <children>
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="1130.0" spacing="25.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="1070.0" spacing="20.0">
+                    <children>
+                        <Label graphicTextGap="10.0" text="All Students">
+                            <styleClass>
+                                <String fx:value="label-text" />
+                                <String fx:value="bold" />
+                            </styleClass>
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <Pane prefHeight="28.0" prefWidth="429.0" HBox.hgrow="ALWAYS" />
+                        <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="35.0" prefWidth="168.0" style="-fx-background-color: #27343f; -fx-background-radius: 5;" text="Add New" textFill="#2fff4e">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/icons/setting.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust hue="0.72" saturation="0.56" />
+                                    </effect>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="756.0" layoutY="10.0" prefHeight="35.0" prefWidth="187.0" style="-fx-background-color: #32334d; -fx-background-radius: 5;" text="Generate Report" textFill="#95dcff">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/icons/setting.png" />
+                                    </image>
+                                    <effect>
+                                        <ColorAdjust hue="-0.83" saturation="0.56" />
+                                    </effect>
+                                </ImageView>
+                            </graphic>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="1070.0" spacing="20.0" style="-fx-background-radius: 15;" styleClass="accent1">
+                    <children>
+                        <VBox prefHeight="67.0" prefWidth="784.0" spacing="5.0">
+                            <children>
+                                <Label graphicTextGap="10.0" styleClass="label-text" text="Filter List" />
+                                <AnchorPane prefHeight="46.0" prefWidth="491.0" style="-fx-background-radius: 10;" styleClass="background">
+                                    <children>
+                                        <Label graphicTextGap="8.0" layoutX="10.0" layoutY="10.0" prefHeight="39.2" prefWidth="480.0" styleClass="label-text" text="Search a keyword" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../assets/icons/setting.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <padding>
+                                                <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                                            </padding>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="30.0" layoutY="30.0" prefHeight="74.0" prefWidth="488.0" spacing="5.0">
+                            <children>
+                                <Label graphicTextGap="10.0" styleClass="label-text" text="Sort By" />
+                                <AnchorPane prefHeight="49.0" prefWidth="446.0" style="-fx-background-radius: 10;" styleClass="background">
+                                    <children>
+                                        <Label graphicTextGap="8.0" layoutX="10.0" layoutY="10.0" prefHeight="39.2" prefWidth="446.4" styleClass="label-text" text="Name (A-Z)" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../assets/icons/setting.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <padding>
+                                                <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                                            </padding>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </VBox>
+                        <VBox layoutX="538.0" layoutY="30.0" prefHeight="74.0" prefWidth="488.0" spacing="5.0">
+                            <children>
+                                <Label graphicTextGap="10.0" styleClass="label-text" text="Filter Year" />
+                                <AnchorPane prefHeight="49.0" prefWidth="446.0" style="-fx-background-radius: 10;" styleClass="background">
+                                    <children>
+                                        <Label graphicTextGap="8.0" layoutX="10.0" layoutY="10.0" prefHeight="39.2" prefWidth="446.4" styleClass="label-text" text="2023" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../assets/icons/setting.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <padding>
+                                                <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                                            </padding>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </HBox>
+                <TableView fx:id="tbvStudents" prefHeight="467.0" />
+            </children>
+            <padding>
+                <Insets left="30.0" right="30.0" top="30.0" />
+            </padding>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
 </AnchorPane>
