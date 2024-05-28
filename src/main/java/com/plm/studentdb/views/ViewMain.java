@@ -83,9 +83,5 @@ public class ViewMain {
             }
         }
         currentView = view;
-
-
     }
-
-
 }
