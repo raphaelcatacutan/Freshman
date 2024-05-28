@@ -1,5 +1,5 @@
 .background {
-    -fx-background-color: #16122b;
+    -fx-background-color: #dddddd;
 }
 
 .accent1 {
@@ -29,7 +29,7 @@
 
 
 .label-text {
-    -fx-text-fill: #fefefe;
+    -fx-text-fill: #000000;
 }
 
 .default-color0.chart-pie { -fx-pie-color: #8e44ad; -fx-border-color: transparent; }
