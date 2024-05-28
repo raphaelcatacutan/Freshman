@@ -371,7 +371,7 @@
                                  <children>
                                     <VBox fx:id="addWindowButton" alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #BF2525;" styleClass="accent4">
                                        <children>
-                                          <Button fx:id="addWinButtonText" mnemonicParsing="false" onAction="#addWinButton" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: 504394;" styleClass="bold" text="Add" textFill="WHITE">
+                                          <Button fx:id="addWinButtonText" mnemonicParsing="false" onAction="#addWinButton" prefHeight="65.0" prefWidth="119.0" style="-fx-background-color: 504394;" styleClass="bold" text="Add" textFill="WHITE">
                                              <VBox.margin>
                                                 <Insets top="10.0" />
                                              </VBox.margin>
