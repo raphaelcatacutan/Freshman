@@ -8,7 +8,7 @@ public class AppMain {
     @FXML private Parent viewLogin;
     @FXML private Parent viewMain;
 
-    @FXML private ViewLogin viewLoginController;
+    @FXML private MainLogin viewLoginController;
     @FXML private MainView viewMainController;
 
     public void initialize() {
