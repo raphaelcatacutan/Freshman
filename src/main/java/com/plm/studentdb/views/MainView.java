@@ -37,11 +37,15 @@ public class MainView {
             navigateStudents();
             viewStudentsController.studentsAddView.setVisible(true);
         });
+        viewDashboardController.vbxDashboardQuickView.setOnMouseClicked(ev -> {
+            navigateStudents();
+        });
     }
 
     @FXML void navigateDashboard() {
         navigationBarTransition(0);
         navigationViewTransition(viewDashboard);
+        viewStudentsController.studentsAddView.setVisible(false);
     }
 
     @FXML void navigateStudents() {
@@ -52,6 +56,7 @@ public class MainView {
     @FXML void navigateSettings() {
         navigationBarTransition(106);
         navigationViewTransition(viewSettings);
+        viewStudentsController.studentsAddView.setVisible(false);
     }
 
     void navigationBarTransition(double y) {
