@@ -1,15 +1,16 @@
 package com.plm.studentdb.database;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import com.plm.studentdb.models.Student;
+
+import java.sql.*;
 
 public class DBAdd {
-    public static void addStudentRecord(int studentId, String name, String college, String course, int year, double firstSemGwa, double secondSemGwa, int yearEnrolled) {
+    public static Student addStudentRecord(int studentId, String name, String college, String course, int year, double firstSemGwa, double secondSemGwa, int yearEnrolled) {
         double totalGwa = (firstSemGwa + secondSemGwa) / 2;
         String status = totalGwa <= 3.00 ? "Regular" : "Irregular";
         String insertQuery = "INSERT INTO studentdb.student_record (student_id, name, college, course, year, first_sem_gwa, second_sem_gwa, total_gwa, status, year_enrolled) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery)) {
+        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, studentId);
             pstmt.setString(2, name);
             pstmt.setString(3, college);
@@ -21,6 +22,14 @@ public class DBAdd {
             pstmt.setString(9, status);
             pstmt.setInt(10, yearEnrolled);
             pstmt.executeUpdate();
+
+            try (ResultSet rs = pstmt.getGeneratedKeys()) {
+                rs.next();
+                int id = rs.getInt("GENERATED_KEY");
+                Student student = new Student(id, studentId, name, college, course, year, firstSemGwa, secondSemGwa, totalGwa, status, yearEnrolled);
+                return student;
+            }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

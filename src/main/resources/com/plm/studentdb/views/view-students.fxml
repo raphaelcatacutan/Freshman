@@ -38,7 +38,7 @@
                            </effect>
                         </Label>
                         <Pane prefHeight="28.0" prefWidth="429.0" HBox.hgrow="ALWAYS" />
-                        <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Add" textFill="#92f06e">
+                        <Label fx:id="btnViewStudentsAdd" alignment="CENTER" graphicTextGap="8.0" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Add" textFill="#92f06e">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -148,6 +148,7 @@
                </padding>
             </VBox>
             <fx:include fx:id="studentsAddView" source="students-add.fxml" />
+            <fx:include fx:id="studentsMessageView" source="students-message.fxml" />
          </children>
       </StackPane>
    </children>
