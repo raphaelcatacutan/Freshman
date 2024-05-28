@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -15,7 +12,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="710.0" prefWidth="1130.0" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewDashboard">
@@ -202,12 +198,12 @@
                <children>
                   <VBox prefHeight="293.0" prefWidth="430.0" spacing="20.0" style="-fx-background-radius: 30;">
                      <children>
-                        <Label prefHeight="58.0" prefWidth="452.0" text="Welcome Admin!" textFill="WHITE">
+                        <Label prefHeight="58.0" prefWidth="452.0" text="Welcome" textFill="WHITE">
                            <font>
-                              <Font size="48.0" />
+                              <Font name="System Bold" size="88.0" />
                            </font>
                            <VBox.margin>
-                              <Insets top="5.0" />
+                              <Insets bottom="-20.0" top="5.0" />
                            </VBox.margin>
                            <effect>
                               <DropShadow height="25.0" radius="12.0" width="25.0">
@@ -217,125 +213,67 @@
                               </DropShadow>
                            </effect>
                         </Label>
-                        <Label text="Statistics" textFill="#070707">
+                        <Label prefHeight="58.0" prefWidth="452.0" text="Admin!" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="24.0" />
+                              <Font name="System Bold" size="88.0" />
                            </font>
+                           <effect>
+                              <DropShadow height="25.0" radius="12.0" width="25.0">
+                                 <color>
+                                    <Color red="0.44736841320991516" green="0.44736841320991516" blue="0.44736841320991516" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
                            <VBox.margin>
-                              <Insets top="-30.0" />
+                              <Insets top="-40.0" />
                            </VBox.margin>
                         </Label>
                         <VBox prefHeight="276.0" prefWidth="426.0">
                            <children>
-                              <HBox spacing="10.0" style="-fx-background-radius: 20;">
-                                 <children>
-                                    <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="35.0" prefWidth="480.0" style="-fx-background-radius: 10; -fx-background-color: #0f4d96;" styleClass="accent2" text="Colleges" textFill="WHITE">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </Label>
-                                    <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="37.0" prefWidth="480.0" style="-fx-background-radius: 10; -fx-border-color: #79a2d0; -fx-border-radius: 10; -fx-background-color: #98c8ff;" text="Status">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                       <styleClass>
-                                          <String fx:value="border" />
-                                          <String fx:value="accent2" />
-                                       </styleClass>
-                                    </Label>
-                                    <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="37.0" prefWidth="480.0" style="-fx-background-radius: 10; -fx-border-color: #79a2d0; -fx-border-radius: 10; -fx-background-color: #98c8ff;" text="Year">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                       <styleClass>
-                                          <String fx:value="border" />
-                                          <String fx:value="accent2" />
-                                       </styleClass>
-                                    </Label>
-                                    <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="37.0" prefWidth="480.0" style="-fx-background-radius: 10; -fx-border-color: #79a2d0; -fx-border-radius: 10; -fx-background-color: #98c8ff;" text="Residency">
-                                       <font>
-                                          <Font size="13.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                       <styleClass>
-                                          <String fx:value="border" />
-                                          <String fx:value="accent2" />
-                                       </styleClass>
-                                    </Label>
-                                 </children>
+                              <Label prefHeight="70.0" prefWidth="333.0" text="Kadakilaan" textFill="#bf2525">
+                                 <font>
+                                    <Font name="System Bold Italic" size="36.0" />
+                                 </font>
                                  <effect>
-                                    <DropShadow>
+                                    <DropShadow height="25.0" radius="12.0" width="25.0">
                                        <color>
-                                          <Color opacity="0.10000000149011612" />
+                                          <Color red="0.44736841320991516" green="0.44736841320991516" blue="0.44736841320991516" />
                                        </color>
                                     </DropShadow>
                                  </effect>
                                  <VBox.margin>
-                                    <Insets top="-15.0" />
+                                    <Insets top="-40.0" />
                                  </VBox.margin>
-                              </HBox>
+                              </Label>
                               <HBox prefHeight="228.0" prefWidth="426.0">
                                  <children>
-                                    <AnchorPane fx:id="anpStatisticsChart" prefHeight="227.0" prefWidth="426.0">
-                                       <children>
-                                          <PieChart fx:id="pieStatisticsChart" labelsVisible="false" layoutX="30.4" layoutY="30.4" legendVisible="false" prefHeight="177.0" prefWidth="430.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                       </children>
-                                    </AnchorPane>
+                                    <Label prefHeight="70.0" prefWidth="333.0" text="Kadakilaan" textFill="#0f5a96">
+                                       <font>
+                                          <Font name="System Bold Italic" size="36.0" />
+                                       </font>
+                                       <effect>
+                                          <DropShadow height="25.0" radius="12.0" width="25.0">
+                                             <color>
+                                                <Color red="0.44736841320991516" green="0.44736841320991516" blue="0.44736841320991516" />
+                                             </color>
+                                          </DropShadow>
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets top="-20.0" />
+                                       </HBox.margin>
+                                    </Label>
                                     <VBox alignment="CENTER_LEFT" prefHeight="228.0" prefWidth="294.0" spacing="5.0">
                                        <children>
-                                          <Label graphicTextGap="8.0" text="Status">
+                                          <Label graphicTextGap="8.0" text="Kaunlaran" textFill="#ead307">
                                              <font>
-                                                <Font size="13.0" />
+                                                <Font name="System Bold Italic" size="36.0" />
                                              </font>
-                                             <graphic>
-                                                <Circle fill="DODGERBLUE" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-                                             </graphic>
-                                          </Label>
-                                          <Label graphicTextGap="8.0" text="Status">
-                                             <font>
-                                                <Font size="13.0" />
-                                             </font>
-                                             <graphic>
-                                                <Circle fill="DODGERBLUE" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-                                             </graphic>
-                                          </Label>
-                                          <Label graphicTextGap="8.0" text="Status">
-                                             <font>
-                                                <Font size="13.0" />
-                                             </font>
-                                             <graphic>
-                                                <Circle fill="DODGERBLUE" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-                                             </graphic>
-                                          </Label>
-                                          <Label graphicTextGap="8.0" text="Status">
-                                             <font>
-                                                <Font size="13.0" />
-                                             </font>
-                                             <graphic>
-                                                <Circle fill="DODGERBLUE" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-                                             </graphic>
-                                          </Label>
-                                          <Label graphicTextGap="8.0" text="Status">
-                                             <font>
-                                                <Font size="13.0" />
-                                             </font>
-                                             <graphic>
-                                                <Circle fill="DODGERBLUE" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
-                                             </graphic>
+                                             <effect>
+                                                <DropShadow height="25.0" radius="12.0" width="25.0" />
+                                             </effect>
+                                             <VBox.margin>
+                                                <Insets left="-25.0" top="-100.0" />
+                                             </VBox.margin>
                                           </Label>
                                        </children>
                                        <HBox.margin>
@@ -371,23 +309,23 @@
                                  <children>
                                     <VBox fx:id="vbxDashboardQuickAdd" alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #BF2525;" styleClass="accent4">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="119.0" style="-fx-background-color: 504394;" text="Add" textFill="WHITE">
-                                             <VBox.margin>
-                                                <Insets top="10.0" />
-                                             </VBox.margin>
+                                          <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" prefWidth="154.0" style="-fx-background-radius: 10;" styleClass="label-text" text="Add" textAlignment="CENTER" wrapText="true">
                                              <font>
-                                                <Font name="System Bold" size="30.0" />
+                                                <Font size="36.0" />
                                              </font>
-                                             <cursor>
-                                                <Cursor fx:constant="TEXT" />
-                                             </cursor>
-                                          </Button>
-                                          <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" prefWidth="154.0" style="-fx-background-radius: 10;" styleClass="label-text" text="A Student Record to Database" textAlignment="CENTER" wrapText="true">
+                                             <VBox.margin>
+                                                <Insets bottom="40.0" top="-20.0" />
+                                             </VBox.margin>
+                                             <effect>
+                                                <DropShadow height="15.0" radius="7.0" width="15.0" />
+                                             </effect>
+                                          </Label>
+                                          <Label alignment="CENTER" graphicTextGap="8.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" prefWidth="154.0" style="-fx-background-radius: 10;" styleClass="label-text" text="A Student Record to Database" textAlignment="CENTER" wrapText="true">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets bottom="20.0" top="-10.0" />
+                                                <Insets top="-10.0" />
                                              </VBox.margin>
                                           </Label>
                                        </children>
@@ -426,20 +364,23 @@
                                  <children>
                                     <VBox fx:id="vbxDashboardQuickView" alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #EAD307;" styleClass="accent1">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="119.0" style="-fx-background-color: 504394;" text="View" textFill="WHITE">
+                                          <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" prefWidth="154.0" style="-fx-background-radius: 10;" styleClass="label-text" text="View" textAlignment="CENTER" wrapText="true">
                                              <font>
-                                                <Font name="System Bold" size="30.0" />
+                                                <Font size="36.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets top="10.0" />
+                                                <Insets bottom="40.0" top="-20.0" />
                                              </VBox.margin>
-                                          </Button>
-                                          <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" style="-fx-background-radius: 10;" styleClass="label-text" text="Records from the Database" textAlignment="CENTER" wrapText="true">
+                                             <effect>
+                                                <DropShadow height="15.0" radius="7.0" width="15.0" />
+                                             </effect>
+                                          </Label>
+                                          <Label alignment="CENTER" graphicTextGap="8.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" style="-fx-background-radius: 10;" styleClass="label-text" text="Records from the Database" textAlignment="CENTER" wrapText="true">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets bottom="20.0" top="-5.0" />
+                                                <Insets top="-10.0" />
                                              </VBox.margin>
                                           </Label>
                                        </children>
@@ -478,20 +419,23 @@
                                  <children>
                                     <VBox alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #0f5a96;" styleClass="accent1">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="115.0" style="-fx-background-color: 504394;" text="Print" textFill="WHITE">
+                                          <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" prefWidth="154.0" style="-fx-background-radius: 10;" styleClass="label-text" text="Print" textAlignment="CENTER" wrapText="true">
                                              <font>
-                                                <Font name="System Bold" size="30.0" />
+                                                <Font size="36.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets top="5.0" />
+                                                <Insets bottom="40.0" top="-20.0" />
                                              </VBox.margin>
-                                          </Button>
-                                          <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" style="-fx-background-radius: 10;" styleClass="label-text" text="A generated report from the Database" textAlignment="CENTER" wrapText="true">
+                                             <effect>
+                                                <DropShadow height="15.0" radius="7.0" width="15.0" />
+                                             </effect>
+                                          </Label>
+                                          <Label alignment="CENTER" graphicTextGap="8.0" style="-fx-background-radius: 10;" styleClass="label-text" text="A generated report from the Database" textAlignment="CENTER" wrapText="true">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets bottom="20.0" top="-5.0" />
+                                                <Insets top="-10.0" />
                                              </VBox.margin>
                                           </Label>
                                        </children>
