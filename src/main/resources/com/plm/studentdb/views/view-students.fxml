@@ -44,7 +44,7 @@
                            <graphic>
                               <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 150%; -fx-blend-mode: src_over;">
                                  <image>
-                                    <Image url="@../assets/icons/Add-Icon.png" />
+                                    <Image url="@../assets/icons/icons8-add-48.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -53,26 +53,26 @@
                               <String fx:value="background" />
                            </styleClass>
                         </Label>
-                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" onMouseClicked="#showEdit" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #ffe9c8; -fx-background-image: #DDFFBC;  -fx-border-color: BLACK; -fx-border-radius: 5;" text="Edit" textFill="#ffca7a">
+                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" onMouseClicked="#showEdit" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #ffe9c8; -fx-background-image: #DDFFBC;  -fx-border-color: BLACK; -fx-border-radius: 5;" text="Edit" textFill="#ff9c07">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/Edit-Icon.png" />
+                                    <Image url="@../assets/icons/icons8-edit-64%20(2).png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" onMouseClicked="#delete" prefHeight="35.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #ff9c9c; -fx-background-image: #DDFFBC; -fx-border-color: BLACK; -fx-border-radius: 5;" text="Delete" textFill="#d15858">
+                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" onMouseClicked="#delete" prefHeight="35.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #ff9c9c; -fx-background-image: #DDFFBC; -fx-border-color: BLACK; -fx-border-radius: 5;" text="Delete" textFill="#de2121">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                            <graphic>
                               <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assets/icons/Delete-Icon.png" />
+                                    <Image url="@../assets/icons/icons8-delete-50.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -93,7 +93,7 @@
                                   <VBox.margin>
                                       <Insets top="-10.0" />
                                   </VBox.margin></Label>
-                              <TextField fx:id="txfStudentsSearch" onKeyPressed="#search" opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
+                              <TextField fx:id="txfStudentsSearch" maxWidth="1.7976931348623157E308" minWidth="-Infinity" onKeyPressed="#search" opacity="0.94" prefHeight="50.0" prefWidth="506.0" promptText="Enter Student ID  (Format: 202312345)">
                                  <effect>
                                     <Glow />
                                  </effect>
