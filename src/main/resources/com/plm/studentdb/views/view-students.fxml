@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="710.0" prefWidth="1130.0" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewStudents">
+<AnchorPane prefHeight="710.0" prefWidth="1130.0" style="-fx-background-color: eeeeee;" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewStudents">
     <stylesheets>
        <URL value="@../css/themes.css" />
         <URL value="@../css/default.css" />
@@ -29,7 +30,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="1070.0" spacing="20.0">
                      <children>
-                        <Label graphicTextGap="10.0" styleClass="bold" text="All Students" textFill="WHITE">
+                        <Label graphicTextGap="10.0" prefHeight="47.0" prefWidth="680.0" styleClass="bold" text="Student Record System | All Students" textFill="#fff830">
                            <font>
                               <Font name="System Bold" size="32.0" />
                            </font>
@@ -38,7 +39,7 @@
                            </effect>
                         </Label>
                         <Pane prefHeight="28.0" prefWidth="429.0" HBox.hgrow="ALWAYS" />
-                        <Label fx:id="btnViewStudentsAdd" alignment="CENTER" graphicTextGap="8.0" onMouseClicked="#showAdd" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Add" textFill="#92f06e">
+                        <Label fx:id="btnViewStudentsAdd" alignment="CENTER" graphicTextGap="8.0" onMouseClicked="#showAdd" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #b8ffb5; -fx-background-image: #DDFFBC;  -fx-border-color: BLACK;  -fx-border-radius: 5;" text="Add" textFill="#268600">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -49,8 +50,12 @@
                                  </image>
                               </ImageView>
                            </graphic>
+                           <styleClass>
+                              <String fx:value="accent4" />
+                              <String fx:value="background" />
+                           </styleClass>
                         </Label>
-                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" onMouseClicked="#showEdit" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Edit" textFill="#ffca7a">
+                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" onMouseClicked="#showEdit" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #ffe9c8; -fx-background-image: #DDFFBC;  -fx-border-color: BLACK; -fx-border-radius: 5;" text="Edit" textFill="#ffca7a">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -62,7 +67,7 @@
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Delete" textFill="#d15858">
+                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #ff9c9c; -fx-background-image: #DDFFBC; -fx-border-color: BLACK; -fx-border-radius: 5;" text="Delete" textFill="#d15858">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -76,21 +81,27 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="1070.0" spacing="20.0" style="-fx-background-radius: 15; -fx-background-color: #a19b9b;">
+                  <HBox alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="1070.0" spacing="20.0" style="-fx-background-radius: 15; -fx-background-color: #0f5a96;">
                      <children>
                         <VBox prefHeight="67.0" prefWidth="784.0" spacing="5.0">
                            <children>
                               <Label graphicTextGap="10.0" styleClass="label-text" text="Find Student Record" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold Italic" size="14.0" />
+                                    <Font name="System Bold Italic" size="20.0" />
                                  </font>
                                  <effect>
                                     <DropShadow />
-                                 </effect></Label>
-                              <TextField fx:id="txfStudentsSearch" onKeyPressed="#search" opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
+                                 </effect>
+                                  <VBox.margin>
+                                      <Insets top="-10.0" />
+                                  </VBox.margin></Label>
+                              <TextField fx:id="txfStudentsSearch" onKeyPressed="#search"  opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
                                  <effect>
                                     <Glow />
                                  </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="-10.0" />
+                                 </VBox.margin>
                               </TextField>
                            </children>
                         </VBox>
@@ -99,7 +110,10 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
                   </HBox>
-                  <TableView fx:id="tbvStudents" prefHeight="467.0" />
+                  <TableView fx:id="tbvStudents" prefHeight="467.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></TableView>
                </children>
                <padding>
                   <Insets left="30.0" right="30.0" top="30.0" />
