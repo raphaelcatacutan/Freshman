@@ -67,7 +67,7 @@
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #ff9c9c; -fx-background-image: #DDFFBC; -fx-border-color: BLACK; -fx-border-radius: 5;" text="Delete" textFill="#d15858">
+                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" onMouseClicked="#delete" prefHeight="35.0" prefWidth="119.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #ff9c9c; -fx-background-image: #DDFFBC; -fx-border-color: BLACK; -fx-border-radius: 5;" text="Delete" textFill="#d15858">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -95,7 +95,7 @@
                                   <VBox.margin>
                                       <Insets top="-10.0" />
                                   </VBox.margin></Label>
-                              <TextField fx:id="txfStudentsSearch" onKeyPressed="#search"  opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
+                              <TextField fx:id="txfStudentsSearch" onKeyPressed="#search" opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
                                  <effect>
                                     <Glow />
                                  </effect>
@@ -121,6 +121,7 @@
             </VBox>
             <fx:include fx:id="studentsAddView" source="students-forms.fxml" />
             <fx:include fx:id="studentsMessageView" source="students-message.fxml" />
+            <fx:include fx:id="studentsConfirmView" source="students-confirm.fxml" />
          </children>
       </StackPane>
    </children>

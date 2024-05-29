@@ -24,11 +24,13 @@ public class ViewStudents {
     @FXML public TableView<Student> tbvStudents = new TableView<>();
     @FXML public Parent studentsAddView;
     @FXML public Parent studentsMessageView;
+    @FXML public Parent studentsConfirmView;
     @FXML public Label btnViewStudentsAdd;
     @FXML public TextField txfStudentsSearch;
 
     @FXML public StudentsForms studentsAddViewController;
     @FXML public StudentsMessage studentsMessageViewController;
+    @FXML public StudentsConfirm studentsConfirmViewController;
 
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
     public static int filterStudentId = -1;
@@ -76,11 +78,10 @@ public class ViewStudents {
         getData();
 
         studentsAddViewController.studentsMessageViewController = studentsMessageViewController;
+        studentsConfirmViewController.txfStudentsSearch = txfStudentsSearch;
     }
 
     private void getData() {
-        System.out.println("Getting Records");
-        System.out.println(filterStudentId);
         if (filterStudentId >= 0) studentsListTable.setAll(DBFind.findStudentRecord(filterStudentId));
         else studentsListTable.addAll(DBView.viewStudentRecord());
     }
@@ -101,7 +102,7 @@ public class ViewStudents {
     }
 
     @FXML private void delete() {
-
+        studentsConfirmViewController.anpStudentsConfirmView.setVisible(true);
     }
 
     @FXML private void showEdit() {
