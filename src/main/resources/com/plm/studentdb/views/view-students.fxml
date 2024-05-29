@@ -87,7 +87,7 @@
                                  <effect>
                                     <DropShadow />
                                  </effect></Label>
-                              <TextField opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
+                              <TextField fx:id="txfStudentsSearch" onKeyPressed="#search"  opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
                                  <effect>
                                     <Glow />
                                  </effect>
