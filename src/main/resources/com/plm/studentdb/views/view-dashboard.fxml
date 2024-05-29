@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="710.0" prefWidth="1130.0" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewDashboard">
    <children>
-      <VBox fx:id="mainPane" prefHeight="710.0" prefWidth="1132.0" spacing="10.0" style="-fx-background-color: dddddd;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="mainPane" prefHeight="710.0" prefWidth="1132.0" spacing="10.0" style="-fx-background-color: eeeeee;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="351.0" prefWidth="1070.0" spacing="20.0">
                <children>
