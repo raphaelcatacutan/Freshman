@@ -82,7 +82,11 @@ public class ViewStudents {
     }
 
     private void getData() {
-        if (filterStudentId >= 0) studentsListTable.setAll(DBFind.findStudentRecord(filterStudentId));
+        if (filterStudentId >= 0) {
+            Student student = DBFind.findStudentRecord(filterStudentId);
+            if (student != null) studentsListTable.setAll(student);
+            else studentsMessageViewController.show("Not Found", "Student ID does not exist within the database");
+        }
         else studentsListTable.addAll(DBView.viewStudentRecord());
     }
 
@@ -102,12 +106,18 @@ public class ViewStudents {
     }
 
     @FXML private void delete() {
-        if (studentsListTable.size() != 1) return;
+        if (studentsListTable.size() != 1 || filterStudentId == -1) {
+            studentsMessageViewController.show("Invalid Input", "Please enter a valid Student ID to find within the database");
+            return;
+        }
         studentsConfirmViewController.anpStudentsConfirmView.setVisible(true);
     }
 
     @FXML private void showEdit() {
-        if (studentsListTable.size() != 1) return;
+        if (studentsListTable.size() != 1 || filterStudentId == -1) {
+            studentsMessageViewController.show("Invalid Input", "Please enter a valid Student ID to find within the database");
+            return;
+        };
         studentsAddViewController.anpStudentsAddView.setVisible(true);
         studentsAddViewController.preFillForm(studentsListTable.getFirst());
         studentsAddViewController.isAdding = false;
