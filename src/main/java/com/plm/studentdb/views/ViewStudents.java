@@ -1,5 +1,6 @@
 package com.plm.studentdb.views;
 
+import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBView;
 import com.plm.studentdb.models.Student;
 import javafx.animation.FadeTransition;
@@ -13,8 +14,10 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
 public class ViewStudents {
@@ -22,11 +25,13 @@ public class ViewStudents {
     @FXML public Parent studentsAddView;
     @FXML public Parent studentsMessageView;
     @FXML public Label btnViewStudentsAdd;
+    @FXML public TextField txfStudentsSearch;
 
     @FXML public StudentsAdd studentsAddViewController;
     @FXML public StudentsMessage studentsMessageViewController;
 
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
+    public static int filterStudentId = -1;
 
     @FXML
     public void initialize() {
@@ -79,9 +84,25 @@ public class ViewStudents {
 
     private void getData() {
         System.out.println("Getting Records");
-        studentsListTable.addAll(DBView.viewStudentRecord());
+        System.out.println(filterStudentId);
+        if (filterStudentId >= 0) studentsListTable.setAll(DBFind.findStudentRecord(filterStudentId));
+        else studentsListTable.addAll(DBView.viewStudentRecord());
     }
 
+    @FXML private void search(KeyEvent event) {
+        if (event.getCode() != KeyCode.ENTER) return;
+        String input = txfStudentsSearch.getText();
+        if (!input.isEmpty()) {
+            try {
+                filterStudentId = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                filterStudentId = -1;
+            }
+        } else {
+            filterStudentId = -1;
+        }
+        getData();
+    }
 
     public void showFormEditor(double delay) {
         studentsAddView.setOpacity(0);
