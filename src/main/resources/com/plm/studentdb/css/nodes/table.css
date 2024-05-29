@@ -14,7 +14,7 @@
 /* Style the header row with rounded corners */
 .table-view .column-header-background {
     -fx-background-radius: 10 10 0 0;
-    -fx-background-color:  #a19b9b;
+    -fx-background-color:  #2025bd;
     -fx-border-radius: 10 10 0 0;
     -fx-border-color: transparent;
 }

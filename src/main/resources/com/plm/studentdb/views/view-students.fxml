@@ -79,7 +79,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="1070.0" spacing="20.0" style="-fx-background-radius: 15; -fx-background-color: #0f5a96;">
+                  <HBox alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="1070.0" spacing="20.0" style="-fx-background-radius: 15; -fx-background-color: #b71c1c;">
                      <children>
                         <VBox prefHeight="67.0" prefWidth="784.0" spacing="5.0">
                            <children>
