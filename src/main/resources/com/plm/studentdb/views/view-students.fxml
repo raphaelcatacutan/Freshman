@@ -12,7 +12,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -38,7 +37,6 @@
                               <DropShadow />
                            </effect>
                         </Label>
-                        <Pane prefHeight="28.0" prefWidth="429.0" HBox.hgrow="ALWAYS" />
                         <Label fx:id="btnViewStudentsAdd" alignment="CENTER" graphicTextGap="8.0" onMouseClicked="#showAdd" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #b8ffb5; -fx-background-image: #DDFFBC;  -fx-border-color: BLACK;  -fx-border-radius: 5;" text="Add" textFill="#268600">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
