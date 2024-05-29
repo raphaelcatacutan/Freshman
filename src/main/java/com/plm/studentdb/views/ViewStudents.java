@@ -102,11 +102,12 @@ public class ViewStudents {
     }
 
     @FXML private void delete() {
+        if (studentsListTable.size() != 1) return;
         studentsConfirmViewController.anpStudentsConfirmView.setVisible(true);
     }
 
     @FXML private void showEdit() {
-        if (studentsListTable.isEmpty()) return;
+        if (studentsListTable.size() != 1) return;
         studentsAddViewController.anpStudentsAddView.setVisible(true);
         studentsAddViewController.preFillForm(studentsListTable.getFirst());
         studentsAddViewController.isAdding = false;
