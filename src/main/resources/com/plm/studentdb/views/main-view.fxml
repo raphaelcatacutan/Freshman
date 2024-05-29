@@ -93,10 +93,13 @@
                            </VBox.margin>
                         </ImageView>
                         <Pane prefHeight="134.0" prefWidth="74.0" />
-                        <ImageView fitHeight="28.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnLogout" fitHeight="28.0" fitWidth="23.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/icons/Log%20Out%20Sample%20(4).png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                      <padding>

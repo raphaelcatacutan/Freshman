@@ -3,11 +3,18 @@ package com.plm.studentdb.views;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import java.io.IOException;
+import java.util.Optional;
 
 public class MainView {
     @FXML StackPane stkViews;
@@ -96,4 +103,33 @@ public class MainView {
         }
         currentView = view;
     }
+
+@FXML
+void logout() {
+    logoutConfirmation();
+}
+
+void logoutConfirmation() {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("System Logout");
+    alert.setHeaderText(null);
+    alert.setContentText("Are you sure you want to logout?");
+
+    Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            doLogout();
+        }
+    }
+
+void doLogout() {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/plm/studentdb/views/app-main.fxml"));
+        Parent loginView = loader.load();
+        Stage stage = (Stage) stkViews.getScene().getWindow();
+        stage.setScene(new Scene(loginView));
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
 }
