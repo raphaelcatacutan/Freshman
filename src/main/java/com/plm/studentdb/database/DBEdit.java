@@ -1,19 +1,25 @@
 package com.plm.studentdb.database;
 
+import com.plm.studentdb.models.Student;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DBEdit {
-    public static boolean editStudentRecord(int studentId, String name, String college, String course, int year, double firstSemGWA, double secondSemGWA, int yearEnrolled) {
+    public static Student editStudentRecord(int studentId, String name, String college, String course, int year, double firstSemGWA, double secondSemGWA, int yearEnrolled) {
         String selectQuery = "SELECT * FROM studentdb.student_record WHERE student_id = ?";
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(selectQuery)) {
             pstmt.setInt(1, studentId);
             ResultSet rs = pstmt.executeQuery();
+            int id;
 
             if (!rs.next()) {
                 System.out.println("Student record not found.");
-                return false;
+                return null;
+            } else {
+                id = rs.getInt("id");
             }
 
             double totalGWA = (firstSemGWA + secondSemGWA) / 2;
@@ -32,7 +38,8 @@ public class DBEdit {
                 updatePstmt.setInt(9, yearEnrolled);
                 updatePstmt.setInt(10, studentId);
                 updatePstmt.executeUpdate();
-                return true;
+
+                return new Student(id, studentId, name, college, course, year, firstSemGWA, secondSemGWA, totalGWA, status, yearEnrolled);
             } catch (SQLException e) {
                 throw new RuntimeException("Error updating student record: " + e.getMessage());
             }
