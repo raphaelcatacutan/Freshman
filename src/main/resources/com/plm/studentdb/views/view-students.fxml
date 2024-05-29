@@ -38,7 +38,7 @@
                            </effect>
                         </Label>
                         <Pane prefHeight="28.0" prefWidth="429.0" HBox.hgrow="ALWAYS" />
-                        <Label fx:id="btnViewStudentsAdd" alignment="CENTER" graphicTextGap="8.0" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Add" textFill="#92f06e">
+                        <Label fx:id="btnViewStudentsAdd" alignment="CENTER" graphicTextGap="8.0" onMouseClicked="#showAdd" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Add" textFill="#92f06e">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -50,7 +50,7 @@
                               </ImageView>
                            </graphic>
                         </Label>
-                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Edit" textFill="#ffca7a">
+                        <Label alignment="CENTER" graphicTextGap="8.0" layoutX="988.0" layoutY="15.0" onMouseClicked="#showEdit" prefHeight="35.0" prefWidth="102.0" style="-fx-background-radius: 5; -fx-font-style: bold; -fx-background-color: #a19b9b; -fx-background-image: #DDFFBC;" text="Edit" textFill="#ffca7a">
                            <font>
                               <Font name="Arial Bold" size="13.0" />
                            </font>
@@ -87,7 +87,7 @@
                                  <effect>
                                     <DropShadow />
                                  </effect></Label>
-                              <TextField fx:id="txfStudentsSearch" onKeyPressed="#search"  opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
+                              <TextField fx:id="txfStudentsSearch" onKeyPressed="#search" opacity="0.94" prefHeight="50.0" prefWidth="848.0" promptText="Enter Student ID  (Format: 202312345)">
                                  <effect>
                                     <Glow />
                                  </effect>
@@ -105,7 +105,7 @@
                   <Insets left="30.0" right="30.0" top="30.0" />
                </padding>
             </VBox>
-            <fx:include fx:id="studentsAddView" source="students-add.fxml" />
+            <fx:include fx:id="studentsAddView" source="students-forms.fxml" />
             <fx:include fx:id="studentsMessageView" source="students-message.fxml" />
          </children>
       </StackPane>

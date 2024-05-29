@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="200.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewDelstudrec">
+<AnchorPane prefHeight="200.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.StudentsConfirm">
    <children>
       <Button layoutX="239.0" layoutY="132.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="73.0" style="-fx-background-color: #4b77b5; -fx-border-color: BLACK;" text="OK" textFill="WHITE">
          <font>

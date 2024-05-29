@@ -27,7 +27,7 @@ public class ViewStudents {
     @FXML public Label btnViewStudentsAdd;
     @FXML public TextField txfStudentsSearch;
 
-    @FXML public StudentsAdd studentsAddViewController;
+    @FXML public StudentsForms studentsAddViewController;
     @FXML public StudentsMessage studentsMessageViewController;
 
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
@@ -75,10 +75,6 @@ public class ViewStudents {
         tbvStudents.setItems(studentsListTable);
         getData();
 
-        // Add Button
-        btnViewStudentsAdd.setOnMouseClicked(ev -> {
-            studentsAddViewController.anpStudentsAddView.setVisible(true);
-        });
         studentsAddViewController.studentsMessageViewController = studentsMessageViewController;
     }
 
@@ -102,6 +98,22 @@ public class ViewStudents {
             filterStudentId = -1;
         }
         getData();
+    }
+
+    @FXML private void delete() {
+
+    }
+
+    @FXML private void showEdit() {
+        if (studentsListTable.isEmpty()) return;
+        studentsAddViewController.anpStudentsAddView.setVisible(true);
+        studentsAddViewController.preFillForm(studentsListTable.getFirst());
+        studentsAddViewController.isAdding = false;
+    }
+
+    @FXML private void showAdd() {
+        studentsAddViewController.anpStudentsAddView.setVisible(true);
+        studentsAddViewController.isAdding = true;
     }
 
     public void showFormEditor(double delay) {
