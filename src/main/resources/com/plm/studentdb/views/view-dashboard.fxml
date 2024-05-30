@@ -247,7 +247,7 @@
                               </Label>
                               <HBox prefHeight="228.0" prefWidth="426.0">
                                  <children>
-                                    <Label prefHeight="70.0" prefWidth="333.0" text="Kadakilaan" textFill="#0f5a96">
+                                    <Label prefHeight="70.0" prefWidth="333.0" text="Karunungan" textFill="#0f5a96">
                                        <font>
                                           <Font name="System Bold Italic" size="36.0" />
                                        </font>
