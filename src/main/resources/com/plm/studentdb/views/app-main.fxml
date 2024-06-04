@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.AppMain">
    <children>
-      <fx:include fx:id="viewMain" source="main-view.fxml" />
-      <fx:include fx:id="viewLogin" source="main-login.fxml" />
+      <fx:include fx:id="mainView" source="main-view.fxml" />
+      <ImageView fitHeight="922.0" fitWidth="1312.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_CENTER">
+         <image>
+            <Image url="@../assets/image/plm.jpg" />
+         </image>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </ImageView>
+      <AnchorPane fx:id="pneBackgroundFade" prefHeight="780.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to top,     rgba(211, 211, 211, 1) 40%,     rgba(211, 211, 211, 0.8) 60%,     rgba(211, 211, 211, 0.6) 80%,     rgba(211, 211, 211, 0.5) 90%,     rgba(211, 211, 211, 0.5) 100%);">
+         <StackPane.margin>
+            <Insets top="-200.0" />
+         </StackPane.margin></AnchorPane>
+      <fx:include fx:id="mainLogin" source="main-login.fxml" />
    </children>
 </StackPane>

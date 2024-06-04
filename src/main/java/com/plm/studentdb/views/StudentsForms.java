@@ -21,10 +21,10 @@ public class StudentsForms {
     @FXML TextField txfStudentsViewYearEnrolled;
 
     public StudentsMessage studentsMessageViewController;
-    public boolean isAdding;
+    public boolean isAdding = true;
 
     @FXML void closeAddView() {
-        anpStudentsAddView.setVisible(false);
+        AppAnimations.popdown(anpStudentsAddView, 0);
     }
 
     @FXML void confirmForm() {
@@ -44,11 +44,11 @@ public class StudentsForms {
             Student student = DBAdd.addStudentRecord(id, name, college, course, year, gwa1, gwa2, yearEnrolled);
 
             ViewStudents.studentsListTable.add(student);
-            studentsMessageViewController.show("ADD STUDENT RECORD", "The entered data has been successfully added to the database.");
+            studentsMessageViewController.show("Adding Successful", "The entered data has been successfully added to the database.");
         } else {
             Student student = DBEdit.editStudentRecord(id, name, college, course, year, gwa1, gwa2, yearEnrolled);
             ViewStudents.studentsListTable.set(0, student);
-            studentsMessageViewController.show("EDIT STUDENT RECORD", "Message here");
+            studentsMessageViewController.show("Editing Successful", "The student data has been successfully updated to the database.");
         }
 
         closeAddView();

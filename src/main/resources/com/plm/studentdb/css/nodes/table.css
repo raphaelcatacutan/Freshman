@@ -7,16 +7,15 @@
 /* Column Header Styling */
 .table-view .column-header, .table-view .filler {
     -fx-background-color: transparent;
-    -fx-font-size: 14px;
+    -fx-font-size: 19px;
     -fx-padding: 10px;
 }
 
 /* Style the header row with rounded corners */
 .table-view .column-header-background {
     -fx-background-radius: 10 10 0 0;
-    -fx-background-color:  #2025bd;
-    -fx-border-radius: 10 10 0 0;
-    -fx-border-color: transparent;
+    -fx-background-color:  transparent;
+    -fx-cursor: hand;
 }
 
 /* Ensure the entire table view has rounded corners */
@@ -26,28 +25,30 @@
 
 /* Center the text vertically in table rows */
 .table-view .table-row-cell .table-cell {
-    -fx-alignment: CENTER;
-    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 19px;
 }
 
 /* Header Label Styling */
 .table-view .column-header .label {
-    -fx-font-family: "Arial";
-    -fx-font-size: 16px;
-    -fx-text-fill: white;
-    -fx-padding: 15px 0px 15px 0px;
-    -fx-alignment: CENTER;
+    -fx-font-family: "Google Sans";
+    -fx-font-size: 21px;
+    -fx-text-fill: #0f5996;
+    -fx-padding: 15px;
+    -fx-alignment: CENTER_LEFT;
 }
 
 /* Row Cell Styling */
 .table-view .table-row-cell {
-    -fx-background-color: transparent;
     -fx-padding: 20px 20px 10px;
     -fx-background-insets: 8px;
-    -fx-font-family: "Arial";
+    -fx-font-family: "Google Sans";
     -fx-font-size: 15px;
-    -fx-text-fill: white;
-    -fx-alignment: CENTER;
+    -fx-alignment: CENTER_LEFT;
+    -fx-background-color: #dddddd;
+    -fx-text-fill: black;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
 }
 
 /* Transparent background for empty rows */
@@ -55,37 +56,19 @@
     -fx-background-color: transparent!important;
 }
 
-/* Alternating Row Colors with Padding for Spacing Effect and Rounded Corners */
-.table-view .table-row-cell:odd {
-    -fx-background-color: #dddddd;
-    -fx-text-fill: black;
-    -fx-background-radius: 5px;
-}
-
-.table-view .table-row-cell:even {
-    -fx-background-color: #dddddd;
-    -fx-background-radius: 5px;
-    -fx-text-fill: black;
-}
 
 /* Cell Content Alignment */
 .table-view .table-cell {
-    -fx-alignment: CENTER;
+    -fx-alignment: CENTER_LEFT;
     -fx-padding: 10px;
     -fx-border-width: 0;
     -fx-text-fill: black;
 }
 
 /* Row Selection Styling */
-.table-view .table-row-cell:focused, .table-view .table-row-cell:selected {
-    -fx-background-color: #a19b9b;
-    -fx-background-radius: 5px;
-    -fx-text-fill: white;
-}
-
-/* Row Hover Styling */
 .table-view .table-row-cell:hover {
-    -fx-background-color: #a19b9b;
-    -fx-background-radius: 5px;
-    -fx-text-fill: white;
+    -fx-effect:
+            dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 2, 2), /* First pass */
+            dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, -2, -2), /* Second pass */
+            dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 2, -2); /* Third pass */
 }

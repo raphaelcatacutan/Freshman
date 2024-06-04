@@ -1,6 +1,5 @@
 package com.plm.studentdb.views;
 
-import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBRemove;
 import com.plm.studentdb.database.DBView;
 import javafx.fxml.FXML;
@@ -13,7 +12,7 @@ public class StudentsConfirm {
 
 
     @FXML void hideConfirmView() {
-        anpStudentsConfirmView.setVisible(false);
+        AppAnimations.popdown(anpStudentsConfirmView, 0);
     }
 
     @FXML void deleteStudent() {

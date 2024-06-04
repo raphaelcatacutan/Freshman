@@ -1,48 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpStudentsConfirmView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="450.0" style="-fx-background-color: #e9e9e9; -fx-background-radius: 20;" visible="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.StudentsConfirm">
+<AnchorPane fx:id="anpStudentsConfirmView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="455.0" style="-fx-background-color: #e9e9e9; -fx-background-radius: 20;" visible="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.StudentsConfirm">
    <children>
-      <Button layoutX="239.0" layoutY="132.0" mnemonicParsing="false" onMouseClicked="#deleteStudent" prefHeight="38.0" prefWidth="73.0" style="-fx-background-color: #4b77b5; -fx-border-color: BLACK;" text="OK" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="124.0" layoutY="132.0" mnemonicParsing="false" onMouseClicked="#hideConfirmView" prefHeight="38.0" prefWidth="81.0" style="-fx-border-color: BLACK;" text="Cancel">
-         <font>
-            <Font size="16.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Label layoutX="29.0" layoutY="88.0" prefHeight="25.0" prefWidth="405.0" text="Are you sure you want to delete the selected student record?">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="51.0" layoutY="48.0" text="DELETE STUDENT RECORD" textFill="#f50000">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-         <effect>
-            <DropShadow height="10.0" radius="5.75" width="15.0">
-               <color>
-                  <Color red="0.5394737124443054" green="0.43207845091819763" blue="0.43207845091819763" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Label>
+      <VBox layoutX="29.0" layoutY="43.0" prefHeight="275.0" prefWidth="455.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="44.0" prefWidth="374.0" text="Confim Deletion" textAlignment="CENTER" textFill="#0c558d" wrapText="true">
+               <font>
+                  <Font name="Google Sans Bold" size="33.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="72.0" prefWidth="354.0" text="Are you sure you want to delete the selected student record?" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Google Sans Regular" size="19.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#hideConfirmView" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 5;" text="Cancel">
+                     <font>
+                        <Font name="Google Sans Regular" size="17.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#deleteStudent" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #ff9c9c; -fx-background-radius: 5;" text="Confirm">
+                     <font>
+                        <Font name="Google Sans Regular" size="17.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </VBox>
    </children>
    <effect>
       <DropShadow>

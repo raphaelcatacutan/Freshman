@@ -2,29 +2,28 @@ package com.plm.studentdb.views;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class MainLogin {
-    @FXML
-    private Label lbUsername;
-    @FXML
-    private Label lbPassword;
-    @FXML
-    private Label loginStatus;
-    @FXML
-    private TextField userID;
-    @FXML
-    private PasswordField userPassword;
-    @FXML
-    private Button loginButton;
+    @FXML private AnchorPane anpMainLogin;
+    @FXML private Label loginStatus;
+    @FXML private TextField userID;
+    @FXML private PasswordField userPassword;
 
     private final String predefinedUsername = "admin@plm.edu.ph";
     private final String predefinedPassword = "123456";
 
-    @FXML private Parent viewMain;
+    public Parent mainView;
+    public Pane pneBackgroundFade;
+
+
+    @FXML public void initialize() {
+        userID.requestFocus();
+    }
 
     @FXML
     public void logInButton() {
@@ -32,14 +31,13 @@ public class MainLogin {
         String enteredPassword = userPassword.getText();
 
         if (predefinedUsername.equals(enteredUsername) && predefinedPassword.equals(enteredPassword) || true) {
-            loginStatus.setText("Login Successful!");
-            viewMain.toFront();
+            loginStatus.setText("");
+            mainView.toFront();
+            anpMainLogin.toBack();
+            pneBackgroundFade.setRotate(0);
         } else {
             loginStatus.setText("Invalid Username or Password!");
         }
     }
 
-    public void setViewMain(Parent viewMain) {
-        this.viewMain = viewMain;
-    }
 }

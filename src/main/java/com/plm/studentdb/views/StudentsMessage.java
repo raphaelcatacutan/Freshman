@@ -1,6 +1,5 @@
 package com.plm.studentdb.views;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -13,9 +12,10 @@ public class StudentsMessage {
     public void show(String title, String content) {
         lblStudentsMessageTitle.setText(title);
         lblStudentsMessageContent.setText(content);
-        anpStudentsMessageView.setVisible(true);
+
+        AppAnimations.popup(anpStudentsMessageView, 0);
     }
     public void close() {
-        anpStudentsMessageView.setVisible(false);
+        AppAnimations.popdown(anpStudentsMessageView, 0);
     }
 }

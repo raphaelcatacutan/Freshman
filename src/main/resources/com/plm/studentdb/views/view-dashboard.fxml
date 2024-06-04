@@ -8,280 +8,85 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="710.0" prefWidth="1130.0" styleClass="background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewDashboard">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.ViewDashboard">
    <children>
-      <VBox fx:id="mainPane" prefHeight="710.0" prefWidth="1132.0" spacing="10.0" style="-fx-background-color: eeeeee;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="351.0" prefWidth="1070.0" spacing="20.0">
+            <VBox fx:id="mainPane" alignment="CENTER" prefHeight="710.0" prefWidth="1132.0" spacing="20.0">
                <children>
-                  <VBox prefHeight="351.0" prefWidth="1067.0" spacing="10.0" style="-fx-background-radius: 30;">
+                  <FlowPane alignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="-20.0" top="5.0" />
+                     </VBox.margin>
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/PLM%20logo.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="PLM" textFill="#970f0f">
-                           <VBox.margin>
-                              <Insets left="50.0" top="-50.0" />
-                           </VBox.margin>
+                        <Label text="Welcome, ">
                            <font>
-                              <Font name="System Bold" size="28.0" />
+                              <Font name="Google Sans Bold" size="88.0" />
                            </font>
                         </Label>
-                        <Label text="Student Record System | " textFill="WHITE">
+                        <Label layoutX="196.0" layoutY="10.0" text="Admin!" textFill="#30379f">
                            <font>
-                              <Font name="System Bold" size="36.0" />
+                              <Font name="Google Sans Bold" size="88.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets bottom="-10.0" top="-10.0" />
-                           </VBox.margin>
-                           <effect>
-                              <DropShadow height="18.0" radius="6.0" width="8.0">
-                                 <color>
-                                    <Color red="0.5263158082962036" green="0.4946393668651581" blue="0.4946393668651581" />
-                                 </color>
-                              </DropShadow>
-                           </effect>
                         </Label>
-                        <Label text="DASHBOARD" textFill="WHITE">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <padding>
-                              <Insets left="425.0" top="-50.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <effect>
-                              <DropShadow height="15.0" radius="7.0" width="15.0">
-                                 <color>
-                                    <Color red="0.40789473056793213" green="0.3795687258243561" blue="0.3795687258243561" />
-                                 </color>
-                              </DropShadow>
-                           </effect>
-                        </Label>
-                        <StackPane>
+                     </children>
+                  </FlowPane>
+                  <Label alignment="CENTER" prefHeight="107.0" prefWidth="702.0" text="The Student Management Record is a system designed to efficiently track and manage student information, including personal details, and academic performance." textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Google Sans Regular" size="21.0" />
+                     </font>
+                  </Label>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="60.0" prefHeight="200.0" prefWidth="1154.0" vgap="60.0">
+                     <children>
+                        <StackPane fx:id="stkDashboardQuickAdd" alignment="TOP_CENTER" onMouseEntered="#stkDashboardQuickAddHover" onMouseExited="#stkDashboardQuickAddReverseHover" prefHeight="342.0" prefWidth="270.0">
                            <children>
-                              <VBox alignment="TOP_CENTER" prefHeight="314.0" prefWidth="733.0" spacing="95.0" style="-fx-background-radius: 30;">
+                              <VBox fx:id="vbxDashboardQuickAdd" alignment="BOTTOM_CENTER" spacing="20.0" style="-fx-background-color: #FFC0C0; -fx-background-radius: 30;" styleClass="accent4">
                                  <children>
-                                    <ImageView fitHeight="262.0" fitWidth="748.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../assets/image/PLM%20pic.png." />
-                                       </image>
+                                    <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" style="-fx-background-radius: 10;" text="Add" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="Google Sans Bold" size="46.0" />
+                                       </font>
                                        <VBox.margin>
-                                          <Insets bottom="-50.0" top="-10.0" />
+                                          <Insets />
                                        </VBox.margin>
-                                    </ImageView>
+                                    </Label>
+                                    <Label alignment="CENTER" graphicTextGap="8.0" style="-fx-background-radius: 10;" text="A Student Record to Database" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="Google Sans Regular" size="22.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="-10.0" />
+                                       </VBox.margin>
+                                    </Label>
                                  </children>
                                  <StackPane.margin>
-                                    <Insets bottom="-60.0" />
+                                    <Insets top="40.0" />
                                  </StackPane.margin>
-                              </VBox>
-                           </children>
-                        </StackPane>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="274.0" prefWidth="626.0" spacing="10.0" style="-fx-background-radius: 30;">
-                     <children>
-                        <Label text="AY 2023-2024" textFill="#970f0f">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="75.0" top="40.0" />
-                           </VBox.margin>
-                        </Label>
-                        <VBox alignment="CENTER" prefHeight="122.0" prefWidth="302.0" style="-fx-background-radius: 20; -fx-background-color: #0f5a96;" styleClass="accent4">
-                           <children>
-                              <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/icons/student%20icon.png" />
-                                 </image>
-                              </ImageView>
-                              <Label graphicTextGap="8.0" styleClass="label-text" text="128, 129">
-                                 <font>
-                                    <Font size="35.0" />
-                                 </font>
-                              </Label>
-                              <Label styleClass="label-text" text="Total Number of Students">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="-5.0" top="-5.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding>
-                           <effect>
-                              <DropShadow>
-                                 <color>
-                                    <Color opacity="0.10000000149011612" />
-                                 </color>
-                              </DropShadow>
-                           </effect>
-                        </VBox>
-                        <HBox spacing="20.0">
-                           <children>
-                              <Label alignment="CENTER_RIGHT" graphicTextGap="8.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="BSCS">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label graphicTextGap="8.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="123, 456">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox spacing="20.0">
-                           <children>
-                              <Label alignment="CENTER_RIGHT" graphicTextGap="8.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="BSIT">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label graphicTextGap="8.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="123, 456">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox spacing="20.0">
-                           <children>
-                              <Label alignment="CENTER_RIGHT" graphicTextGap="8.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="BSCE">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label graphicTextGap="8.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="123, 456">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox spacing="20.0">
-                           <children>
-                              <Label alignment="CENTER_RIGHT" graphicTextGap="8.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="BSCPE">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <Label graphicTextGap="8.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="130.0" text="123, 456">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="315.0" prefWidth="1070.0" spacing="20.0">
-               <children>
-                  <VBox prefHeight="293.0" prefWidth="430.0" spacing="20.0" style="-fx-background-radius: 30;">
-                     <children>
-                        <Label prefHeight="58.0" prefWidth="452.0" text="Welcome" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="88.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="-20.0" top="5.0" />
-                           </VBox.margin>
-                           <effect>
-                              <DropShadow height="25.0" radius="12.0" width="25.0">
-                                 <color>
-                                    <Color red="0.44736841320991516" green="0.44736841320991516" blue="0.44736841320991516" />
-                                 </color>
-                              </DropShadow>
-                           </effect>
-                        </Label>
-                        <Label prefHeight="58.0" prefWidth="452.0" text="Admin!" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="88.0" />
-                           </font>
-                           <effect>
-                              <DropShadow height="25.0" radius="12.0" width="25.0">
-                                 <color>
-                                    <Color red="0.44736841320991516" green="0.44736841320991516" blue="0.44736841320991516" />
-                                 </color>
-                              </DropShadow>
-                           </effect>
-                           <VBox.margin>
-                              <Insets top="-40.0" />
-                           </VBox.margin>
-                        </Label>
-                        <VBox prefHeight="276.0" prefWidth="426.0">
-                           <children>
-                              <Label prefHeight="70.0" prefWidth="333.0" text="Kadakilaan" textFill="#bf2525">
-                                 <font>
-                                    <Font name="System Bold Italic" size="36.0" />
-                                 </font>
+                                 <padding>
+                                    <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                                 </padding>
                                  <effect>
-                                    <DropShadow height="25.0" radius="12.0" width="25.0">
+                                    <DropShadow height="80.0" radius="39.5" width="80.0">
                                        <color>
-                                          <Color red="0.44736841320991516" green="0.44736841320991516" blue="0.44736841320991516" />
+                                          <Color opacity="0.07999999821186066" />
                                        </color>
                                     </DropShadow>
                                  </effect>
-                                 <VBox.margin>
+                              </VBox>
+                              <ImageView fx:id="imgDashboardQuickAdd" fitHeight="273.0" fitWidth="261.0" pickOnBounds="true" preserveRatio="true" styleClass="accent4">
+                                 <image>
+                                    <Image url="@../assets/image/cap.png" />
+                                 </image>
+                                 <StackPane.margin>
                                     <Insets top="-40.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <HBox prefHeight="228.0" prefWidth="426.0">
-                                 <children>
-                                    <Label prefHeight="70.0" prefWidth="333.0" text="Karunungan" textFill="#0f5a96">
-                                       <font>
-                                          <Font name="System Bold Italic" size="36.0" />
-                                       </font>
-                                       <effect>
-                                          <DropShadow height="25.0" radius="12.0" width="25.0">
-                                             <color>
-                                                <Color red="0.44736841320991516" green="0.44736841320991516" blue="0.44736841320991516" />
-                                             </color>
-                                          </DropShadow>
-                                       </effect>
-                                       <HBox.margin>
-                                          <Insets top="-20.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <VBox alignment="CENTER_LEFT" prefHeight="228.0" prefWidth="294.0" spacing="5.0">
-                                       <children>
-                                          <Label graphicTextGap="8.0" text="Kaunlaran" textFill="#ead307">
-                                             <font>
-                                                <Font name="System Bold Italic" size="36.0" />
-                                             </font>
-                                             <effect>
-                                                <DropShadow height="25.0" radius="12.0" width="25.0" />
-                                             </effect>
-                                             <VBox.margin>
-                                                <Insets left="-25.0" top="-100.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                       </children>
-                                       <HBox.margin>
-                                          <Insets top="-10.0" />
-                                       </HBox.margin>
-                                    </VBox>
-                                 </children>
-                              </HBox>
+                                 </StackPane.margin>
+                              </ImageView>
                            </children>
                            <effect>
                               <DropShadow height="50.0" radius="24.5" width="50.0">
@@ -290,198 +95,130 @@
                                  </color>
                               </DropShadow>
                            </effect>
-                        </VBox>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="251.0" prefWidth="623.0" spacing="10.0" style="-fx-background-radius: 30;">
-                     <children>
-                        <Label prefHeight="35.0" prefWidth="266.0" text="Quick Actions">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="-15.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                        <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="253.0" prefWidth="622.0" spacing="20.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </StackPane>
+                        <StackPane fx:id="stkDashboardQuickView" alignment="TOP_CENTER" onMouseEntered="#stkDashboardQuickViewHover" onMouseExited="#stkDashboardQuickPrintHover" prefHeight="357.0" prefWidth="270.0">
                            <children>
-                              <StackPane alignment="TOP_CENTER" prefHeight="250.0" prefWidth="450.0">
+                              <VBox fx:id="vbxDashboardQuickView" alignment="BOTTOM_CENTER" spacing="20.0" style="-fx-background-color: #FFFFE0; -fx-background-radius: 30;">
                                  <children>
-                                    <VBox fx:id="vbxDashboardQuickAdd" alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #BF2525;" styleClass="accent4">
-                                       <children>
-                                          <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" prefWidth="154.0" style="-fx-background-radius: 10;" styleClass="label-text" text="Add" textAlignment="CENTER" wrapText="true">
-                                             <font>
-                                                <Font size="36.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="40.0" top="-20.0" />
-                                             </VBox.margin>
-                                             <effect>
-                                                <DropShadow height="15.0" radius="7.0" width="15.0" />
-                                             </effect>
-                                          </Label>
-                                          <Label alignment="CENTER" graphicTextGap="8.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" prefWidth="154.0" style="-fx-background-radius: 10;" styleClass="label-text" text="A Student Record to Database" textAlignment="CENTER" wrapText="true">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets top="-10.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="40.0" />
-                                       </StackPane.margin>
-                                       <padding>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                       </padding>
-                                       <effect>
-                                          <DropShadow>
-                                             <color>
-                                                <Color opacity="0.10000000149011612" />
-                                             </color>
-                                          </DropShadow>
-                                       </effect>
-                                    </VBox>
-                                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="accent4">
-                                       <image>
-                                          <Image url="@../assets/icons/Add%20Sample%2011.png" />
-                                       </image>
-                                    </ImageView>
+                                    <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" style="-fx-background-radius: 10;" text="View" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="Google Sans Bold" size="46.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="-20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER" graphicTextGap="8.0" style="-fx-background-radius: 10;" text="Records from the Database" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="Google Sans Regular" size="22.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="-10.0" />
+                                       </VBox.margin>
+                                    </Label>
                                  </children>
+                                 <StackPane.margin>
+                                    <Insets top="40.0" />
+                                 </StackPane.margin>
+                                 <padding>
+                                    <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                                 </padding>
                                  <effect>
-                                    <DropShadow height="50.0" radius="24.5" width="50.0">
+                                    <DropShadow height="80.0" radius="39.5" width="80.0">
                                        <color>
-                                          <Color opacity="0.10000000149011612" />
+                                          <Color opacity="0.07999999821186066" />
                                        </color>
                                     </DropShadow>
                                  </effect>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </StackPane>
-                              <StackPane alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="450.0">
-                                 <children>
-                                    <VBox fx:id="vbxDashboardQuickView" alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #EAD307;" styleClass="accent1">
-                                       <children>
-                                          <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" prefWidth="154.0" style="-fx-background-radius: 10;" styleClass="label-text" text="View" textAlignment="CENTER" wrapText="true">
-                                             <font>
-                                                <Font size="36.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="40.0" top="-20.0" />
-                                             </VBox.margin>
-                                             <effect>
-                                                <DropShadow height="15.0" radius="7.0" width="15.0" />
-                                             </effect>
-                                          </Label>
-                                          <Label alignment="CENTER" graphicTextGap="8.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" style="-fx-background-radius: 10;" styleClass="label-text" text="Records from the Database" textAlignment="CENTER" wrapText="true">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets top="-10.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="40.0" />
-                                       </StackPane.margin>
-                                       <padding>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                       </padding>
-                                       <effect>
-                                          <DropShadow>
-                                             <color>
-                                                <Color opacity="0.10000000149011612" />
-                                             </color>
-                                          </DropShadow>
-                                       </effect>
-                                    </VBox>
-                                    <ImageView fitHeight="105.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../assets/icons/View%20Sample%208.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                                 <effect>
-                                    <DropShadow height="50.0" radius="24.5" width="50.0">
-                                       <color>
-                                          <Color opacity="0.10000000149011612" />
-                                       </color>
-                                    </DropShadow>
-                                 </effect>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </StackPane>
-                              <StackPane alignment="TOP_CENTER" layoutX="460.0" layoutY="10.0" prefHeight="250.0" prefWidth="450.0">
-                                 <children>
-                                    <VBox alignment="BOTTOM_CENTER" style="-fx-background-radius: 20; -fx-background-color: #0f5a96;" styleClass="accent1">
-                                       <children>
-                                          <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="41.0" prefWidth="154.0" style="-fx-background-radius: 10;" styleClass="label-text" text="Print" textAlignment="CENTER" wrapText="true">
-                                             <font>
-                                                <Font size="36.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="40.0" top="-20.0" />
-                                             </VBox.margin>
-                                             <effect>
-                                                <DropShadow height="15.0" radius="7.0" width="15.0" />
-                                             </effect>
-                                          </Label>
-                                          <Label alignment="CENTER" graphicTextGap="8.0" style="-fx-background-radius: 10;" styleClass="label-text" text="A generated report from the Database" textAlignment="CENTER" wrapText="true">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets top="-10.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="40.0" />
-                                       </StackPane.margin>
-                                       <padding>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                       </padding>
-                                       <effect>
-                                          <DropShadow>
-                                             <color>
-                                                <Color opacity="0.10000000149011612" />
-                                             </color>
-                                          </DropShadow>
-                                       </effect>
-                                    </VBox>
-                                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../assets/icons/icons8-print-100.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                                 <effect>
-                                    <DropShadow height="50.0" radius="24.5" width="50.0">
-                                       <color>
-                                          <Color opacity="0.10000000149011612" />
-                                       </color>
-                                    </DropShadow>
-                                 </effect>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </StackPane>
+                              </VBox>
+                              <ImageView fx:id="imgDashboardQuickView" fitHeight="242.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/image/magnify.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets top="-20.0" />
+                                 </StackPane.margin>
+                              </ImageView>
                            </children>
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                        </HBox>
+                           <effect>
+                              <DropShadow height="50.0" radius="24.5" width="50.0">
+                                 <color>
+                                    <Color opacity="0.10000000149011612" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </StackPane>
+                        <StackPane alignment="TOP_CENTER" prefHeight="250.0" prefWidth="270.0">
+                           <children>
+                              <VBox alignment="BOTTOM_CENTER" spacing="20.0" style="-fx-background-color: #ADD8E6; -fx-background-radius: 30;">
+                                 <children>
+                                    <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" style="-fx-background-radius: 10;" text="Print" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="Google Sans Bold" size="46.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label alignment="CENTER" graphicTextGap="8.0" style="-fx-background-radius: 10;" text="A Generated Database Report" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="Google Sans Regular" size="22.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="-10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets top="40.0" />
+                                 </StackPane.margin>
+                                 <padding>
+                                    <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow height="80.0" radius="39.5" width="80.0">
+                                       <color>
+                                          <Color opacity="0.07999999821186066" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                              </VBox>
+                              <ImageView fitHeight="242.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/image/list.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets top="-30.0" />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                           <effect>
+                              <DropShadow height="50.0" radius="24.5" width="50.0">
+                                 <color>
+                                    <Color opacity="0.10000000149011612" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </StackPane>
                      </children>
-                  </VBox>
+                  </FlowPane>
                </children>
-            </HBox>
+               <padding>
+                  <Insets left="30.0" right="30.0" top="30.0" />
+               </padding>
+            </VBox>
          </children>
          <padding>
-            <Insets left="30.0" right="30.0" top="30.0" />
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
          </padding>
       </VBox>
    </children>

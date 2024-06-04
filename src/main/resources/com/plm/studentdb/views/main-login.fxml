@@ -6,153 +6,134 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #4B5D73;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.MainLogin">
+<AnchorPane fx:id="anpMainLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../css/default.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.MainLogin">
    <children>
-      <ImageView fitHeight="954.0" fitWidth="1285.0" layoutX="-2.0" layoutY="-100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
-         <image>
-            <Image url="@../assets/image/plm.jpg" />
-         </image>
-      </ImageView>
-      <Pane layoutX="726.0" layoutY="425.0" opacity="0.34" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #0F5996;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Pane opacity="0.94" prefHeight="800.0" prefWidth="514.0" style="-fx-background-color: #DDDDDD;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="766.0" AnchorPane.topAnchor="0.0">
+      <HBox prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text fill="#2d3038" layoutX="185.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in" textAlignment="CENTER">
-               <font>
-                  <Font name="Arial Bold" size="50.0" />
-               </font>
-               <effect>
-                  <DropShadow offsetY="3.0">
-                     <color>
-                        <Color red="0.5686274766921997" green="0.5568627715110779" blue="0.5568627715110779" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Text>
-            <Label fx:id="lbUsername" layoutX="78.0" layoutY="261.0" text="Username">
-               <font>
-                  <Font name="Arial" size="30.0" />
-               </font>
-            </Label>
-            <TextField fx:id="userID" layoutX="78.0" layoutY="306.0" prefHeight="46.0" prefWidth="365.0" promptText="Email" style="-fx-background-color: #FFFFFF;">
-               <font>
-                  <Font name="Arial" size="25.0" />
-               </font>
-               <effect>
-                  <DropShadow height="16.33" offsetX="0.1" offsetY="3.0" radius="7.6625" width="16.32">
-                     <color>
-                        <Color red="0.5686274766921997" green="0.5568627715110779" blue="0.5568627715110779" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </TextField>
-            <ImageView fitHeight="42.0" fitWidth="37.0" layoutX="31.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/icons/user.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="lbPassword" layoutX="81.0" layoutY="387.0" text="Password">
-               <font>
-                  <Font name="Arial" size="30.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="userPassword" layoutX="83.0" layoutY="433.0" prefHeight="46.0" prefWidth="365.0" promptText="********" style="-fx-background-color: #FFFFFF;">
-               <font>
-                  <Font name="Arial" size="25.0" />
-               </font>
-               <effect>
-                  <DropShadow offsetX="0.1" offsetY="3.0">
-                     <color>
-                        <Color red="0.5686274766921997" green="0.5568627715110779" blue="0.5568627715110779" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </PasswordField>
-            <Button fx:id="logInButton" layoutX="151.0" layoutY="524.0" mnemonicParsing="false" onAction="#logInButton" prefHeight="46.0" prefWidth="197.0" style="-fx-background-color: #0F5996;" text="Log in" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="25.0" />
-               </font>
-               <effect>
-                  <DropShadow offsetY="4.0">
-                     <color>
-                        <Color red="0.5686274766921997" green="0.5568627715110779" blue="0.5568627715110779" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
-            <ImageView fitHeight="42.0" fitWidth="37.0" layoutX="28.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/icons/padlock.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="loginStatus" layoutX="83.0" layoutY="590.0" prefHeight="46.0" prefWidth="365.0" textFill="RED" />
+            <VBox alignment="BOTTOM_LEFT" prefHeight="800.0" prefWidth="606.0" spacing="25.0">
+               <children>
+                  <Text fill="#2d3038" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER">
+                     <font>
+                        <Font name="Google Sans Regular" size="66.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#0d5087" layoutX="70.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in" textAlignment="CENTER">
+                     <font>
+                        <Font name="Google Sans Bold" size="73.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="-50.0" />
+                     </VBox.margin>
+                  </Text>
+                  <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="451.0" style="-fx-background-color: #e5e5e5; -fx-background-radius: 10;">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/user.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="userID" prefHeight="46.0" prefWidth="365.0" promptText="Username" style="-fx-background-color: transaprent;">
+                           <font>
+                              <Font name="Google Sans Regular" size="17.0" />
+                           </font>
+                           <effect>
+                              <DropShadow height="80.0" radius="39.5" width="80.0">
+                                 <color>
+                                    <Color opacity="0.20000000298023224" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" style="-fx-background-color: #e5e5e5; -fx-background-radius: 10;">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/padlock.png" />
+                           </image>
+                        </ImageView>
+                        <PasswordField fx:id="userPassword" prefHeight="39.0" prefWidth="339.0" promptText="Password" style="-fx-background-color: transaprent;">
+                           <font>
+                              <Font name="Google Sans Regular" size="17.0" />
+                           </font>
+                           <effect>
+                              <DropShadow height="80.0" radius="39.5" width="80.0">
+                                 <color>
+                                    <Color opacity="0.20000000298023224" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </PasswordField>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <Button fx:id="logInButton" alignment="CENTER" mnemonicParsing="false" onAction="#logInButton" prefHeight="53.0" prefWidth="185.0" style="-fx-background-color: #0F5996; -fx-background-radius: 10;" text="Log in" textFill="WHITE">
+                     <effect>
+                        <DropShadow offsetY="4.0">
+                           <color>
+                              <Color red="0.5686274766921997" green="0.5568627715110779" blue="0.5568627715110779" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <font>
+                        <Font name="Google Sans Medium" size="17.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <Label fx:id="loginStatus" layoutX="70.0" layoutY="187.0" textFill="RED">
+                     <font>
+                        <Font name="Google Sans Italic" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="100.0" left="100.0" right="80.0" top="100.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="800.0" prefWidth="683.0" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/PLM%20logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="234.0" prefWidth="514.0" text="Pamantasan ng Lungsod ng Maynila " textFill="#0e558f" wrapText="true">
+                     <font>
+                        <Font name="Google Sans Bold" size="58.0" />
+                     </font>
+                  </Label>
+                  <Label text="Student Record System ">
+                     <font>
+                        <Font name="Google Sans Bold" size="38.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="70.0" left="70.0" right="70.0" top="70.0" />
+               </padding>
+            </VBox>
          </children>
-         <opaqueInsets>
-            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-         </opaqueInsets>
-         <cursor>
-            <Cursor fx:constant="CLOSED_HAND" />
-         </cursor>
-         <effect>
-            <ColorAdjust />
-         </effect>
-      </Pane>
-      <Label layoutX="613.0" layoutY="190.0" prefHeight="146.0" prefWidth="596.0" text="Pamantasan" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="100.0" />
-         </font>
-         <effect>
-            <DropShadow offsetY="3.0">
-               <color>
-                  <Color red="0.2947368323802948" green="0.2641715407371521" blue="0.2641715407371521" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Label>
-      <Label layoutX="614.0" layoutY="294.0" prefHeight="146.0" prefWidth="560.0" text="ng Lungsod" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="100.0" />
-         </font>
-         <effect>
-            <DropShadow offsetY="3.0">
-               <color>
-                  <Color red="0.2947368323802948" green="0.2641715407371521" blue="0.2641715407371521" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Label>
-      <Label layoutX="613.0" layoutY="400.0" prefHeight="146.0" prefWidth="547.0" text="ng Maynila" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="100.0" />
-         </font>
-         <effect>
-            <DropShadow offsetY="3.0">
-               <color>
-                  <Color red="0.2947368323802948" green="0.2641715407371521" blue="0.2641715407371521" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Label>
-      <Label layoutX="618.0" layoutY="525.0" prefHeight="74.0" prefWidth="558.0" text="Student Record System" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="50.0" />
-         </font>
-         <effect>
-            <DropShadow offsetY="3.0">
-               <color>
-                  <Color red="0.2947368323802948" green="0.2641715407371521" blue="0.2641715407371521" />
-               </color>
-            </DropShadow>
-         </effect>
-      </Label>
+      </HBox>
    </children>
 </AnchorPane>
