@@ -42,17 +42,10 @@
                               <Image url="@../assets/icons/user.png" />
                            </image>
                         </ImageView>
-                        <TextField fx:id="userID" prefHeight="46.0" prefWidth="365.0" promptText="Username" style="-fx-background-color: transaprent;">
+                        <TextField fx:id="userID" prefHeight="46.0" prefWidth="365.0" promptText="Username" style="-fx-background-color: none;">
                            <font>
                               <Font name="Google Sans Regular" size="17.0" />
                            </font>
-                           <effect>
-                              <DropShadow height="80.0" radius="39.5" width="80.0">
-                                 <color>
-                                    <Color opacity="0.20000000298023224" />
-                                 </color>
-                              </DropShadow>
-                           </effect>
                         </TextField>
                      </children>
                      <padding>
@@ -66,7 +59,7 @@
                               <Image url="@../assets/icons/padlock.png" />
                            </image>
                         </ImageView>
-                        <PasswordField fx:id="userPassword" prefHeight="39.0" prefWidth="339.0" promptText="Password" style="-fx-background-color: transaprent;">
+                        <PasswordField fx:id="userPassword" prefHeight="39.0" prefWidth="339.0" promptText="Password" style="-fx-background-color: none;">
                            <font>
                               <Font name="Google Sans Regular" size="17.0" />
                            </font>
