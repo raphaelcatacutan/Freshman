@@ -14,12 +14,11 @@ public class MainLogin {
     @FXML private TextField userID;
     @FXML private PasswordField userPassword;
 
-    private final String predefinedUsername = "admin@plm.edu.ph";
-    private final String predefinedPassword = "123456";
+    private final String predefinedUsername = "admin@plmcs.edu.ph"; //old: admin@plm.edu.ph
+    private final String predefinedPassword = "PLMCS@admin2024"; //old: 123456
 
     public Parent mainView;
     public Pane pneBackgroundFade;
-
 
     @FXML public void initialize() {
         userID.requestFocus();
@@ -30,7 +29,7 @@ public class MainLogin {
         String enteredUsername = userID.getText();
         String enteredPassword = userPassword.getText();
 
-        if (predefinedUsername.equals(enteredUsername) && predefinedPassword.equals(enteredPassword) || true) {
+        if (predefinedUsername.equals(enteredUsername) && predefinedPassword.equals(enteredPassword)) {
             loginStatus.setText("");
             mainView.toFront();
             anpMainLogin.toBack();
