@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -21,13 +18,13 @@ public class ViewStudents {
     @FXML public Parent studentsInformation;
     @FXML public Label btnViewStudentsAdd;
     @FXML public TextField txfStudentsSearch;
+    @FXML public ImageView studentsBack;
 
     @FXML public StudentsInformation studentsInformationController;
 
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
     public static int filterStudentId = -1;
 
-    @FXML public ImageView studentsBack;
 
     @FXML
     public void initialize() {
@@ -67,12 +64,23 @@ public class ViewStudents {
             studentTableColumn.setResizable(false);
         });
         tbvStudents.getSelectionModel().clearSelection();
+        tbvStudents.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        tbvStudents.setRowFactory(tv -> {
+            TableRow<Student> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty()) {
+                    Student student = row.getItem();
+                    AppAnimations.popup(studentsInformation, 0.2);
+                    studentsInformationController.isAdding = false;
+                    studentsInformationController.preFillForm(student);
+                }
+            });
+            return row;
+        });
 
         tbvStudents.setItems(studentsListTable);
         getData();
-
-        // studentsInformationController.studentsMessageViewController = studentsMessageViewController;
-        //studentsConfirmViewController.txfStudentsSearch = txfStudentsSearch;
     }
 
     private void getData() {
@@ -95,27 +103,8 @@ public class ViewStudents {
         getData();
     }
 
-    @FXML private void delete() {
-        if (studentsListTable.size() != 1) {
-            //studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
-            return;
-        };
-        //AppAnimations.popup(studentsConfirmViewController.anpStudentsConfirmView, 0.2);
-    }
-
-    @FXML private void showEdit() {
-        if (studentsListTable.size() != 1) {
-            //studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
-            return;
-        };
-
-        //AppAnimations.popup(studentsInformationController, 0.2);
-        //studentsInformationController.preFillForm(studentsListTable.getFirst());
-        //studentsInformationController.isAdding = false;
-    }
-
     @FXML private void showAdd() {
-        //AppAnimations.popup(studentsInformationController, 0.2);
-        //studentsInformationController.isAdding = true;
+        AppAnimations.popup(studentsInformation, 0.2);
+        studentsInformationController.isAdding = true;
     }
 }
