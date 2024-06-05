@@ -8,15 +8,22 @@ public class AppMain {
 
     @FXML private Parent mainLogin;
     @FXML private Parent mainView;
+    @FXML private Parent mainMessage;
+    @FXML private Parent mainConfirm;
 
     @FXML private MainLogin mainLoginController;
     @FXML private MainView mainViewController;
+    @FXML private MainMessage mainMessageController;
+    @FXML private MainConfirm mainConfirmController;
 
     @FXML public Pane pneBackgroundFade;
 
     public void initialize() {
         mainLoginController.mainView = mainView;
+        mainViewController.mainLogin = mainLogin;
         mainLoginController.pneBackgroundFade = pneBackgroundFade;
+        Dialogs.mainMessageDialog = mainMessageController;
+        Dialogs.mainConfirmDialog = mainConfirmController;
     }
 
 }

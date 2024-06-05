@@ -155,9 +155,7 @@
                   <Insets left="30.0" right="30.0" top="60.0" />
                </padding>
             </VBox>
-            <fx:include fx:id="studentsAddView" source="students-forms.fxml" />
-            <fx:include fx:id="studentsMessageView" source="students-message.fxml" />
-            <fx:include fx:id="studentsConfirmView" source="students-confirm.fxml" />
+            <fx:include fx:id="studentsInformation" source="students-information.fxml" />
          </children>
       </StackPane>
    </children>

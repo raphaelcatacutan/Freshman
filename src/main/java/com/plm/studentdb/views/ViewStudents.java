@@ -18,15 +18,11 @@ import javafx.scene.input.KeyEvent;
 
 public class ViewStudents {
     @FXML public TableView<Student> tbvStudents = new TableView<>();
-    @FXML public Parent studentsAddView;
-    @FXML public Parent studentsMessageView;
-    @FXML public Parent studentsConfirmView;
+    @FXML public Parent studentsInformation;
     @FXML public Label btnViewStudentsAdd;
     @FXML public TextField txfStudentsSearch;
 
-    @FXML public StudentsForms studentsAddViewController;
-    @FXML public StudentsMessage studentsMessageViewController;
-    @FXML public StudentsConfirm studentsConfirmViewController;
+    @FXML public StudentsInformation studentsInformationController;
 
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
     public static int filterStudentId = -1;
@@ -75,8 +71,8 @@ public class ViewStudents {
         tbvStudents.setItems(studentsListTable);
         getData();
 
-        studentsAddViewController.studentsMessageViewController = studentsMessageViewController;
-        studentsConfirmViewController.txfStudentsSearch = txfStudentsSearch;
+        // studentsInformationController.studentsMessageViewController = studentsMessageViewController;
+        //studentsConfirmViewController.txfStudentsSearch = txfStudentsSearch;
     }
 
     private void getData() {
@@ -101,25 +97,25 @@ public class ViewStudents {
 
     @FXML private void delete() {
         if (studentsListTable.size() != 1) {
-            studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
+            //studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
             return;
         };
-        AppAnimations.popup(studentsConfirmViewController.anpStudentsConfirmView, 0.2);
+        //AppAnimations.popup(studentsConfirmViewController.anpStudentsConfirmView, 0.2);
     }
 
     @FXML private void showEdit() {
         if (studentsListTable.size() != 1) {
-            studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
+            //studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
             return;
         };
 
-        AppAnimations.popup(studentsAddView, 0.2);
-        studentsAddViewController.preFillForm(studentsListTable.getFirst());
-        studentsAddViewController.isAdding = false;
+        //AppAnimations.popup(studentsInformationController, 0.2);
+        //studentsInformationController.preFillForm(studentsListTable.getFirst());
+        //studentsInformationController.isAdding = false;
     }
 
     @FXML private void showAdd() {
-        AppAnimations.popup(studentsAddView, 0.2);
-        studentsAddViewController.isAdding = true;
+        //AppAnimations.popup(studentsInformationController, 0.2);
+        //studentsInformationController.isAdding = true;
     }
 }

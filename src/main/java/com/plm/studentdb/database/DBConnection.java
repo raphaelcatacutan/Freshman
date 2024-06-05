@@ -59,6 +59,5 @@ public class DBConnection {
         }
         DBAdd.addStudentRecord(202334038, "Trisha Lau", "CISTM", "BSCS", 1, 2.5, 4, 2023);
         DBAdd.addStudentRecord(202334039, "Trisha Mae Lau", "CISTM", "BSIT", 1, 1.5, 1.75, 2023);
-
     }
 }

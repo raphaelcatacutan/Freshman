@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class StudentsMessage {
+public class MainMessage {
     @FXML public AnchorPane anpStudentsMessageView;
     @FXML public Label lblStudentsMessageTitle;
     @FXML public Label lblStudentsMessageContent;
