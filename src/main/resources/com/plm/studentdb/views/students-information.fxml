@@ -19,7 +19,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpStudentsInformation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" visible="false" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.StudentsInformation">
+<AnchorPane fx:id="anpStudentsInformation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.StudentsInformation">
    <children>
       <VBox alignment="CENTER" layoutY="-0.800000011920929" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -27,7 +27,7 @@
                <children>
                   <AnchorPane style="-fx-background-color: #e9e9e9; -fx-background-radius: 20;">
                      <children>
-                        <ScrollPane hbarPolicy="NEVER" layoutX="36.0" layoutY="32.79999923706055" prefHeight="634.4" prefWidth="1151.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <ScrollPane hbarPolicy="NEVER" layoutX="32.8" layoutY="31.200000000000003" prefHeight="566.0" prefWidth="1108.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="21.0">
                            <content>
                               <VBox alignment="TOP_RIGHT" fillWidth="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="1126.0" spacing="10.0">
                                  <children>
@@ -81,26 +81,26 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER_LEFT">
                                                          <children>
-                                                            <Label graphicTextGap="5.0" prefWidth="120.0" styleClass="label-text" text="College: ">
-                                                               <font>
-                                                                  <Font name="Century Gothic" size="20.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField fx:id="txfStudentInformationCollege" promptText="College of Information Systems and Technology Management" style="-fx-background-color: none;" styleClass="label-text" HBox.hgrow="ALWAYS">
-                                                               <font>
-                                                                  <Font name="Century Gothic" size="20.0" />
-                                                               </font>
-                                                            </TextField>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox alignment="CENTER_LEFT">
-                                                         <children>
                                                             <Label graphicTextGap="5.0" prefWidth="120.0" styleClass="label-text" text="Program:">
                                                                <font>
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
                                                             </Label>
                                                             <TextField fx:id="txfStudentInformationProgram" promptText="Bachelor in Science in Computer Science" style="-fx-background-color: none;" styleClass="label-text" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="Century Gothic" size="20.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="164.0">
+                                                         <children>
+                                                            <Label graphicTextGap="5.0" prefWidth="120.0" styleClass="label-text" text="Email: ">
+                                                               <font>
+                                                                  <Font name="Century Gothic" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="txfStudentInformationEmail" prefHeight="38.0" prefWidth="629.0" promptText="jdelacruz@plm.edu.ph" style="-fx-background-color: none;" styleClass="label-text">
                                                                <font>
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
@@ -114,7 +114,7 @@
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
                                                             </Label>
-                                                            <TextField fx:id="txfStudentInformationYearBlock" prefHeight="38.0" prefWidth="305.0" promptText="1-1" style="-fx-background-color: none;" styleClass="label-text">
+                                                            <TextField fx:id="txfStudentInformationYearBlock" prefHeight="38.0" prefWidth="626.0" promptText="1-1" style="-fx-background-color: none;" styleClass="label-text">
                                                                <font>
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
@@ -127,7 +127,7 @@
                                           </VBox>
                                           <VBox spacing="10.0">
                                              <children>
-                                                <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #98FB98; -fx-background-radius: 5;" text="Save" textFill="#077634">
+                                                <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#confirmForm" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #98FB98; -fx-background-radius: 5;" text="Save" textFill="#077634">
                                                    <font>
                                                       <Font name="Century Gothic Bold" size="13.0" />
                                                    </font>
@@ -145,7 +145,7 @@
                                                       </ImageView>
                                                    </graphic>
                                                 </Button>
-                                                <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #f39595; -fx-background-radius: 5;" text="Delete" textFill="#a62300">
+                                                <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#deleteStudent" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #f39595; -fx-background-radius: 5;" text="Delete" textFill="#a62300">
                                                    <font>
                                                       <Font name="Century Gothic Bold" size="13.0" />
                                                    </font>
@@ -260,7 +260,7 @@
                                     </HBox>
                                     <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="25.0" prefWidth="1018.0" rowValignment="TOP" vgap="25.0">
                                        <children>
-                                          <HBox alignment="CENTER" prefHeight="140.0" prefWidth="316.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="361.0" layoutY="40.0" prefHeight="140.0" prefWidth="283.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
                                              <children>
                                                 <VBox alignment="CENTER" prefHeight="184.0" prefWidth="184.0">
                                                    <children>
@@ -281,7 +281,7 @@
                                                 </VBox>
                                                 <TextField alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="119.0" style="-fx-background-color: none;" styleClass="label-text" text="1.75">
                                                    <font>
-                                                      <Font name="Century Gothic Bold" size="41.0" />
+                                                      <Font name="Century Gothic Bold" size="34.0" />
                                                    </font>
                                                    <padding>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -299,7 +299,7 @@
                                                 <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                              </padding>
                                           </HBox>
-                                          <HBox alignment="CENTER" layoutX="361.0" layoutY="40.0" prefHeight="140.0" prefWidth="316.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="332.0" layoutY="20.0" prefHeight="140.0" prefWidth="283.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
                                              <children>
                                                 <VBox alignment="CENTER" prefHeight="184.0" prefWidth="184.0">
                                                    <children>
@@ -320,7 +320,7 @@
                                                 </VBox>
                                                 <TextField alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="119.0" style="-fx-background-color: none;" styleClass="label-text" text="1.75">
                                                    <font>
-                                                      <Font name="Century Gothic Bold" size="41.0" />
+                                                      <Font name="Century Gothic Bold" size="34.0" />
                                                    </font>
                                                    <padding>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -338,7 +338,7 @@
                                                 <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                              </padding>
                                           </HBox>
-                                          <HBox alignment="CENTER" layoutX="532.0" layoutY="40.0" prefHeight="140.0" prefWidth="316.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="486.0" layoutY="20.0" prefHeight="140.0" prefWidth="283.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
                                              <children>
                                                 <VBox alignment="CENTER" prefHeight="184.0" prefWidth="184.0">
                                                    <children>
@@ -359,7 +359,7 @@
                                                 </VBox>
                                                 <TextField alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="119.0" style="-fx-background-color: none;" styleClass="label-text" text="1.75">
                                                    <font>
-                                                      <Font name="Century Gothic Bold" size="41.0" />
+                                                      <Font name="Century Gothic Bold" size="34.0" />
                                                    </font>
                                                    <padding>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -377,7 +377,7 @@
                                                 <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                              </padding>
                                           </HBox>
-                                          <HBox alignment="CENTER" layoutX="702.0" layoutY="40.0" prefHeight="140.0" prefWidth="316.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="640.0" layoutY="20.0" prefHeight="140.0" prefWidth="283.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
                                              <children>
                                                 <VBox alignment="CENTER" prefHeight="184.0" prefWidth="184.0">
                                                    <children>
@@ -398,7 +398,7 @@
                                                 </VBox>
                                                 <TextField alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="119.0" style="-fx-background-color: none;" styleClass="label-text" text="1.75">
                                                    <font>
-                                                      <Font name="Century Gothic Bold" size="41.0" />
+                                                      <Font name="Century Gothic Bold" size="34.0" />
                                                    </font>
                                                    <padding>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -416,7 +416,7 @@
                                                 <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                              </padding>
                                           </HBox>
-                                          <HBox alignment="CENTER" layoutX="361.0" layoutY="205.0" prefHeight="140.0" prefWidth="316.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="332.0" layoutY="185.0" prefHeight="140.0" prefWidth="283.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
                                              <children>
                                                 <VBox alignment="CENTER" prefHeight="184.0" prefWidth="184.0">
                                                    <children>
@@ -437,7 +437,7 @@
                                                 </VBox>
                                                 <TextField alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="119.0" style="-fx-background-color: none;" styleClass="label-text" text="1.75">
                                                    <font>
-                                                      <Font name="Century Gothic Bold" size="41.0" />
+                                                      <Font name="Century Gothic Bold" size="34.0" />
                                                    </font>
                                                    <padding>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -455,7 +455,7 @@
                                                 <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                                              </padding>
                                           </HBox>
-                                          <HBox alignment="CENTER" layoutX="532.0" layoutY="205.0" prefHeight="140.0" prefWidth="316.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
+                                          <HBox alignment="BOTTOM_CENTER" layoutX="486.0" layoutY="185.0" prefHeight="140.0" prefWidth="283.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;">
                                              <children>
                                                 <VBox alignment="CENTER" prefHeight="184.0" prefWidth="184.0">
                                                    <children>
@@ -476,7 +476,7 @@
                                                 </VBox>
                                                 <TextField alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="119.0" style="-fx-background-color: none;" styleClass="label-text" text="1.75">
                                                    <font>
-                                                      <Font name="Century Gothic Bold" size="41.0" />
+                                                      <Font name="Century Gothic Bold" size="34.0" />
                                                    </font>
                                                    <padding>
                                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -501,16 +501,16 @@
                                     </FlowPane>
                                  </children>
                                  <padding>
-                                    <Insets bottom="50.0" left="50.0" right="50.0" top="80.0" />
+                                    <Insets bottom="70.0" left="100.0" right="100.0" top="70.0" />
                                  </padding>
                               </VBox>
                            </content>
                         </ScrollPane>
                      </children>
                      <effect>
-                        <DropShadow height="37.38" radius="27.122500000000002" width="73.11">
+                        <DropShadow height="55.25" radius="31.590000000000003" width="73.11">
                            <color>
-                              <Color opacity="0.28647416830062866" />
+                              <Color opacity="0.1952887773513794" />
                            </color>
                         </DropShadow>
                      </effect>
@@ -540,7 +540,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <StackPane.margin>
-                        <Insets right="30.0" top="30.0" />
+                        <Insets right="50.0" top="30.0" />
                      </StackPane.margin>
                   </AnchorPane>
                </children>

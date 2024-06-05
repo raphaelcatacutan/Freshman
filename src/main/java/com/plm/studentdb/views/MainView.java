@@ -41,6 +41,7 @@ public class MainView {
 
         viewDashboardController.stkDashboardQuickAdd.setOnMouseClicked(ev -> {
             navigateStudents();
+            viewStudentsController.studentsInformationController.show(null, 0.8, true);
         });
         viewDashboardController.stkDashboardQuickView.setOnMouseClicked(ev -> {
             navigateStudents();
@@ -52,7 +53,7 @@ public class MainView {
 
     @FXML void navigateDashboard() {
         navigationViewTransition(anpViewDashboard);
-        //if (viewStudentsController.studentsAddView.isVisible()) AppAnimations.popdown(viewStudentsController.studentsAddView, 0);
+        if (viewStudentsController.studentsInformation.isVisible()) AppAnimations.popdown(viewStudentsController.studentsInformation, 0);
         AppAnimations.navigationBarTransition(pneNavigationIndicator, -260);
     }
 

@@ -71,9 +71,7 @@ public class ViewStudents {
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty()) {
                     Student student = row.getItem();
-                    AppAnimations.popup(studentsInformation, 0.2);
-                    studentsInformationController.isAdding = false;
-                    studentsInformationController.preFillForm(student);
+                    studentsInformationController.show(student, 0.2, false);
                 }
             });
             return row;
@@ -104,7 +102,6 @@ public class ViewStudents {
     }
 
     @FXML private void showAdd() {
-        AppAnimations.popup(studentsInformation, 0.2);
-        studentsInformationController.isAdding = true;
+        studentsInformationController.show(null, 0.2, true);
     }
 }
