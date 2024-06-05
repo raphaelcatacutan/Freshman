@@ -33,6 +33,8 @@ public class AppAnimations {
 
         SequentialTransition scaleTransition = new SequentialTransition(scaleUpTransition, scaleDownTransition);
 
+        target.toFront();
+
         fadeTransition.play();
         scaleTransition.play();
 
@@ -60,6 +62,7 @@ public class AppAnimations {
         scaleUpTransition.play();
 
         scaleUpTransition.setOnFinished(ev -> {
+            target.toBack();
             target.setVisible(false);
         });
     }
