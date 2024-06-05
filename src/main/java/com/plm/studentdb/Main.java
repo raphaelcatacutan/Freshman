@@ -3,9 +3,11 @@ package com.plm.studentdb;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
     @Override
@@ -13,6 +15,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/app-main.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Computer Science Student Record Admin System");
+        stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("assets/icons/plm-logo.png"))));
         stage.setScene(scene);
         stage.show();
     }
