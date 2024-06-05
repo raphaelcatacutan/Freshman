@@ -18,13 +18,13 @@ import javafx.scene.input.KeyEvent;
 
 public class ViewStudents {
     @FXML public TableView<Student> tbvStudents = new TableView<>();
-    @FXML public Parent studentsAddView;
+    @FXML public Parent studentsInformation;
     @FXML public Parent studentsMessageView;
     @FXML public Parent studentsConfirmView;
     @FXML public Label btnViewStudentsAdd;
     @FXML public TextField txfStudentsSearch;
 
-    @FXML public StudentsForms studentsAddViewController;
+    @FXML public StudentsInformation studentsInformationController;
     @FXML public StudentsMessage studentsMessageViewController;
     @FXML public StudentsConfirm studentsConfirmViewController;
 
@@ -75,7 +75,7 @@ public class ViewStudents {
         tbvStudents.setItems(studentsListTable);
         getData();
 
-        studentsAddViewController.studentsMessageViewController = studentsMessageViewController;
+        // studentsInformationController.studentsMessageViewController = studentsMessageViewController;
         studentsConfirmViewController.txfStudentsSearch = txfStudentsSearch;
     }
 
@@ -113,13 +113,13 @@ public class ViewStudents {
             return;
         };
 
-        AppAnimations.popup(studentsAddView, 0.2);
-        studentsAddViewController.preFillForm(studentsListTable.getFirst());
-        studentsAddViewController.isAdding = false;
+        //AppAnimations.popup(studentsInformationController, 0.2);
+        //studentsInformationController.preFillForm(studentsListTable.getFirst());
+        //studentsInformationController.isAdding = false;
     }
 
     @FXML private void showAdd() {
-        AppAnimations.popup(studentsAddView, 0.2);
-        studentsAddViewController.isAdding = true;
+        //AppAnimations.popup(studentsInformationController, 0.2);
+        //studentsInformationController.isAdding = true;
     }
 }
