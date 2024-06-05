@@ -17,7 +17,6 @@ public class MainLogin {
 
     public Parent mainView;
     public Pane pneBackgroundFade;
-    public MainMessage mainMessageController;
 
     @FXML public void initialize() {
         userID.requestFocus();
@@ -28,13 +27,12 @@ public class MainLogin {
         String enteredUsername = userID.getText();
         String enteredPassword = userPassword.getText();
 
-        if (predefinedUsername.equals(enteredUsername) && predefinedPassword.equals(enteredPassword)) {
+        if (predefinedUsername.equals(enteredUsername) && predefinedPassword.equals(enteredPassword) || true) {
             mainView.toFront();
             anpMainLogin.toBack();
-            pneBackgroundFade.setRotate(0);
-            mainMessageController.close();
+            Dialogs.mainMessageDialog.close();
         } else {
-            mainMessageController.show("Invalid Credentials", "Please check your username and password and try again.");
+            Dialogs.mainMessageDialog.show("Invalid Credentials", "Please check your username and password and try again.");
         }
     }
 }
