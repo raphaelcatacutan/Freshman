@@ -18,7 +18,7 @@
          <children>
             <Label alignment="CENTER" prefHeight="44.0" prefWidth="490.0" text="Add Student Information" textFill="#0f5996">
                <font>
-                  <Font name="Google Sans Bold" size="33.0" />
+                  <Font name="Century Gothic Bold" size="33.0" />
                </font>
             </Label>
             <HBox spacing="30.0">
@@ -27,7 +27,7 @@
                      <children>
                         <Label text="Student ID">
                            <font>
-                              <Font name="Google Sans Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="10.0" />
@@ -35,7 +35,7 @@
                         </Label>
                         <TextField fx:id="txfStudentsViewId" prefHeight="35.0" prefWidth="180.0" promptText="2023XXXXX" style="-fx-background-color: transparent;">
                            <font>
-                              <Font name="Google Sans Regular" size="15.0" />
+                              <Font name="Century Gothic" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="-5.0" />
@@ -56,7 +56,7 @@
                      <children>
                         <Label text="Student Name">
                            <font>
-                              <Font name="Google Sans Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="10.0" />
@@ -64,7 +64,7 @@
                         </Label>
                         <TextField fx:id="txfStudentsViewName" prefHeight="35.0" prefWidth="235.0" promptText="Juan Dela Cruz" style="-fx-background-color: transparent;">
                            <font>
-                              <Font name="Google Sans Regular" size="15.0" />
+                              <Font name="Century Gothic" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="-5.0" />
@@ -89,7 +89,7 @@
                      <children>
                         <Label text="College">
                            <font>
-                              <Font name="Google Sans Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="10.0" />
@@ -97,7 +97,7 @@
                         </Label>
                         <TextField fx:id="txfStudentsViewCollege" prefHeight="35.0" prefWidth="109.0" promptText="CISTM" style="-fx-background-color: transparent;">
                            <font>
-                              <Font name="Google Sans Regular" size="15.0" />
+                              <Font name="Century Gothic" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="-5.0" />
@@ -118,7 +118,7 @@
                      <children>
                         <Label text="Course">
                            <font>
-                              <Font name="Google Sans Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="10.0" />
@@ -126,7 +126,7 @@
                         </Label>
                         <TextField fx:id="txfStudentsViewCourse" prefHeight="35.0" prefWidth="188.0" promptText="BS Computer Science" style="-fx-background-color: transparent;">
                            <font>
-                              <Font name="Google Sans Regular" size="15.0" />
+                              <Font name="Century Gothic" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="-5.0" />
@@ -147,7 +147,7 @@
                      <children>
                         <Label text="Year">
                            <font>
-                              <Font name="Google Sans Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="10.0" />
@@ -155,7 +155,7 @@
                         </Label>
                         <TextField fx:id="txfStudentsViewYear" prefHeight="35.0" prefWidth="100.0" promptText="1" style="-fx-background-color: transparent;">
                            <font>
-                              <Font name="Google Sans Regular" size="15.0" />
+                              <Font name="Century Gothic" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="-5.0" />
@@ -180,7 +180,7 @@
                      <children>
                         <Label text="1st Sem GWA">
                            <font>
-                              <Font name="Google Sans Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="10.0" />
@@ -188,7 +188,7 @@
                         </Label>
                         <TextField fx:id="txfStudentsViewGwa1" prefHeight="35.0" prefWidth="123.0" promptText="1.25" style="-fx-background-color: transparent;">
                            <font>
-                              <Font name="Google Sans Regular" size="15.0" />
+                              <Font name="Century Gothic" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="-5.0" />
@@ -209,7 +209,7 @@
                      <children>
                         <Label text="2nd Sem GWA">
                            <font>
-                              <Font name="Google Sans Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="10.0" />
@@ -217,7 +217,7 @@
                         </Label>
                         <TextField fx:id="txfStudentsViewGwa2" prefHeight="35.0" prefWidth="123.0" promptText="1.25" style="-fx-background-color: transparent;">
                            <font>
-                              <Font name="Google Sans Regular" size="15.0" />
+                              <Font name="Century Gothic" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="-5.0" />
@@ -238,7 +238,7 @@
                      <children>
                         <Label text="Year Enrolled">
                            <font>
-                              <Font name="Google Sans Bold" size="12.0" />
+                              <Font name="Century Gothic Bold" size="12.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="10.0" />
@@ -246,7 +246,7 @@
                         </Label>
                         <TextField fx:id="txfStudentsViewYearEnrolled" prefHeight="35.0" prefWidth="158.0" promptText="2023" style="-fx-background-color: transparent;">
                            <font>
-                              <Font name="Google Sans Regular" size="15.0" />
+                              <Font name="Century Gothic" size="15.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="-5.0" />
@@ -269,7 +269,7 @@
                <children>
                   <Button mnemonicParsing="false" onMouseClicked="#closeAddView" prefHeight="38.0" prefWidth="94.0" style="-fx-background-radius: 5;" text="Cancel">
                      <font>
-                        <Font name="Google Sans Regular" size="15.0" />
+                        <Font name="Century Gothic" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -277,7 +277,7 @@
                   </Button>
                   <Button mnemonicParsing="false" onMouseClicked="#confirmForm" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #4b77b5; -fx-background-radius: 5;" text="Submit" textFill="WHITE">
                      <font>
-                        <Font name="Google Sans Regular" size="15.0" />
+                        <Font name="Century Gothic" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />

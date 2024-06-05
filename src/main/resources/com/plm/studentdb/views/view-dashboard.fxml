@@ -27,19 +27,19 @@
                      <children>
                         <Label text="Welcome, ">
                            <font>
-                              <Font name="Google Sans Bold" size="88.0" />
+                              <Font name="Century Gothic Bold" size="88.0" />
                            </font>
                         </Label>
-                        <Label layoutX="196.0" layoutY="10.0" text="Admin!" textFill="#30379f">
+                        <Label layoutX="196.0" layoutY="10.0" text="Admin!" textFill="#0e5995">
                            <font>
-                              <Font name="Google Sans Bold" size="88.0" />
+                              <Font name="Century Gothic Bold" size="88.0" />
                            </font>
                         </Label>
                      </children>
                   </FlowPane>
                   <Label alignment="CENTER" prefHeight="107.0" prefWidth="702.0" text="The Student Management Record is a system designed to efficiently track and manage student information, including personal details, and academic performance." textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="Google Sans Regular" size="21.0" />
+                        <Font name="Century Gothic" size="20.0" />
                      </font>
                   </Label>
                   <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="60.0" prefHeight="200.0" prefWidth="1154.0" vgap="60.0">
@@ -50,7 +50,7 @@
                                  <children>
                                     <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" style="-fx-background-radius: 10;" text="Add" textAlignment="CENTER" wrapText="true">
                                        <font>
-                                          <Font name="Google Sans Bold" size="46.0" />
+                                          <Font name="Century Gothic Bold" size="46.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets />
@@ -58,7 +58,7 @@
                                     </Label>
                                     <Label alignment="CENTER" graphicTextGap="8.0" style="-fx-background-radius: 10;" text="A Student Record to Database" textAlignment="CENTER" wrapText="true">
                                        <font>
-                                          <Font name="Google Sans Regular" size="22.0" />
+                                          <Font name="Century Gothic" size="21.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets top="-10.0" />
@@ -105,7 +105,7 @@
                                  <children>
                                     <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" style="-fx-background-radius: 10;" text="View" textAlignment="CENTER" wrapText="true">
                                        <font>
-                                          <Font name="Google Sans Bold" size="46.0" />
+                                          <Font name="Century Gothic Bold" size="46.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets top="-20.0" />
@@ -113,7 +113,7 @@
                                     </Label>
                                     <Label alignment="CENTER" graphicTextGap="8.0" style="-fx-background-radius: 10;" text="Records from the Database" textAlignment="CENTER" wrapText="true">
                                        <font>
-                                          <Font name="Google Sans Regular" size="22.0" />
+                                          <Font name="Century Gothic" size="21.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets top="-10.0" />
@@ -160,7 +160,7 @@
                                  <children>
                                     <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" style="-fx-background-radius: 10;" text="Print" textAlignment="CENTER" wrapText="true">
                                        <font>
-                                          <Font name="Google Sans Bold" size="46.0" />
+                                          <Font name="Century Gothic Bold" size="46.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets />
@@ -168,7 +168,7 @@
                                     </Label>
                                     <Label alignment="CENTER" graphicTextGap="8.0" style="-fx-background-radius: 10;" text="A Generated Database Report" textAlignment="CENTER" wrapText="true">
                                        <font>
-                                          <Font name="Google Sans Regular" size="22.0" />
+                                          <Font name="Century Gothic" size="21.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets top="-10.0" />

@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../css/nodes/scrollbar.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.plm.studentdb.views.MainView">
@@ -23,17 +29,73 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <Label graphicTextGap="10.0" text="Student Management Database" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
-         <font>
-            <Font name="Google Sans Regular" size="23.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="42.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/icons/PLM%20logo.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Label>
+      <HBox alignment="CENTER_RIGHT" layoutX="30.399999618530273" layoutY="30.399999618530273" spacing="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Label graphicTextGap="10.0" text="Student Management Database">
+               <font>
+                  <Font name="Century Gothic" size="23.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/PLM%20logo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" prefWidth="130.0" style="-fx-background-color: #80B3E6; -fx-background-radius: 10;" text="Dashboard">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+               <padding>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </padding>
+               <effect>
+                  <DropShadow height="80.0" radius="39.5" width="80.0">
+                     <color>
+                        <Color opacity="0.195288747549057" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="392.0" layoutY="10.0" prefWidth="130.0" style="-fx-background-color: none; -fx-background-radius: 10;" text="Students">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+               <padding>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="831.0" layoutY="16.0" prefWidth="130.0" style="-fx-background-color: none; -fx-background-radius: 10;" text="Reports">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+               <padding>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="955.0" layoutY="16.0" prefWidth="130.0" style="-fx-background-color: none; -fx-background-radius: 10;" text="Settings">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+               <padding>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

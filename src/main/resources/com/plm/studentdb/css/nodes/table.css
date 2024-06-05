@@ -2,6 +2,7 @@
 .table-view {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+    -fx-font-family: "Century Gothic Bold";
 }
 
 /* Column Header Styling */
@@ -31,7 +32,7 @@
 
 /* Header Label Styling */
 .table-view .column-header .label {
-    -fx-font-family: "Google Sans";
+    -fx-font-family: "Century Gothic Bold";
     -fx-font-size: 21px;
     -fx-text-fill: #0f5996;
     -fx-padding: 15px;
@@ -42,7 +43,7 @@
 .table-view .table-row-cell {
     -fx-padding: 20px 20px 10px;
     -fx-background-insets: 8px;
-    -fx-font-family: "Google Sans";
+    -fx-font-family: "Century Gothic";
     -fx-font-size: 15px;
     -fx-alignment: CENTER_LEFT;
     -fx-background-color: #dddddd;

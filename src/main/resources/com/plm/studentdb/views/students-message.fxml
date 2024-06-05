@@ -16,17 +16,17 @@
          <children>
             <Label fx:id="lblStudentsMessageTitle" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="42.0" prefWidth="293.0" text="Title" textAlignment="CENTER" textFill="#0e5995" wrapText="true">
                <font>
-                  <Font name="Google Sans Bold" size="31.0" />
+                  <Font name="Century Gothic Bold" size="31.0" />
                </font>
             </Label>
             <Label fx:id="lblStudentsMessageContent" alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="355.0" text="Content" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="Google Sans Regular" size="19.0" />
+                  <Font name="Century Gothic" size="19.0" />
                </font>
             </Label>
             <Button mnemonicParsing="false" onMouseClicked="#close" prefHeight="42.0" prefWidth="108.0" style="-fx-background-color: #4b77b5; -fx-background-radius: 5;" text="Close" textFill="WHITE">
                <font>
-                  <Font name="Google Sans Regular" size="17.0" />
+                  <Font name="Century Gothic" size="17.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
