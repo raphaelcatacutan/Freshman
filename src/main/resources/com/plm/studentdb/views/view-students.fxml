@@ -46,6 +46,34 @@
                               <Font name="Century Gothic" size="16.0" />
                            </font>
                         </TextField>
+                        <Label fx:id="btnViewStudentsClear" alignment="CENTER" graphicTextGap="8.0" layoutX="886.0" layoutY="10.0" onMouseClicked="#clearSearch" prefHeight="41.0" prefWidth="193.0" style="-fx-background-radius: 10; -fx-background-color: #FAFAD2;" text="Clear Search" textFill="#7f8c47">
+                           <font>
+                              <Font name="Century Gothic Bold" size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/filter.png" />
+                                 </image>
+                                 <effect>
+                                    <ColorAdjust brightness="-0.11" contrast="-0.87" hue="0.28" saturation="1.0" />
+                                 </effect>
+                              </ImageView>
+                           </graphic>
+                           <effect>
+                              <DropShadow height="80.0" radius="39.5" width="80.0">
+                                 <color>
+                                    <Color opacity="0.25" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </Label>
                         <Label fx:id="btnViewStudentsAdd" alignment="CENTER" graphicTextGap="8.0" onMouseClicked="#showAdd" prefHeight="41.0" prefWidth="193.0" style="-fx-background-radius: 10; -fx-background-color: #b8ffb5;" text="Add" textFill="#268600">
                            <font>
                               <Font name="Century Gothic Bold" size="16.0" />

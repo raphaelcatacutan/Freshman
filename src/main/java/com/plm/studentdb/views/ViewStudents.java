@@ -23,7 +23,6 @@ public class ViewStudents {
     @FXML public StudentsInformation studentsInformationController;
 
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
-    public static int filterStudentId = -1;
 
 
     @FXML
@@ -82,8 +81,7 @@ public class ViewStudents {
     }
 
     private void getData() {
-        if (filterStudentId >= 0) studentsListTable.setAll(DBFind.findStudentRecord(filterStudentId));
-        else studentsListTable.addAll(DBView.viewStudentRecord());
+        studentsListTable.setAll(DBView.viewStudentRecord());
     }
 
     @FXML private void search(KeyEvent event) {
@@ -91,6 +89,11 @@ public class ViewStudents {
         String input = txfStudentsSearch.getText();
         List<Student> students = DBFind.findStudentRecord(input);
         studentsListTable.setAll(students);
+    }
+
+    @FXML private void clearSearch() {
+        txfStudentsSearch.setText("");
+        getData();
     }
 
     @FXML private void showAdd() {
