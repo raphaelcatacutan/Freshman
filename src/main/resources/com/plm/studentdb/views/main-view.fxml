@@ -29,7 +29,7 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <HBox alignment="CENTER_RIGHT" layoutX="30.399999618530273" layoutY="30.399999618530273" spacing="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+      <HBox alignment="CENTER_RIGHT" layoutX="30.399999618530273" layoutY="30.399999618530273" spacing="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
          <children>
             <Label graphicTextGap="10.0" text="Student Management Database">
                <font>
@@ -44,12 +44,12 @@
                </graphic>
             </Label>
             <Pane HBox.hgrow="ALWAYS" />
-            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" prefWidth="130.0" style="-fx-background-color: #80B3E6; -fx-background-radius: 10;" text="Dashboard">
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="10.0" prefWidth="120.0" style="-fx-background-radius: 5; -fx-background-color: #7aabdb;" text="Dashboard">
                <font>
-                  <Font name="Century Gothic" size="15.0" />
+                  <Font name="Century Gothic" size="13.0" />
                </font>
                <padding>
-                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                </padding>
                <effect>
                   <DropShadow height="80.0" radius="39.5" width="80.0">
@@ -62,34 +62,45 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="392.0" layoutY="10.0" prefWidth="130.0" style="-fx-background-color: none; -fx-background-radius: 10;" text="Students">
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="392.0" layoutY="10.0" prefWidth="120.0" style="-fx-background-radius: 5;" text="Students">
                <font>
-                  <Font name="Century Gothic" size="15.0" />
+                  <Font name="Century Gothic" size="13.0" />
                </font>
                <padding>
-                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                </padding>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="831.0" layoutY="16.0" prefWidth="130.0" style="-fx-background-color: none; -fx-background-radius: 10;" text="Reports">
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="948.0" layoutY="14.0" prefWidth="120.0" style="-fx-background-radius: 5;" text="Curriculum">
                <font>
-                  <Font name="Century Gothic" size="15.0" />
+                  <Font name="Century Gothic" size="13.0" />
                </font>
                <padding>
-                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                </padding>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="955.0" layoutY="16.0" prefWidth="130.0" style="-fx-background-color: none; -fx-background-radius: 10;" text="Settings">
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="831.0" layoutY="16.0" prefWidth="120.0" style="-fx-background-radius: 5;" text="Reports">
                <font>
-                  <Font name="Century Gothic" size="15.0" />
+                  <Font name="Century Gothic" size="13.0" />
                </font>
                <padding>
-                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label alignment="CENTER" graphicTextGap="10.0" layoutX="955.0" layoutY="16.0" prefWidth="120.0" style="-fx-background-radius: 5;" text="Settings">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                </padding>
                <cursor>
                   <Cursor fx:constant="HAND" />
