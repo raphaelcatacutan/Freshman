@@ -1,4 +1,6 @@
 package com.plm.studentdb.database;
+import com.plm.studentdb.models.Course;
+import com.plm.studentdb.models.Class;
 import com.plm.studentdb.models.Mapper;
 import com.plm.studentdb.models.Student;
 
@@ -6,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Scanner;
 
 public class DBFind {
     public static Student findStudentRecord(int studentId){
@@ -62,5 +63,50 @@ public class DBFind {
         }
     }
 
+    public static List<Class> findClass(int student_number) {
+        String selectQuery = "SELECT * FROM classes WHERE student_number = ?";
 
+        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            p.setInt(1, student_number);
+
+            try (ResultSet rs = p.executeQuery()) {
+                List<Class> enrolled = Mapper.generateClassObservable(rs);
+                return enrolled;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
+        }
+    }
+
+    public static List<Class> findClass(int student_id, int year, int semester) {
+        String selectQuery = "SELECT * FROM classes WHERE student_number = ? AND year = ? AND semester = ?";
+
+        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            p.setInt(1, student_id);
+            p.setInt(2, year);
+            p.setInt(3, semester);
+
+            try (ResultSet rs = p.executeQuery()) {
+                List<Class> enrolled = Mapper.generateClassObservable(rs);
+                return enrolled;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
+        }
+    }
+
+    public static List<Course> findCourse(String courseCode) {
+        String selectQuery = "SELECT * FROM course WHERE course_code = ?";
+
+        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            p.setString(1, courseCode);
+
+            try (ResultSet rs = p.executeQuery()) {
+                List<Course> courses = Mapper.generateCourseObservable(rs);
+                return courses;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
+        }
+    }
 }

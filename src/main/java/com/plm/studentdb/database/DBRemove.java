@@ -34,8 +34,8 @@ public class DBRemove {
         }
     }
 
-    public static void removeEnrolledRecord(int id) {
-        String deleteQuery = "DELETE FROM enrolled WHERE id=?";
+    public static void removeClassRecord(int id) {
+        String deleteQuery = "DELETE FROM classes WHERE id=?";
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(deleteQuery)) {
             pstmt.setInt(1, id);
             pstmt.executeUpdate();

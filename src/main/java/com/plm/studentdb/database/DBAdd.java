@@ -1,7 +1,7 @@
 package com.plm.studentdb.database;
 
 import com.plm.studentdb.models.*;
-import javafx.beans.property.IntegerProperty;
+import com.plm.studentdb.models.Class;
 
 import java.sql.*;
 
@@ -73,21 +73,22 @@ public class DBAdd {
         }
     }
 
-    public static Enrolled addEnrolledRecord(String studentNumber, String courseCode, int section, int year, double grade) {
-        String insertQuery = "INSERT INTO enrolled (student_number, course_code, section, year, grade) VALUES (?, ?, ?, ?, ?)";
+    public static Class addClassRecord(String studentNumber, String courseCode, int section, int year, int semester, double grade) {
+        String insertQuery = "INSERT INTO classes (student_number, course_code, section, year, semester, grade) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, studentNumber);
             pstmt.setString(2, courseCode);
             pstmt.setInt(3, section);
             pstmt.setInt(4, year);
-            pstmt.setDouble(5, grade);
+            pstmt.setInt(5, semester);
+            pstmt.setDouble(6, grade);
             pstmt.executeUpdate();
 
             try (ResultSet rs = pstmt.getGeneratedKeys()) {
                 rs.next();
                 int id = rs.getInt(1);
-                Enrolled enrolled = new Enrolled(id, studentNumber, courseCode, section, year, grade);
+                Class enrolled = new Class(id, studentNumber, courseCode, section, year, semester, grade);
                 return enrolled;
             }
 

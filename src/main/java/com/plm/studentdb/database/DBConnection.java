@@ -41,17 +41,18 @@ public class DBConnection {
                     ")";
             stmt.executeUpdate(createCourseTableQuery);
         }
-        // Enrolled
+        // Classes
         try (Statement stmt = connection.createStatement()) {
-            String createEnrolledTableQuery = "CREATE TABLE IF NOT EXISTS enrolled (" +
+            String createClassesTableQuery = "CREATE TABLE IF NOT EXISTS classes (" +
                     "id INT AUTO_INCREMENT PRIMARY KEY, " +
                     "student_number VARCHAR(255) NOT NULL, " +
                     "course_code VARCHAR(255) NOT NULL, " +
                     "section INT NOT NULL, " +
                     "year INT NOT NULL, " +
+                    "semester INT NOT NULL, " +
                     "grade DECIMAL(5,2) NOT NULL" +
                     ")";
-            stmt.executeUpdate(createEnrolledTableQuery);
+            stmt.executeUpdate(createClassesTableQuery);
         }
         // Accounts
         try (Statement stmt = connection.createStatement()) {

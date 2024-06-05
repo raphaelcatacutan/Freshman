@@ -2,20 +2,22 @@ package com.plm.studentdb.models;
 
 import javafx.beans.property.*;
 
-public class Enrolled {
+public class Class {
     private final IntegerProperty id;
     private final StringProperty studentNumber;
     private final StringProperty courseCode;
     private final IntegerProperty section;
     private final IntegerProperty year;
+    private final IntegerProperty semester;
     private final DoubleProperty grade;
 
-    public Enrolled(int id, String studentNumber, String courseCode, int section, int year, double grade) {
+    public Class(int id, String studentNumber, String courseCode, int section, int year, int semester, double grade) {
         this.id = new SimpleIntegerProperty(id);
         this.studentNumber = new SimpleStringProperty(studentNumber);
         this.courseCode = new SimpleStringProperty(courseCode);
         this.section = new SimpleIntegerProperty(section);
         this.year = new SimpleIntegerProperty(year);
+        this.semester = new SimpleIntegerProperty(semester);
         this.grade = new SimpleDoubleProperty(grade);
     }
 
@@ -51,7 +53,7 @@ public class Enrolled {
         return section;
     }
 
-    public int getYear() {
+    public int getYearSem() {
         return year.get();
     }
 
@@ -65,5 +67,13 @@ public class Enrolled {
 
     public DoubleProperty gradeProperty() {
         return grade;
+    }
+
+    public int getSemester() {
+        return semester.get();
+    }
+
+    public IntegerProperty semesterProperty() {
+        return semester;
     }
 }

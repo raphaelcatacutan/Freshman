@@ -1,5 +1,6 @@
 package com.plm.studentdb.database;
 import com.plm.studentdb.models.*;
+import com.plm.studentdb.models.Class;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,11 +39,11 @@ public class DBView {
         }
     }
 
-    public static List<Enrolled> viewEnrolledRecord() {
-        String selectQuery = "SELECT * FROM enrolled";
+    public static List<Class> viewClassRecord() {
+        String selectQuery = "SELECT * FROM classes";
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(selectQuery)) {
             ResultSet resultSet = pstmt.executeQuery();
-            return Mapper.generateEnrolledObservable(resultSet);
+            return Mapper.generateClassObservable(resultSet);
         } catch (SQLException e) {
             throw new RuntimeException("Error fetching enrolled records: " + e.getMessage());
         }

@@ -1,6 +1,7 @@
 package com.plm.studentdb.database;
 
 import com.plm.studentdb.models.*;
+import com.plm.studentdb.models.Class;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -61,18 +62,19 @@ public class DBEdit {
         }
     }
 
-    public static Enrolled editEnrolledRecord(int id, String studentNumber, String courseCode, int section, int year, double grade) {
-        String updateQuery = "UPDATE enrolled SET student_number=?, course_code=?, section=?, year=?, grade=? WHERE id=?";
+    public static Class editClassRecord(int id, String studentNumber, String courseCode, int section, int year, int semester, double grade) {
+        String updateQuery = "UPDATE classes SET student_number=?, course_code=?, section=?, year=?, semester=?, grade=? WHERE id=?";
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
             pstmt.setString(1, studentNumber);
             pstmt.setString(2, courseCode);
             pstmt.setInt(3, section);
             pstmt.setInt(4, year);
-            pstmt.setDouble(5, grade);
-            pstmt.setInt(6, id);
+            pstmt.setInt(5, semester);
+            pstmt.setDouble(6, grade);
+            pstmt.setInt(7, id);
             pstmt.executeUpdate();
 
-            Enrolled enrolled = new Enrolled(id, studentNumber, courseCode, section, year, grade);
+            Class enrolled = new Class(id, studentNumber, courseCode, section, year, semester, grade);
             return enrolled;
 
         } catch (SQLException e) {

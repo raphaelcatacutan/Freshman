@@ -53,17 +53,18 @@ public class Mapper {
         return courses;
     }
 
-    public static List<Enrolled> generateEnrolledObservable(ResultSet resultSet) throws SQLException {
-        List<Enrolled> enrolledList = new ArrayList<>();
+    public static List<Class> generateClassObservable(ResultSet resultSet) throws SQLException {
+        List<Class> enrolledList = new ArrayList<>();
         while (resultSet.next()) {
             int id = resultSet.getInt("id");
             String studentNumber = resultSet.getString("student_number");
             String courseCode = resultSet.getString("course_code");
             int section = resultSet.getInt("section");
             int year = resultSet.getInt("year");
+            int semester = resultSet.getInt("semester");
             double grade = resultSet.getDouble("grade");
 
-            Enrolled enrolled = new Enrolled(id, studentNumber, courseCode, section, year, grade);
+            Class enrolled = new Class(id, studentNumber, courseCode, section, year, semester, grade);
             enrolledList.add(enrolled);
         }
         return enrolledList;
