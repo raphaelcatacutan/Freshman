@@ -12,7 +12,7 @@ public class Mapper {
         while (resultSet.next()) {
             int id = resultSet.getInt("id");
             int studentId = resultSet.getInt("student_id");
-            String name = resultSet.getString("name");
+            String name = resultSet.getString("full_name");
             String program = resultSet.getString("program");
             int year = resultSet.getInt("year");
             int block = resultSet.getInt("block");
