@@ -1,6 +1,5 @@
 package com.plm.studentdb.database;
-import com.plm.studentdb.models.Mapper;
-import com.plm.studentdb.models.Student;
+import com.plm.studentdb.models.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +15,46 @@ public class DBView {
             return Mapper.generateStudentObservable(resultSet);
         } catch (SQLException e) {
             throw new RuntimeException("Error fetching student record: " + e.getMessage());
+        }
+    }
+
+    public static List<Account> viewAccountRecord() {
+        String selectQuery = "SELECT * FROM accounts";
+        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            ResultSet resultSet = pstmt.executeQuery();
+            return Mapper.generateAccountObservable(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching account records: " + e.getMessage());
+        }
+    }
+
+    public static List<Course> viewCourseRecord() {
+        String selectQuery = "SELECT * FROM course";
+        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            ResultSet resultSet = pstmt.executeQuery();
+            return Mapper.generateCourseObservable(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching course records: " + e.getMessage());
+        }
+    }
+
+    public static List<Enrolled> viewEnrolledRecord() {
+        String selectQuery = "SELECT * FROM enrolled";
+        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            ResultSet resultSet = pstmt.executeQuery();
+            return Mapper.generateEnrolledObservable(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching enrolled records: " + e.getMessage());
+        }
+    }
+
+    public static List<Program> viewProgramRecord() {
+        String selectQuery = "SELECT * FROM college";
+        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            ResultSet resultSet = pstmt.executeQuery();
+            return Mapper.generateProgramObservable(resultSet);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching program records: " + e.getMessage());
         }
     }
 }

@@ -24,4 +24,62 @@ public class Mapper {
         return students;
     }
 
+    public static List<Account> generateAccountObservable(ResultSet resultSet) throws SQLException {
+        List<Account> accounts = new ArrayList<>();
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String username = resultSet.getString("username");
+            String password = resultSet.getString("password");
+            String programAccess = resultSet.getString("program_access");
+
+            Account account = new Account(id, username, password, programAccess);
+            accounts.add(account);
+        }
+        return accounts;
+    }
+
+    public static List<Course> generateCourseObservable(ResultSet resultSet) throws SQLException {
+        List<Course> courses = new ArrayList<>();
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String courseCode = resultSet.getString("course_code");
+            int units = resultSet.getInt("units");
+            int sections = resultSet.getInt("sections");
+            String courseName = resultSet.getString("course_name");
+
+            Course course = new Course(id, courseCode, units, sections, courseName);
+            courses.add(course);
+        }
+        return courses;
+    }
+
+    public static List<Enrolled> generateEnrolledObservable(ResultSet resultSet) throws SQLException {
+        List<Enrolled> enrolledList = new ArrayList<>();
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String studentNumber = resultSet.getString("student_number");
+            String courseCode = resultSet.getString("course_code");
+            int section = resultSet.getInt("section");
+            int year = resultSet.getInt("year");
+            double grade = resultSet.getDouble("grade");
+
+            Enrolled enrolled = new Enrolled(id, studentNumber, courseCode, section, year, grade);
+            enrolledList.add(enrolled);
+        }
+        return enrolledList;
+    }
+
+    public static List<Program> generateProgramObservable(ResultSet resultSet) throws SQLException {
+        List<Program> programs = new ArrayList<>();
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String collegeName = resultSet.getString("college_name");
+            String program = resultSet.getString("program");
+
+            Program college = new Program(id, collegeName, program);
+            programs.add(college);
+        }
+        return programs;
+    }
+
 }
