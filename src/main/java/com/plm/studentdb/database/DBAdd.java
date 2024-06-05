@@ -5,7 +5,6 @@ import com.plm.studentdb.models.Student;
 import java.sql.*;
 
 public class DBAdd {
-
     public static Student addStudentRecord(int studentId, String name, String college, String course, int year, double firstSemGwa, double secondSemGwa, int yearEnrolled) {
         double totalGwa = (firstSemGwa + secondSemGwa) / 2;
         String status = totalGwa <= 3.00 ? "Regular" : "Irregular";
@@ -26,24 +25,11 @@ public class DBAdd {
 
             try (ResultSet rs = pstmt.getGeneratedKeys()) {
                 rs.next();
-                int id = rs.getInt(1);  // Fetch the generated ID
+                int id = rs.getInt("GENERATED_KEY");
                 Student student = new Student(id, studentId, name, college, course, year, firstSemGwa, secondSemGwa, totalGwa, status, yearEnrolled);
                 return student;
             }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void addGrade(int studentId, int subjectId, double grade) {
-        String insertGradeQuery = "INSERT INTO studentdb.grades (student_id, subject_id, grade) VALUES (?, ?, ?)";
-
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertGradeQuery)) {
-            pstmt.setInt(1, studentId);
-            pstmt.setInt(2, subjectId);
-            pstmt.setDouble(3, grade);
-            pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
