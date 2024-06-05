@@ -53,7 +53,7 @@ public class Class {
         return section;
     }
 
-    public int getYearSem() {
+    public int getYear() {
         return year.get();
     }
 

@@ -63,11 +63,11 @@ public class DBFind {
         }
     }
 
-    public static List<Class> findClass(int student_number) {
+    public static List<Class> findClass(String student_number) {
         String selectQuery = "SELECT * FROM classes WHERE student_number = ?";
 
         try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            p.setInt(1, student_number);
+            p.setString(1, student_number);
 
             try (ResultSet rs = p.executeQuery()) {
                 List<Class> enrolled = Mapper.generateClassObservable(rs);
@@ -89,6 +89,56 @@ public class DBFind {
             try (ResultSet rs = p.executeQuery()) {
                 List<Class> enrolled = Mapper.generateClassObservable(rs);
                 return enrolled;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
+        }
+    }
+
+    public static List<Class> findClass(String code, int year, int semester) {
+        String selectQuery = "SELECT * FROM classes WHERE course_code = ? AND year = ? AND semester = ?";
+
+        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            p.setString(1, code);
+            p.setInt(2, year);
+            p.setInt(3, semester);
+
+            try (ResultSet rs = p.executeQuery()) {
+                List<Class> classes = Mapper.generateClassObservable(rs);
+                return classes;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
+        }
+    }
+
+    public static Class findClass(int id) {
+        String selectQuery = "SELECT * FROM classes WHERE id = ?";
+
+        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            p.setInt(1, id);
+
+            try (ResultSet rs = p.executeQuery()) {
+                List<Class> classes = Mapper.generateClassObservable(rs);
+                return classes.getFirst();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
+        }
+    }
+
+    public static List<Class> findClass(String student_number, String code, int year, int semester) {
+        String selectQuery = "SELECT * FROM classes WHERE student_number = ? AND course_code = ? AND year = ? AND semester = ?";
+
+        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            p.setString(1, student_number);
+            p.setString(2, code);
+            p.setInt(3, year);
+            p.setInt(4,semester);
+
+            try (ResultSet rs = p.executeQuery()) {
+                List<Class> classes = Mapper.generateClassObservable(rs);
+                return classes;
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());

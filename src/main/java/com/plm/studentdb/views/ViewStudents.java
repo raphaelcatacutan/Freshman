@@ -17,12 +17,10 @@ import java.util.List;
 public class ViewStudents {
     @FXML public TableView<Student> tbvStudents = new TableView<>();
     @FXML public Parent studentsInformation;
-    @FXML public Parent studentsCourses;
     @FXML public Label btnViewStudentsAdd;
     @FXML public TextField txfStudentsSearch;
 
     @FXML public StudentsInformation studentsInformationController;
-    @FXML public StudentsCourses studentsCoursesController;
 
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
 
@@ -101,7 +99,4 @@ public class ViewStudents {
         studentsInformationController.showForms(null, 0.2, true);
     }
 
-    @FXML private void showCourses() {
-        studentsCoursesController.showForms(null, 0.2);
-    }
 }

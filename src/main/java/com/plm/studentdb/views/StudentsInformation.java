@@ -76,6 +76,9 @@ public class StudentsInformation {
             ViewStudents.studentsListTable.remove(focusedStudent);
             ViewStudents.studentsListTable.add(student);
             Dialogs.mainMessageDialog.show("Editing Successful", "The student data has been successfully updated to the database.");
+
+            //flwStudentsInformationGrades.getChildren()
+
         }
 
         closeForms();
@@ -95,12 +98,15 @@ public class StudentsInformation {
             txfStudentInformationEmail.setText(null);
             txfStudentInformationYearBlock.setText(null);
             txfStudentInformationGradeYearSem.setText(null);
+            flwStudentsInformationGrades.getChildren().clear();
         } else {
             txfStudentInformationName.setText(student.getName());
             txfStudentInformationID.setText(String.valueOf(student.getStudentId()));
             txfStudentInformationProgram.setText(student.getProgram());
             txfStudentInformationEmail.setText(student.getEmail());
             txfStudentInformationYearBlock.setText(student.getYear() + "-" + student.getBlock());
+            txfStudentInformationGradeYearSem.setText(null);
+            flwStudentsInformationGrades.getChildren().clear();
         }
     }
 
@@ -123,7 +129,7 @@ public class StudentsInformation {
             HBox grade = generateClassHBox(aClass);
             flwStudentsInformationGrades.getChildren().add(grade);
             if (aClass.getCourseCode().contains("NSTP")) continue;
-            int units = DBFind.findCourse(aClass.getYearSem() + "-" + aClass.getCourseCode()).getFirst().getUnits();
+            int units = DBFind.findCourse(aClass.getYear() + "-" + aClass.getCourseCode()).getFirst().getUnits();
             totalGrade += aClass.getGrade() * units;
             totalUnits += units;
         }
@@ -148,11 +154,12 @@ public class StudentsInformation {
 
         Label label1 = new Label(enrolled.getCourseCode());
         label1.setGraphicTextGap(5.0);
-        label1.setPrefWidth(259.0);
+        label1.setPrefWidth(270.0);
         label1.getStyleClass().add("label-text");
-        label1.setFont(new Font("Century Gothic Bold", 30.0));
+        label1.setFont(new Font("Century Gothic Bold", 25.0));
+        label1.setWrapText(true);
 
-        Label label2 = new Label(enrolled.getYearSem() + " - " + enrolled.getSection());
+        Label label2 = new Label(enrolled.getYear() + " - Section " + enrolled.getSection());
         label2.setGraphicTextGap(5.0);
         label2.setLayoutX(220.0);
         label2.setLayoutY(84.0);

@@ -115,7 +115,6 @@
                </padding>
             </VBox>
             <fx:include fx:id="studentsInformation" source="students-information.fxml" />
-            <fx:include fx:id="studentsCourses" source="students-courses.fxml" />
          </children>
       </StackPane>
    </children>

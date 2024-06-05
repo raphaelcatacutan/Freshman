@@ -27,7 +27,7 @@ public class MainLogin {
         String enteredUsername = userID.getText();
         String enteredPassword = userPassword.getText();
 
-        if (predefinedUsername.equals(enteredUsername) && predefinedPassword.equals(enteredPassword) || true) {
+        if (predefinedUsername.equals(enteredUsername) && predefinedPassword.equals(enteredPassword)) {
             mainView.toFront();
             anpMainLogin.toBack();
             Dialogs.mainMessageDialog.close();
