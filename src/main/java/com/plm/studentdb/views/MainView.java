@@ -46,9 +46,6 @@ public class MainView {
         viewDashboardController.stkDashboardQuickView.setOnMouseClicked(ev -> {
             navigateStudents();
         });
-        viewStudentsController.studentsBack.setOnMouseClicked(ev -> {
-            navigateDashboard();
-        });
     }
 
     @FXML void navigateDashboard() {

@@ -9,16 +9,16 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+
+import java.util.List;
 
 public class ViewStudents {
     @FXML public TableView<Student> tbvStudents = new TableView<>();
     @FXML public Parent studentsInformation;
     @FXML public Label btnViewStudentsAdd;
     @FXML public TextField txfStudentsSearch;
-    @FXML public ImageView studentsBack;
 
     @FXML public StudentsInformation studentsInformationController;
 
@@ -89,16 +89,8 @@ public class ViewStudents {
     @FXML private void search(KeyEvent event) {
         if (event.getCode() != KeyCode.ENTER) return;
         String input = txfStudentsSearch.getText();
-        if (!input.isEmpty()) {
-            try {
-                filterStudentId = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                filterStudentId = -1;
-            }
-        } else {
-            filterStudentId = -1;
-        }
-        getData();
+        List<Student> students = DBFind.findStudentRecord(input);
+        studentsListTable.setAll(students);
     }
 
     @FXML private void showAdd() {
