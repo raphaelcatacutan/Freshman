@@ -177,31 +177,6 @@
                                                       </DropShadow>
                                                    </effect>
                                                 </Button>
-                                                <Button alignment="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="59.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #7bbbe3; -fx-background-radius: 5;" text="Print" textFill="#192774">
-                                                   <font>
-                                                      <Font name="Century Gothic Bold" size="13.0" />
-                                                   </font>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                   <graphic>
-                                                      <ImageView fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../assets/icons/printer.png" />
-                                                         </image>
-                                                         <effect>
-                                                            <ColorAdjust brightness="-0.6" contrast="0.13" hue="-0.72" saturation="0.79" />
-                                                         </effect>
-                                                      </ImageView>
-                                                   </graphic>
-                                                   <effect>
-                                                      <DropShadow height="42.06" radius="18.775" width="35.04">
-                                                         <color>
-                                                            <Color opacity="0.1155015379190445" />
-                                                         </color>
-                                                      </DropShadow>
-                                                   </effect>
-                                                </Button>
                                                 <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #FFDAB9; -fx-background-radius: 5;" text="Courses" textFill="#8c4524">
                                                    <font>
                                                       <Font name="Century Gothic Bold" size="13.0" />
@@ -216,6 +191,31 @@
                                                          </image>
                                                          <effect>
                                                             <ColorAdjust brightness="-0.6" contrast="0.13" hue="0.1" saturation="0.79" />
+                                                         </effect>
+                                                      </ImageView>
+                                                   </graphic>
+                                                   <effect>
+                                                      <DropShadow height="42.06" radius="18.775" width="35.04">
+                                                         <color>
+                                                            <Color opacity="0.1155015379190445" />
+                                                         </color>
+                                                      </DropShadow>
+                                                   </effect>
+                                                </Button>
+                                                <Button alignment="CENTER" graphicTextGap="10.0" layoutX="10.0" layoutY="59.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #7bbbe3; -fx-background-radius: 5;" text="Print" textFill="#192774">
+                                                   <font>
+                                                      <Font name="Century Gothic Bold" size="13.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <graphic>
+                                                      <ImageView fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../assets/icons/printer.png" />
+                                                         </image>
+                                                         <effect>
+                                                            <ColorAdjust brightness="-0.6" contrast="0.13" hue="-0.72" saturation="0.79" />
                                                          </effect>
                                                       </ImageView>
                                                    </graphic>
@@ -249,7 +249,7 @@
                                                 <Font name="Century Gothic" size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txfStudentInformationName1" alignment="CENTER" prefHeight="34.0" prefWidth="152.0" promptText="20232" style="-fx-background-color: #f4f4f4; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #0d5994;" styleClass="label-text">
+                                          <TextField fx:id="txfStudentInformationGradeYearSem" alignment="CENTER" onKeyPressed="#showGrades" prefHeight="34.0" prefWidth="152.0" promptText="20232" style="-fx-background-color: #f4f4f4; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #0d5994;" styleClass="label-text">
                                              <font>
                                                 <Font name="Century Gothic" size="16.0" />
                                              </font>
@@ -265,7 +265,7 @@
                                                       <Font name="Century Gothic Bold" size="20.0" />
                                                    </font>
                                                 </Label>
-                                                <Label graphicTextGap="5.0" styleClass="label-text" text="No Data" textFill="#00ac45">
+                                                <Label fx:id="lblStudentInformationGWA" graphicTextGap="5.0" styleClass="label-text" text="No Data" textFill="#00ac45">
                                                    <font>
                                                       <Font name="Century Gothic" size="20.0" />
                                                    </font>
@@ -279,7 +279,7 @@
                                                       <Font name="Century Gothic Bold" size="20.0" />
                                                    </font>
                                                 </Label>
-                                                <Label graphicTextGap="5.0" styleClass="label-text" text="No Data" textFill="#00ac45">
+                                                <Label fx:id="lblStudentInformationStatus" graphicTextGap="5.0" styleClass="label-text" text="No Data" textFill="#00ac45">
                                                    <font>
                                                       <Font name="Century Gothic" size="20.0" />
                                                    </font>
@@ -318,7 +318,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </AnchorPane>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeAddView" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #dedede; -fx-background-radius: 50;">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeForms" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #dedede; -fx-background-radius: 50;">
                      <children>
                         <ImageView fitHeight="11.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <image>

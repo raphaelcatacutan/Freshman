@@ -17,13 +17,14 @@ import java.util.List;
 public class ViewStudents {
     @FXML public TableView<Student> tbvStudents = new TableView<>();
     @FXML public Parent studentsInformation;
+    @FXML public Parent studentsCourses;
     @FXML public Label btnViewStudentsAdd;
     @FXML public TextField txfStudentsSearch;
 
     @FXML public StudentsInformation studentsInformationController;
+    @FXML public StudentsCourses studentsCoursesController;
 
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
-
 
     @FXML
     public void initialize() {
@@ -70,7 +71,7 @@ public class ViewStudents {
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty()) {
                     Student student = row.getItem();
-                    studentsInformationController.show(student, 0.2, false);
+                    studentsInformationController.showForms(student, 0.2, false);
                 }
             });
             return row;
@@ -96,7 +97,11 @@ public class ViewStudents {
         getData();
     }
 
-    @FXML private void showAdd() {
-        studentsInformationController.show(null, 0.2, true);
+    @FXML private void showInformation() {
+        studentsInformationController.showForms(null, 0.2, true);
+    }
+
+    @FXML private void showCourses() {
+        studentsCoursesController.showForms(null, 0.2);
     }
 }

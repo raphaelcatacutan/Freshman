@@ -2,7 +2,9 @@ package com.plm.studentdb.views;
 
 import com.plm.studentdb.database.DBAdd;
 import com.plm.studentdb.database.DBEdit;
+import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBRemove;
+import com.plm.studentdb.models.Class;
 import com.plm.studentdb.models.Student;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -10,12 +12,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+
+import java.util.List;
 
 public class StudentsInformation {
     @FXML AnchorPane anpStudentsInformation;
@@ -29,11 +35,14 @@ public class StudentsInformation {
     @FXML TextField txfStudentInformationEmail;
     @FXML TextField txfStudentInformationYearBlock;
 
-    public MainMessage mainMessageController;
+    @FXML TextField txfStudentInformationGradeYearSem;
+    @FXML Label lblStudentInformationGWA;
+    @FXML Label lblStudentInformationStatus;
+
     public boolean isAdding = true;
     public Student focusedStudent;
 
-    void show(Student student, double delay, boolean isAdding) {
+    void showForms(Student student, double delay, boolean isAdding) {
         preFillForm(student);
         scrStudentsInformation.setVvalue(0);
         AppAnimations.popup(anpStudentsInformation, delay);
@@ -43,7 +52,7 @@ public class StudentsInformation {
     }
 
     @FXML
-    void closeAddView() {
+    void closeForms() {
         preFillForm(null);
         AppAnimations.popdown(anpStudentsInformation, 0);
     }
@@ -69,13 +78,13 @@ public class StudentsInformation {
             Dialogs.mainMessageDialog.show("Editing Successful", "The student data has been successfully updated to the database.");
         }
 
-        closeAddView();
+        closeForms();
     }
 
     @FXML void deleteStudent() {
         DBRemove.removeStudentRecord(focusedStudent.getId());
         ViewStudents.studentsListTable.remove(focusedStudent);
-        closeAddView();
+        closeForms();
     }
 
     public void preFillForm(Student student) {
@@ -85,6 +94,7 @@ public class StudentsInformation {
             txfStudentInformationProgram.setText(null);
             txfStudentInformationEmail.setText(null);
             txfStudentInformationYearBlock.setText(null);
+            txfStudentInformationGradeYearSem.setText(null);
         } else {
             txfStudentInformationName.setText(student.getName());
             txfStudentInformationID.setText(String.valueOf(student.getStudentId()));
@@ -92,15 +102,37 @@ public class StudentsInformation {
             txfStudentInformationEmail.setText(student.getEmail());
             txfStudentInformationYearBlock.setText(student.getYear() + "-" + student.getBlock());
         }
-        HBox grade1 = generateHBox();
-        //flwStudentsInformationGrades.getChildren().add(grade1);
     }
 
-    public void showGrades() {
+    @FXML
+    public void showGrades(KeyEvent event) {
+        if (event.getCode() != KeyCode.ENTER) return;
+        if (focusedStudent == null && isAdding) {
+            Dialogs.mainMessageDialog.show("Invalid Action", "You can't check the grades of a student who hasn't been added to the database yet.");
+            return;
+        }
+        String yearSem = txfStudentInformationGradeYearSem.getText();
+        int year = Integer.parseInt(yearSem.substring(0, 4)); // Extract the first 4 characters and convert to integer
+        int semester = Character.getNumericValue(yearSem.charAt(4)); // Extract the 5th character and convert to integer
+        double totalGrade = 0;
+        double totalUnits = 0;
+        double gwa;
 
+        List<Class> classes = DBFind.findClass(focusedStudent.getStudentId(), year, semester);
+        for (Class aClass: classes) {
+            HBox grade = generateClassHBox(aClass);
+            flwStudentsInformationGrades.getChildren().add(grade);
+            if (aClass.getCourseCode().contains("NSTP")) continue;
+            int units = DBFind.findCourse(aClass.getYearSem() + "-" + aClass.getCourseCode()).getFirst().getUnits();
+            totalGrade += aClass.getGrade() * units;
+            totalUnits += units;
+        }
+        gwa = totalGrade / totalUnits;
+        lblStudentInformationGWA.setText(String.valueOf(Double.isNaN(gwa) ? "0.00": gwa));
+        lblStudentInformationStatus.setText(gwa <= 3.00 || Double.isNaN(gwa) ? "Regular" : "Irregular");
     }
 
-    public static HBox generateHBox() {
+    public static HBox generateClassHBox(Class enrolled) {
         HBox hBox = new HBox();
         hBox.setAlignment(javafx.geometry.Pos.BOTTOM_CENTER);
         hBox.setLayoutX(361.0);
@@ -114,25 +146,24 @@ public class StudentsInformation {
         vBox.setPrefHeight(184.0);
         vBox.setPrefWidth(184.0);
 
-        Label label1 = new Label("RPH 004");
+        Label label1 = new Label(enrolled.getCourseCode());
         label1.setGraphicTextGap(5.0);
         label1.setPrefWidth(259.0);
         label1.getStyleClass().add("label-text");
         label1.setFont(new Font("Century Gothic Bold", 30.0));
 
-        Label label2 = new Label("Readings in Philippine History");
+        Label label2 = new Label(enrolled.getYearSem() + " - " + enrolled.getSection());
         label2.setGraphicTextGap(5.0);
         label2.setLayoutX(220.0);
         label2.setLayoutY(84.0);
         label2.getStyleClass().add("label-text");
-        label2.setText("Readings in Philippine History");
         label2.setWrapText(true);
         label2.setFont(new Font("Century Gothic", 14.0));
 
         vBox.getChildren().addAll(label1, label2);
         vBox.setCursor(javafx.scene.Cursor.HAND);
 
-        TextField textField = new TextField("1.75");
+        TextField textField = new TextField(String.valueOf(enrolled.getGrade()));
         textField.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
         textField.setPrefHeight(62.0);
         textField.setPrefWidth(119.0);

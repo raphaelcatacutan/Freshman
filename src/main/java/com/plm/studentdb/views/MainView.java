@@ -41,7 +41,7 @@ public class MainView {
 
         viewDashboardController.stkDashboardQuickAdd.setOnMouseClicked(ev -> {
             navigateStudents();
-            viewStudentsController.studentsInformationController.show(null, 0.8, true);
+            viewStudentsController.studentsInformationController.showForms(null, 0.8, true);
         });
         viewDashboardController.stkDashboardQuickView.setOnMouseClicked(ev -> {
             navigateStudents();

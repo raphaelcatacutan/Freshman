@@ -74,7 +74,7 @@
                               </DropShadow>
                            </effect>
                         </Label>
-                        <Label fx:id="btnViewStudentsAdd" alignment="CENTER" graphicTextGap="8.0" onMouseClicked="#showAdd" prefHeight="41.0" prefWidth="193.0" style="-fx-background-radius: 10; -fx-background-color: #b8ffb5;" text="Add" textFill="#268600">
+                        <Label fx:id="btnViewStudentsAdd" alignment="CENTER" graphicTextGap="8.0" onMouseClicked="#showInformation" prefHeight="41.0" prefWidth="193.0" style="-fx-background-radius: 10; -fx-background-color: #b8ffb5;" text="Add" textFill="#268600">
                            <font>
                               <Font name="Century Gothic Bold" size="16.0" />
                            </font>
@@ -115,6 +115,7 @@
                </padding>
             </VBox>
             <fx:include fx:id="studentsInformation" source="students-information.fxml" />
+            <fx:include fx:id="studentsCourses" source="students-courses.fxml" />
          </children>
       </StackPane>
    </children>
