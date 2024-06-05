@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DBEdit {
     public static Student editStudentRecord(int id, int studentId, String name, String program, int year, int block, String email) {
-        String updateQuery = "UPDATE studentdb.student SET studentId=?, name=?, program=?, year=?, block=?, email=? WHERE id=?";
+        String updateQuery = "UPDATE studentdb.student SET student_id=?, full_name=?, program=?, year=?, block=?, email=? WHERE id=?";
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
             pstmt.setInt(1, studentId);
             pstmt.setString(2, name);

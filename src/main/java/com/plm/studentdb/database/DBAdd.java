@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class DBAdd {
     public static Student addStudentRecord(int studentId, String name, String program, int year, int block, String email) {
-        String insertQuery = "INSERT INTO studentdb.student (studentId, name, program, year, block, email) VALUES (?, ?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO studentdb.student (student_id, full_name, program, year, block, email) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, studentId);
