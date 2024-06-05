@@ -97,5 +97,8 @@ public class DBConnection {
         } else {
             System.out.println("Failed to establish connection to database.");
         }
+        for (int i = 0; i < 10; i++) {
+            DBRandom.generateAndAddRandomStudent();
+        }
     }
 }
