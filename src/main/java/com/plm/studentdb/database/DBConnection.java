@@ -30,20 +30,60 @@ public class DBConnection {
     }
 
     private static void initializeTables() throws SQLException {
+        // Courses
         try (Statement stmt = connection.createStatement()) {
-            String createTableQuery = "CREATE TABLE IF NOT EXISTS studentdb.student_record (" +
+            String createCourseTableQuery = "CREATE TABLE IF NOT EXISTS course (" +
                     "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                    "student_id INT, " +
-                    "name VARCHAR(100) NOT NULL, " +
-                    "college VARCHAR(100) NOT NULL, " +
-                    "course VARCHAR(100) NOT NULL, " +
+                    "course_code VARCHAR(255) NOT NULL, " +
+                    "units INT NOT NULL, " +
+                    "sections INT NOT NULL, " +
+                    "course_name VARCHAR(255) NOT NULL" +
+                    ")";
+            stmt.executeUpdate(createCourseTableQuery);
+        }
+        // Enrolled
+        try (Statement stmt = connection.createStatement()) {
+            String createEnrolledTableQuery = "CREATE TABLE IF NOT EXISTS enrolled (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "student_number VARCHAR(255) NOT NULL, " +
+                    "course_code VARCHAR(255) NOT NULL, " +
+                    "section INT NOT NULL, " +
                     "year INT NOT NULL, " +
-                    "first_sem_gwa DECIMAL(4, 2) NOT NULL, " +
-                    "second_sem_gwa DECIMAL(4, 2) NOT NULL, " +
-                    "total_gwa DECIMAL(4, 2) NOT NULL, " +
-                    "status VARCHAR(20) NOT NULL, " +
-                    "year_enrolled INT NOT NULL)";
-            stmt.executeUpdate(createTableQuery);
+                    "grade DECIMAL(5,2) NOT NULL" +
+                    ")";
+            stmt.executeUpdate(createEnrolledTableQuery);
+        }
+        // Accounts
+        try (Statement stmt = connection.createStatement()) {
+            String createAccountsTableQuery = "CREATE TABLE IF NOT EXISTS accounts (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "username VARCHAR(255) NOT NULL, " +
+                    "password VARCHAR(255) NOT NULL, " +
+                    "program_access VARCHAR(255) NOT NULL" +
+                    ")";
+            stmt.executeUpdate(createAccountsTableQuery);
+        }
+        // Colleges
+        try (Statement stmt = connection.createStatement()) {
+            String createCollegeTableQuery = "CREATE TABLE IF NOT EXISTS college (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "college_name VARCHAR(255) NOT NULL, " +
+                    "program VARCHAR(255) NOT NULL" +
+                    ")";
+            stmt.executeUpdate(createCollegeTableQuery);
+        }
+        // Students
+        try (Statement stmt = connection.createStatement()) {
+            String createStudentTableQuery = "CREATE TABLE IF NOT EXISTS student (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "full_name VARCHAR(255) NOT NULL, " +
+                    "student_id VARCHAR(255) UNIQUE NOT NULL, " +
+                    "program VARCHAR(255) NOT NULL, " +
+                    "year INT NOT NULL, " +
+                    "block VARCHAR(255) NOT NULL, " +
+                    "email VARCHAR(255) NOT NULL" +
+                    ")";
+            stmt.executeUpdate(createStudentTableQuery);
         }
     }
 
@@ -57,7 +97,5 @@ public class DBConnection {
         } else {
             System.out.println("Failed to establish connection to database.");
         }
-        DBAdd.addStudentRecord(202334038, "Trisha Lau", "CISTM", "BSCS", 1, 2.5, 4, 2023);
-        DBAdd.addStudentRecord(202334039, "Trisha Mae Lau", "CISTM", "BSIT", 1, 1.5, 1.75, 2023);
     }
 }
