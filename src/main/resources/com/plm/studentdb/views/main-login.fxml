@@ -108,7 +108,7 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/icons/PLM%20logo.png" />
+                        <Image url="@../assets/icons/plm-logo.png" />
                      </image>
                   </ImageView>
                   <Label text="Pamantasan ng Lungsod ng Maynila " textFill="#0e558f" wrapText="true">

@@ -38,7 +38,7 @@
                <graphic>
                   <ImageView fitHeight="42.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/icons/PLM%20logo.png" />
+                        <Image url="@../assets/icons/plm-logo.png" />
                      </image>
                   </ImageView>
                </graphic>
