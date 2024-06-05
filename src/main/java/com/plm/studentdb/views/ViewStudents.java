@@ -41,9 +41,9 @@ public class ViewStudents {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         nameColumn.minWidthProperty().bind(tbvStudents.widthProperty().multiply(0.25));
 
-        TableColumn<Student, String> courseColumn = new TableColumn<>("Course");
+        TableColumn<Student, String> courseColumn = new TableColumn<>("Program");
         courseColumn.setPrefWidth(100);
-        courseColumn.setCellValueFactory(new PropertyValueFactory<>("course"));
+        courseColumn.setCellValueFactory(new PropertyValueFactory<>("program"));
         courseColumn.minWidthProperty().bind(tbvStudents.widthProperty().multiply(0.24));
 
         TableColumn<Student, Integer> yearColumn = new TableColumn<>("Year");
@@ -51,9 +51,9 @@ public class ViewStudents {
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
         yearColumn.minWidthProperty().bind(tbvStudents.widthProperty().multiply(0.12));
 
-        TableColumn<Student, String> statusColumn = new TableColumn<>("Status");
+        TableColumn<Student, String> statusColumn = new TableColumn<>("Block");
         statusColumn.setPrefWidth(100);
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("block"));
         statusColumn.minWidthProperty().bind(tbvStudents.widthProperty().multiply(0.15));
 
         tbvStudents.getColumns().addAll(idColumn, nameColumn, courseColumn, yearColumn, statusColumn);

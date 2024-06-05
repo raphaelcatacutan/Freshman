@@ -13,18 +13,15 @@ public class Mapper {
             int id = resultSet.getInt("id");
             int studentId = resultSet.getInt("student_id");
             String name = resultSet.getString("name");
-            String college = resultSet.getString("college");
-            String course = resultSet.getString("course");
+            String program = resultSet.getString("program");
             int year = resultSet.getInt("year");
-            double firstSemGwa = resultSet.getDouble("first_sem_gwa");
-            double secondSemGwa = resultSet.getDouble("second_sem_gwa");
-            double totalGwa = resultSet.getDouble("total_gwa");
-            String status = resultSet.getString("status");
-            int yearEnrolled = resultSet.getInt("year_enrolled");
+            int block = resultSet.getInt("block");
+            String email = resultSet.getString("email");
 
-            Student student = new Student(id, studentId, name, college, course, year, firstSemGwa, secondSemGwa, totalGwa, status, yearEnrolled);
+            Student student = new Student(id, studentId, name, program, year, block, email);
             students.add(student);
         }
         return students;
     }
+
 }

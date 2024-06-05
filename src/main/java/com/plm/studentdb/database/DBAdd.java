@@ -1,32 +1,27 @@
 package com.plm.studentdb.database;
 
 import com.plm.studentdb.models.Student;
+import javafx.beans.property.IntegerProperty;
 
 import java.sql.*;
 
 public class DBAdd {
-    public static Student addStudentRecord(int studentId, String name, String college, String course, int year, double firstSemGwa, double secondSemGwa, int yearEnrolled) {
-        double totalGwa = (firstSemGwa + secondSemGwa) / 2;
-        String status = totalGwa <= 3.00 ? "Regular" : "Irregular";
-        String insertQuery = "INSERT INTO studentdb.student_record (student_id, name, college, course, year, first_sem_gwa, second_sem_gwa, total_gwa, status, year_enrolled) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public static Student addStudentRecord(int studentId, String name, String program, int year, int block, String email) {
+        String insertQuery = "INSERT INTO studentdb.student (studentId, name, program, year, block, email) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, studentId);
             pstmt.setString(2, name);
-            pstmt.setString(3, college);
-            pstmt.setString(4, course);
-            pstmt.setInt(5, year);
-            pstmt.setDouble(6, firstSemGwa);
-            pstmt.setDouble(7, secondSemGwa);
-            pstmt.setDouble(8, totalGwa);
-            pstmt.setString(9, status);
-            pstmt.setInt(10, yearEnrolled);
+            pstmt.setString(3, program);
+            pstmt.setInt(4, year);
+            pstmt.setInt(5, block);
+            pstmt.setString(6, email);
             pstmt.executeUpdate();
 
             try (ResultSet rs = pstmt.getGeneratedKeys()) {
                 rs.next();
                 int id = rs.getInt("GENERATED_KEY");
-                Student student = new Student(id, studentId, name, college, course, year, firstSemGwa, secondSemGwa, totalGwa, status, yearEnrolled);
+                Student student = new Student(id, studentId, name, program, year, block, email);
                 return student;
             }
 

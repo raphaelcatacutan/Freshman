@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class DBFind {
     public static Student findStudentRecord(int studentId){
         // Check if the student ID exists in the database
-        String selectQuery = "SELECT * FROM student_record WHERE student_id = ?";
+        String selectQuery = "SELECT * FROM student WHERE student_id = ?";
         try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
             p.setInt(1, studentId);
 

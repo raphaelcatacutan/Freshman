@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DBView {
     public static List<Student> viewStudentRecord() {
-        String selectQuery = "SELECT * FROM student_record";
+        String selectQuery = "SELECT * FROM student";
         try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)){
             ResultSet resultSet = p.executeQuery();
 
