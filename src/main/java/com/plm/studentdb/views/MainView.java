@@ -53,52 +53,13 @@ public class MainView {
     public void navigationViewTransition(AnchorPane view) {
         for (AnchorPane v: views) {
             if (v == view) {
-                if (v == currentView) continue;
-
-                // Create FadeTransition for fading in
-                FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), v);
-                fadeIn.setFromValue(0);
-                fadeIn.setToValue(1);
-                fadeIn.setDelay(Duration.seconds(0.5));
-
-                // Create TranslateTransition for floating in from below
-                TranslateTransition translateIn = new TranslateTransition(Duration.seconds(0.5), v);
-                translateIn.setFromY(100); // Start from below
-                translateIn.setToY(0); // Move to original position
-                translateIn.setDelay(Duration.seconds(0.5));
-
-                // Play both transitions together
-                fadeIn.setOnFinished(ev -> {
-                    v.toFront();
-                    v.setOpacity(1);
-                });
-                translateIn.play();
-                fadeIn.play();
-
+                if (v != currentView) AppAnimations.navigateIn(v);
             } else {
-                if (v != currentView) {
+                if (v == currentView) AppAnimations.navigateOut(v);
+                else {
                     v.toBack();
                     v.setOpacity(0);
-                    continue;
                 }
-
-                // Create FadeTransition for fading out
-                FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), v);
-                fadeOut.setFromValue(1);
-                fadeOut.setToValue(0);
-
-                // Create TranslateTransition for floating out upwards
-                TranslateTransition translateOut = new TranslateTransition(Duration.seconds(0.5), v);
-                translateOut.setFromY(0); // Start from original position
-                translateOut.setToY(-100); // Move upwards
-
-                // Play both transitions together
-                fadeOut.setOnFinished(ev -> {
-                    v.toBack();
-                    v.setOpacity(0);
-                });
-                translateOut.play();
-                fadeOut.play();
             }
         }
         currentView = view;

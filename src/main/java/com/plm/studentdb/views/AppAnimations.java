@@ -1,10 +1,8 @@
 package com.plm.studentdb.views;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.Interpolator;
-import javafx.animation.ScaleTransition;
-import javafx.animation.SequentialTransition;
+import javafx.animation.*;
 import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class AppAnimations {
@@ -65,5 +63,47 @@ public class AppAnimations {
 
     public static void login() {
 
+    }
+
+    public static void navigateIn(AnchorPane view) {
+        // Create FadeTransition for fading in
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), view);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+        fadeIn.setDelay(Duration.seconds(0.5));
+
+        // Create TranslateTransition for floating in from below
+        TranslateTransition translateIn = new TranslateTransition(Duration.seconds(0.5), view);
+        translateIn.setFromY(100); // Start from below
+        translateIn.setToY(0); // Move to original position
+        translateIn.setDelay(Duration.seconds(0.5));
+
+        // Play both transitions together
+        fadeIn.setOnFinished(ev -> {
+            view.toFront();
+            view.setOpacity(1);
+        });
+        translateIn.play();
+        fadeIn.play();
+    }
+
+    public static void navigateOut(AnchorPane view) {
+        // Create FadeTransition for fading out
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), view);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+
+        // Create TranslateTransition for floating out upwards
+        TranslateTransition translateOut = new TranslateTransition(Duration.seconds(0.5), view);
+        translateOut.setFromY(0); // Start from original position
+        translateOut.setToY(-100); // Move upwards
+
+        // Play both transitions together
+        fadeOut.setOnFinished(ev -> {
+            view.toBack();
+            view.setOpacity(0);
+        });
+        translateOut.play();
+        fadeOut.play();
     }
 }
