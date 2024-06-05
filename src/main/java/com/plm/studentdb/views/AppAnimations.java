@@ -8,6 +8,7 @@ import javafx.util.Duration;
 
 public class AppAnimations {
     public static void popup(Node target, double delay) {
+        if (target.isVisible()) return;
         target.setOpacity(0);
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.25), target);
@@ -39,6 +40,7 @@ public class AppAnimations {
     }
 
     public static void popdown(Node target, double delay) {
+        if (!target.isVisible()) return;
         target.setOpacity(0);
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.25), target);
@@ -67,6 +69,7 @@ public class AppAnimations {
     }
 
     public static void navigateIn(AnchorPane view) {
+        if (view.getOpacity() > 0) return;
         // Create FadeTransition for fading in
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), view);
         fadeIn.setFromValue(0);
@@ -82,6 +85,7 @@ public class AppAnimations {
     }
 
     public static void navigateOut(AnchorPane view) {
+        if (view.getOpacity() <= 0) return;
         // Create FadeTransition for fading out
         FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), view);
         fadeOut.setFromValue(1);

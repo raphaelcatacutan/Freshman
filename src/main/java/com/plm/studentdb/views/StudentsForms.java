@@ -20,7 +20,7 @@ public class StudentsForms {
     @FXML TextField txfStudentsViewGwa2;
     @FXML TextField txfStudentsViewYearEnrolled;
 
-    public StudentsMessage studentsMessageViewController;
+    public MainMessage studentsMessageViewController;
     public boolean isAdding = true;
 
     @FXML void closeAddView() {

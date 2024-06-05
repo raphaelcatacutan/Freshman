@@ -22,5 +22,7 @@
             <Insets top="-200.0" />
          </StackPane.margin></AnchorPane>
       <fx:include fx:id="mainLogin" source="main-login.fxml" />
+      <fx:include fx:id="mainConfirm" source="main-confirm.fxml" />
+      <fx:include fx:id="mainMessage" source="main-message.fxml" />
    </children>
 </StackPane>

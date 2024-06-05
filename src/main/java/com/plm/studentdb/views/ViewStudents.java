@@ -19,14 +19,10 @@ import javafx.scene.input.KeyEvent;
 public class ViewStudents {
     @FXML public TableView<Student> tbvStudents = new TableView<>();
     @FXML public Parent studentsInformation;
-    @FXML public Parent studentsMessageView;
-    @FXML public Parent studentsConfirmView;
     @FXML public Label btnViewStudentsAdd;
     @FXML public TextField txfStudentsSearch;
 
     @FXML public StudentsInformation studentsInformationController;
-    @FXML public StudentsMessage studentsMessageViewController;
-    @FXML public StudentsConfirm studentsConfirmViewController;
 
     public static ObservableList<Student> studentsListTable = FXCollections.observableArrayList();
     public static int filterStudentId = -1;
@@ -76,7 +72,7 @@ public class ViewStudents {
         getData();
 
         // studentsInformationController.studentsMessageViewController = studentsMessageViewController;
-        studentsConfirmViewController.txfStudentsSearch = txfStudentsSearch;
+        //studentsConfirmViewController.txfStudentsSearch = txfStudentsSearch;
     }
 
     private void getData() {
@@ -101,15 +97,15 @@ public class ViewStudents {
 
     @FXML private void delete() {
         if (studentsListTable.size() != 1) {
-            studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
+            //studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
             return;
         };
-        AppAnimations.popup(studentsConfirmViewController.anpStudentsConfirmView, 0.2);
+        //AppAnimations.popup(studentsConfirmViewController.anpStudentsConfirmView, 0.2);
     }
 
     @FXML private void showEdit() {
         if (studentsListTable.size() != 1) {
-            studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
+            //studentsMessageViewController.show("Invalid Target", "Please enter a valid Student ID to find within the database.");
             return;
         };
 
