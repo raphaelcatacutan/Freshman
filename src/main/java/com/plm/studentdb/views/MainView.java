@@ -7,6 +7,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class MainView {
+    @FXML AnchorPane anpMainView;
     @FXML StackPane stkViews;
     @FXML Pane pneNavigationIndicator;
 
@@ -28,16 +29,18 @@ public class MainView {
     @FXML ViewReports viewReportsController;
     @FXML ViewSettings viewSettingsController;
 
+    public Parent mainLogin;
+
     AnchorPane[] views = new AnchorPane[3];
     AnchorPane currentView = anpViewDashboard;
 
     @FXML void initialize() {
         views = new AnchorPane[]{anpViewDashboard, anpViewStudents, anpViewCurriculum, anpViewReports, anpViewSettings};
+
         navigateDashboard();
 
         viewDashboardController.stkDashboardQuickAdd.setOnMouseClicked(ev -> {
             navigateStudents();
-            //AppAnimations.popup(viewStudentsController.studentsAddView, 1);
         });
         viewDashboardController.stkDashboardQuickView.setOnMouseClicked(ev -> {
             navigateStudents();
@@ -71,6 +74,11 @@ public class MainView {
     @FXML void navigateSettings() {
         navigationViewTransition(anpViewSettings);
         AppAnimations.navigationBarTransition(pneNavigationIndicator, 257);
+    }
+
+    @FXML void logout() {
+        mainLogin.toFront();
+        anpMainView.toBack();
     }
 
     public void navigationViewTransition(AnchorPane view) {

@@ -20,8 +20,10 @@ public class AppMain {
 
     public void initialize() {
         mainLoginController.mainView = mainView;
+        mainViewController.mainLogin = mainLogin;
         mainLoginController.pneBackgroundFade = pneBackgroundFade;
-        mainLoginController.mainMessageController = mainMessageController;
+        Dialogs.mainMessageDialog = mainMessageController;
+        Dialogs.mainConfirmDialog = mainConfirmController;
     }
 
 }
