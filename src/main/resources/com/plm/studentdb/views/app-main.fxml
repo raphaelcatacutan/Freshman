@@ -17,7 +17,7 @@
             <Insets />
          </StackPane.margin>
       </ImageView>
-      <AnchorPane fx:id="pneBackgroundFade" prefHeight="780.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to top,     rgba(211, 211, 211, 1) 40%,     rgba(211, 211, 211, 0.8) 60%,     rgba(211, 211, 211, 0.6) 80%,     rgba(211, 211, 211, 0.5) 90%,     rgba(211, 211, 211, 0.5) 100%);">
+      <AnchorPane fx:id="pneBackgroundFade" prefHeight="780.0" prefWidth="1280.0" style="-fx-background-color: linear-gradient(to top,     rgba(222, 222, 222, 1) 40%,     rgba(222, 222, 222, 0.9) 60%,     rgba(222, 222, 222, 0.8) 80%,     rgba(222, 222, 222, 0.7) 90%,     rgba(222, 222, 222, 0.7) 100%);">
          <StackPane.margin>
             <Insets top="-200.0" />
          </StackPane.margin></AnchorPane>
