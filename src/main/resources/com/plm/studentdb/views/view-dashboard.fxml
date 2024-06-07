@@ -153,11 +153,11 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </StackPane>
-                        <StackPane alignment="TOP_CENTER" prefHeight="250.0" prefWidth="270.0">
+                        <StackPane fx:id="stkDashboardQuickCourse" alignment="TOP_CENTER" onMouseEntered="#stkDashboardQuickCourseHover" onMouseExited="#stkDashboardQuickCourseReverseHover" prefHeight="250.0" prefWidth="270.0">
                            <children>
-                              <VBox alignment="BOTTOM_CENTER" spacing="20.0" style="-fx-background-color: #ADD8E6; -fx-background-radius: 30;">
+                              <VBox fx:id="vbxDashboardQuickCourse" alignment="BOTTOM_CENTER" spacing="20.0" style="-fx-background-color: #ADD8E6; -fx-background-radius: 30;">
                                  <children>
-                                    <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" style="-fx-background-radius: 10;" text="Print" textAlignment="CENTER" wrapText="true">
+                                    <Label alignment="CENTER" graphicTextGap="8.0" layoutX="20.0" layoutY="73.0" style="-fx-background-radius: 10;" text="Add" textAlignment="CENTER" wrapText="true">
                                        <font>
                                           <Font name="Century Gothic Bold" size="46.0" />
                                        </font>
@@ -165,7 +165,7 @@
                                           <Insets />
                                        </VBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" graphicTextGap="8.0" style="-fx-background-radius: 10;" text="A Generated Database Report" textAlignment="CENTER" wrapText="true">
+                                    <Label alignment="CENTER" graphicTextGap="8.0" prefHeight="82.0" prefWidth="212.0" style="-fx-background-radius: 10;" text="A Course to the Database" textAlignment="CENTER" wrapText="true">
                                        <font>
                                           <Font name="Century Gothic" size="21.0" />
                                        </font>
@@ -188,7 +188,7 @@
                                     </DropShadow>
                                  </effect>
                               </VBox>
-                              <ImageView fitHeight="242.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDashboardQuickCourse" fitHeight="242.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/image/list.png" />
                                  </image>

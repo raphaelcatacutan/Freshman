@@ -159,4 +159,19 @@ public class DBFind {
             throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
         }
     }
+
+    public static List<Course> findLikeCourse(String courseCode) {
+        String selectQuery = "SELECT * FROM course WHERE course_code LIKE ?";
+
+        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
+            p.setString(1, "%" + courseCode + "%");
+
+            try (ResultSet rs = p.executeQuery()) {
+                List<Course> courses = Mapper.generateCourseObservable(rs);
+                return courses;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
+        }
+    }
 }

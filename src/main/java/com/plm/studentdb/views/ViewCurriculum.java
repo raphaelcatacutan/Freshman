@@ -1,14 +1,19 @@
 package com.plm.studentdb.views;
 
+import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBView;
 import com.plm.studentdb.models.Course;
+import com.plm.studentdb.models.Student;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -22,6 +27,8 @@ public class ViewCurriculum {
 
     @FXML Parent curriculumForms;
     @FXML Parent curriculumStudents;
+
+    @FXML TextField txfCourseSearch;
 
     @FXML CurriculumForms curriculumFormsController;
     @FXML CurriculumStudents curriculumStudentsController;
@@ -38,7 +45,7 @@ public class ViewCurriculum {
             VBox vbox = createCourseVBox(course);
             flwViewCurriculumList.getChildren().add(vbox);
             vbox.setOnMouseClicked(ev -> {
-                curriculumFormsController.showForms(course, vbox, false);
+                curriculumFormsController.showForms(course, vbox, false, 0);
             });
         }
 
@@ -49,7 +56,24 @@ public class ViewCurriculum {
 
     @FXML
     public void showForms() {
-        curriculumFormsController.showForms(null, null, true);
+        curriculumFormsController.showForms(null, null, true, 0);
+    }
+
+    @FXML
+    public void search(KeyEvent event) {
+        if (event.getCode() != KeyCode.ENTER) return;
+        String input = txfCourseSearch.getText();
+        flwViewCurriculumList.getChildren().clear();
+
+        List<Course> courses = input.isEmpty() ? DBView.viewCourseRecord() : DBFind.findLikeCourse(input);
+
+        for (Course course: courses) {
+            VBox vbox = createCourseVBox(course);
+            flwViewCurriculumList.getChildren().add(vbox);
+            vbox.setOnMouseClicked(ev -> {
+                curriculumFormsController.showForms(course, vbox, false, 0);
+            });
+        }
     }
 
     public static VBox createCourseVBox(Course course) {

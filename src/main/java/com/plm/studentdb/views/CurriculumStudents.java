@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -23,6 +24,7 @@ public class CurriculumStudents {
     @FXML AnchorPane anpCurriculumStudents;
     @FXML VBox vbxCurriculumStudentsList;
     @FXML TextField txfCurriculumStudentsSection;
+    @FXML Label curriculumStudentsNumber;
 
     public Course focusedCourse;
     public CurriculumForms curriculumFormsController;
@@ -32,7 +34,6 @@ public class CurriculumStudents {
         AppAnimations.popdown(anpCurriculumStudents, 0);
         vbxCurriculumStudentsList.getChildren().clear();
         txfCurriculumStudentsSection.setText(null);
-        curriculumFormsController.closeForms();
     }
 
     public void showForms(Course focusedCourse) {
@@ -49,20 +50,39 @@ public class CurriculumStudents {
 
         List<Class> Classes = DBFind.findClass(courseShort, year, semester);
         List<Student> students = DBView.viewStudentRecord();
+        int numberOfStudents = 0;
 
         for (Student student: students) {
             boolean isEnrolled = false;
-            for (Class aClass: Classes) isEnrolled = Integer.parseInt(aClass.getStudentNumber()) == student.getStudentId();
+            for (Class aClass: Classes) {
+                isEnrolled = Integer.parseInt(aClass.getStudentNumber()) == student.getStudentId();
+                if (isEnrolled) {
+                    numberOfStudents++;
+                    break;
+                };
+            }
             CheckBox checkBox = generateStudentCheckBox(student.getName(), isEnrolled);
             checkBox.setUserData(student);
             vbxCurriculumStudentsList.getChildren().add(checkBox);
         }
+        curriculumStudentsNumber.setText("(" + numberOfStudents + ") of Students Enrolled");
     }
 
     public void confirmForms() {
         ObservableList<Node> students = vbxCurriculumStudentsList.getChildren();
         int section = Integer.parseInt(txfCurriculumStudentsSection.getText());
 
+        int selected = 0;
+        for (Node v: students) {
+            CheckBox checkbox = (CheckBox) v;
+            if (checkbox.isSelected()) selected++;
+        }
+        if (selected > focusedCourse.getLimit()) {
+            Dialogs.mainMessageDialog.show("Limit Reached", "Number of student enrolled in limited to " + focusedCourse.getLimit() + " students");
+            return;
+        }
+
+        // Editing
         for (Node v: students) {
             CheckBox checkbox = (CheckBox) v;
             Student student = (Student) checkbox.getUserData();

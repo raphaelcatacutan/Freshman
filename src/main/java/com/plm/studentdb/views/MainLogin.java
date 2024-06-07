@@ -2,6 +2,7 @@ package com.plm.studentdb.views;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
@@ -17,6 +18,7 @@ public class MainLogin {
 
     public Parent mainView;
     public Pane pneBackgroundFade;
+    @FXML public Button logInButton;
 
     @FXML public void initialize() {
         userID.requestFocus();
@@ -30,6 +32,8 @@ public class MainLogin {
         if (predefinedUsername.equals(enteredUsername) && predefinedPassword.equals(enteredPassword)) {
             mainView.toFront();
             anpMainLogin.toBack();
+            userID.setText(null);
+            userPassword.setText(null);
             Dialogs.mainMessageDialog.close();
         } else {
             Dialogs.mainMessageDialog.show("Invalid Credentials", "Please check your username and password and try again.");

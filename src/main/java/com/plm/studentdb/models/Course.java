@@ -12,13 +12,25 @@ public class Course {
     private final IntegerProperty sections;
     private final StringProperty courseName;
 
-    public Course(int id, String courseCode, int units, int sections, String courseName) {
+    private final IntegerProperty limit;
+
+    public Course(int id, String courseCode, int units, int sections, String courseName, int limit) {
         this.id = new SimpleIntegerProperty(id);
         this.courseCode = new SimpleStringProperty(courseCode);
         this.units = new SimpleIntegerProperty(units);
         this.sections = new SimpleIntegerProperty(sections);
         this.courseName = new SimpleStringProperty(courseName);
+        this.limit = new SimpleIntegerProperty(limit);
     }
+
+    public int getLimit() {
+        return limit.get();
+    }
+
+    public IntegerProperty limitProperty() {
+        return limit;
+    }
+
 
     public int getId() {
         return id.get();

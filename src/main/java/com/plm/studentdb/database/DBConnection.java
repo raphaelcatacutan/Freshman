@@ -7,8 +7,8 @@ import java.sql.Statement;
 
 public class DBConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/";
-    private static final String USER = "Trisha";
-    private static final String PASSWORD = "Trl527";
+    private static final String USER = "root";
+    private static final String PASSWORD = "root";
     private static final String DATABASE_NAME = "studentdb";
     private static Connection connection;
 
@@ -37,6 +37,7 @@ public class DBConnection {
                     "course_code VARCHAR(255) NOT NULL, " +
                     "units INT NOT NULL, " +
                     "sections INT NOT NULL, " +
+                    "st_limit INT NOT NULL, " +
                     "course_name VARCHAR(255) NOT NULL" +
                     ")";
             stmt.executeUpdate(createCourseTableQuery);
@@ -81,7 +82,7 @@ public class DBConnection {
                     "student_id VARCHAR(255) UNIQUE NOT NULL, " +
                     "program VARCHAR(255) NOT NULL, " +
                     "year INT NOT NULL, " +
-                    "block VARCHAR(255) NOT NULL, " +
+                    "block INT NOT NULL, " +
                     "email VARCHAR(255) NOT NULL" +
                     ")";
             stmt.executeUpdate(createStudentTableQuery);

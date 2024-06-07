@@ -10,16 +10,19 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-
 public class ViewDashboard {
     @FXML public StackPane stkDashboardQuickAdd;
     @FXML public StackPane stkDashboardQuickView;
+    @FXML public StackPane stkDashboardQuickCourse;
 
     @FXML public ImageView imgDashboardQuickAdd;
     @FXML public ImageView imgDashboardQuickView;
+    @FXML public ImageView imgDashboardQuickCourse;
 
     @FXML public VBox vbxDashboardQuickAdd;
     @FXML public VBox vbxDashboardQuickView;
+    @FXML public VBox vbxDashboardQuickCourse;
+
 
 
     @FXML
@@ -143,6 +146,69 @@ public class ViewDashboard {
         // Create a RotateTransition for ImageView
         RotateTransition rotateTransition = new RotateTransition(Duration.seconds(0.2), imgDashboardQuickView);
         rotateTransition.setByAngle(10); // Rotate by 10 degrees
+
+        // Combine transitions
+        ParallelTransition parallelTransition = new ParallelTransition(rotateTransition, scaleTransitionVBox, scaleTransitionImage);
+
+        // Handle mouse enter event
+        parallelTransition.playFromStart(); // Play the animation
+    }
+
+    public void stkDashboardQuickCourseHover() {
+        // Create a ScaleTransition for VBox
+        ScaleTransition scaleTransitionVBox = new ScaleTransition(Duration.seconds(0.2), vbxDashboardQuickCourse);
+        scaleTransitionVBox.setFromX(1.0);
+        scaleTransitionVBox.setFromY(1.0);
+        scaleTransitionVBox.setToX(1.1);
+        scaleTransitionVBox.setToY(1.1);
+
+        // Create a ScaleTransition for ImageView
+        ScaleTransition scaleTransitionImage = new ScaleTransition(Duration.seconds(0.2), imgDashboardQuickCourse);
+        scaleTransitionImage.setFromX(1.0);
+        scaleTransitionImage.setFromY(1.0);
+        scaleTransitionImage.setToX(1.3);
+        scaleTransitionImage.setToY(1.3);
+
+        // Create a BackgroundFill for VBox background
+        BackgroundFill backgroundFill = new BackgroundFill(Color.web("#74a2d0"), new CornerRadii(30), Insets.EMPTY);
+        Background background = new Background(backgroundFill);
+        vbxDashboardQuickCourse.setBackground(background);
+
+        // Create a RotateTransition for ImageView
+        RotateTransition rotateTransition = new RotateTransition(Duration.seconds(0.2), imgDashboardQuickCourse);
+        rotateTransition.setByAngle(5); // Rotate by 10 degrees
+
+        // Combine transitions
+        ParallelTransition parallelTransition = new ParallelTransition(rotateTransition, scaleTransitionVBox, scaleTransitionImage);
+
+        // Handle mouse enter event
+        parallelTransition.playFromStart(); // Play the animation
+    }
+
+
+    public void stkDashboardQuickCourseReverseHover() {
+        // Create a ScaleTransition for VBox
+        ScaleTransition scaleTransitionVBox = new ScaleTransition(Duration.seconds(0.2), vbxDashboardQuickCourse);
+        scaleTransitionVBox.setFromX(1.1);
+        scaleTransitionVBox.setFromY(1.1);
+        scaleTransitionVBox.setToX(1.0);
+        scaleTransitionVBox.setToY(1.0);
+
+        // Create a ScaleTransition for ImageView
+        ScaleTransition scaleTransitionImage = new ScaleTransition(Duration.seconds(0.2), imgDashboardQuickCourse);
+        scaleTransitionImage.setFromX(1.3);
+        scaleTransitionImage.setFromY(1.3);
+        scaleTransitionImage.setToX(1.0);
+        scaleTransitionImage.setToY(1.0);
+
+        // Create a BackgroundFill for VBox background
+        BackgroundFill backgroundFill = new BackgroundFill(Color.web("#a5cedb"), new CornerRadii(30), Insets.EMPTY);
+        Background background = new Background(backgroundFill);
+        vbxDashboardQuickCourse.setBackground(background);
+
+        // Create a RotateTransition for ImageView
+        RotateTransition rotateTransition = new RotateTransition(Duration.seconds(0.2), imgDashboardQuickCourse);
+        rotateTransition.setByAngle(-5); // Rotate by 10 degrees
 
         // Combine transitions
         ParallelTransition parallelTransition = new ParallelTransition(rotateTransition, scaleTransitionVBox, scaleTransitionImage);

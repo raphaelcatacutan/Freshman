@@ -53,7 +53,7 @@
                                                    <children>
                                                       <HBox alignment="CENTER_LEFT">
                                                          <children>
-                                                            <Label graphicTextGap="5.0" prefWidth="120.0" styleClass="label-text" text="Full Name:">
+                                                            <Label graphicTextGap="5.0" prefHeight="26.0" prefWidth="141.0" styleClass="label-text" text="Full Name:">
                                                                <font>
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
@@ -67,7 +67,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER_LEFT">
                                                          <children>
-                                                            <Label graphicTextGap="5.0" prefWidth="120.0" styleClass="label-text" text="Student ID:">
+                                                            <Label graphicTextGap="5.0" prefHeight="26.0" prefWidth="141.0" styleClass="label-text" text="Student ID:">
                                                                <font>
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
@@ -81,12 +81,12 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER_LEFT">
                                                          <children>
-                                                            <Label graphicTextGap="5.0" prefWidth="120.0" styleClass="label-text" text="Program:">
+                                                            <Label graphicTextGap="5.0" prefWidth="141.0" styleClass="label-text" text="Program:">
                                                                <font>
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
                                                             </Label>
-                                                            <TextField fx:id="txfStudentInformationProgram" promptText="Bachelor in Science in Computer Science" style="-fx-background-color: none;" styleClass="label-text" HBox.hgrow="ALWAYS">
+                                                            <TextField fx:id="txfStudentInformationProgram" promptText="BS Computer Science" style="-fx-background-color: none;" styleClass="label-text" HBox.hgrow="ALWAYS">
                                                                <font>
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
@@ -95,7 +95,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="164.0">
                                                          <children>
-                                                            <Label graphicTextGap="5.0" prefWidth="120.0" styleClass="label-text" text="Email: ">
+                                                            <Label graphicTextGap="5.0" prefHeight="26.0" prefWidth="172.0" styleClass="label-text" text="Email: ">
                                                                <font>
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
@@ -109,7 +109,7 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER_LEFT">
                                                          <children>
-                                                            <Label graphicTextGap="5.0" prefWidth="120.0" styleClass="label-text" text="Year/Block:">
+                                                            <Label graphicTextGap="5.0" prefHeight="26.0" prefWidth="160.0" styleClass="label-text" text="Year/Block:">
                                                                <font>
                                                                   <Font name="Century Gothic" size="20.0" />
                                                                </font>
@@ -152,7 +152,7 @@
                                                       </DropShadow>
                                                    </effect>
                                                 </Button>
-                                                <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#deleteStudent" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #f39595; -fx-background-radius: 5;" text="Delete" textFill="#a62300">
+                                                <Button fx:id="studentsInfromationDelete" alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#deleteStudent" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #f39595; -fx-background-radius: 5;" text="Delete" textFill="#a62300">
                                                    <font>
                                                       <Font name="Century Gothic Bold" size="13.0" />
                                                    </font>

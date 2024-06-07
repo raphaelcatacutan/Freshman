@@ -15,12 +15,12 @@
    <children>
       <VBox layoutX="29.0" layoutY="43.0" prefHeight="275.0" prefWidth="455.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" prefHeight="44.0" prefWidth="374.0" text="Confirm Deletion" textAlignment="CENTER" textFill="#0c558d" wrapText="true">
+            <Label fx:id="mainConfirmTitle" alignment="CENTER" prefHeight="44.0" prefWidth="374.0" text="Confirm Deletion" textAlignment="CENTER" textFill="#0c558d" wrapText="true">
                <font>
                   <Font name="Century Gothic Bold" size="33.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="72.0" prefWidth="354.0" text="Are you sure you want to delete the selected student record?" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="mainConfirmContent" alignment="CENTER" prefHeight="72.0" prefWidth="354.0" text="Are you sure you want to delete the selected student record?" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Century Gothic" size="19.0" />
                </font>
@@ -29,15 +29,15 @@
                <children>
                   <Button mnemonicParsing="false" onMouseClicked="#hideConfirmView" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 5;" text="Cancel">
                      <font>
-                        <Font name="Century Gothic Regular" size="17.0" />
+                        <Font name="Century Gothic" size="17.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#deleteStudent" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #ff9c9c; -fx-background-radius: 5;" text="Confirm">
+                  <Button mnemonicParsing="false" onMouseClicked="#action" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #ff9c9c; -fx-background-radius: 5;" text="Confirm">
                      <font>
-                        <Font name="Century Gothic Regular" size="17.0" />
+                        <Font name="Century Gothic" size="17.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />

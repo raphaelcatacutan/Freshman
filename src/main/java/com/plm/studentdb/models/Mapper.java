@@ -46,8 +46,9 @@ public class Mapper {
             int units = resultSet.getInt("units");
             int sections = resultSet.getInt("sections");
             String courseName = resultSet.getString("course_name");
+            int limit = resultSet.getInt("st_limit");
 
-            Course course = new Course(id, courseCode, units, sections, courseName);
+            Course course = new Course(id, courseCode, units, sections, courseName, limit);
             courses.add(course);
         }
         return courses;

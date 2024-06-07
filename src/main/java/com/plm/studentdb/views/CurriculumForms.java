@@ -5,6 +5,7 @@ import com.plm.studentdb.database.DBEdit;
 import com.plm.studentdb.database.DBRemove;
 import com.plm.studentdb.models.Course;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -19,6 +20,10 @@ public class CurriculumForms {
     @FXML TextField txfCurriculumFormsSections;
     @FXML TextField txfCurriculumFormsName;
     @FXML TextField txfCurriculumFormsUnits;
+    @FXML TextField txfCurriculumFormsLimit;
+
+    @FXML Button curriculumFormsDelete;
+    @FXML Button curriculumFormsStudents;
 
     public boolean isAdding;
     public Course focusedCourse;
@@ -42,25 +47,26 @@ public class CurriculumForms {
         int sections = Integer.parseInt(txfCurriculumFormsSections.getText());
         String name = txfCurriculumFormsName.getText();
         int units = Integer.parseInt(txfCurriculumFormsUnits.getText());
+        int limit = Integer.parseInt(txfCurriculumFormsLimit.getText());
 
         if (isAdding) {
-            Course course = DBAdd.addCourseRecord(courseCode, units, sections, name);
+            Course course = DBAdd.addCourseRecord(courseCode, units, sections, name, limit);
 
             VBox vbox = ViewCurriculum.createCourseVBox(course);
             flwCurriculumFormList.getChildren().add(vbox);
             vbox.setOnMouseClicked(ev -> {
-                this.showForms(course, vbox, false);
+                this.showForms(course, vbox, false, 0);
             });
 
             Dialogs.mainMessageDialog.show("Adding Successful", "The entered data has been successfully added to the database.");
         } else {
-            Course course = DBEdit.editCourseRecord(focusedCourse.getId(), courseCode, units, sections, name);
+            Course course = DBEdit.editCourseRecord(focusedCourse.getId(), courseCode, units, sections, name, limit);
             flwCurriculumFormList.getChildren().remove(focusedVBox);
 
             VBox vbox = ViewCurriculum.createCourseVBox(course);
             flwCurriculumFormList.getChildren().add(vbox);
             vbox.setOnMouseClicked(ev -> {
-                this.showForms(course, vbox, false);
+                this.showForms(course, vbox, false, 0);
             });
 
             Dialogs.mainMessageDialog.show("Editing Successful", "The student data has been successfully updated to the database.");
@@ -71,9 +77,13 @@ public class CurriculumForms {
 
     @FXML
     public void deleteForm() {
-        DBRemove.removeStudentRecord(focusedCourse.getId());
-        flwCurriculumFormList.getChildren().remove(focusedVBox);
-        closeForms();
+        Runnable delete = () -> {
+            DBRemove.removeCourseRecord(focusedCourse.getId());
+            flwCurriculumFormList.getChildren().remove(focusedVBox);
+            closeForms();
+        };
+        Dialogs.mainConfirmDialog.show("Delete a Course", "Are you sure you want to delete this course from the database?", delete);
+
     }
 
     @FXML
@@ -82,10 +92,12 @@ public class CurriculumForms {
     }
 
 
-    public void showForms(Course course, VBox focusedVBox, boolean isAdding) {
+    public void showForms(Course course, VBox focusedVBox, boolean isAdding, double delay) {
         preFillForm(course);
-        AppAnimations.popup(anpCurriculumForms, 0);
+        AppAnimations.popup(anpCurriculumForms, delay);
         this.isAdding = isAdding;
+        curriculumFormsDelete.setVisible(!isAdding);
+        curriculumFormsStudents.setVisible(!isAdding);
         if (isAdding) {
             this.focusedCourse = null;
             this.focusedVBox = null;
@@ -104,6 +116,7 @@ public class CurriculumForms {
             txfCurriculumFormsSections.setText(null);
             txfCurriculumFormsName.setText(null);
             txfCurriculumFormsUnits.setText(null);
+            txfCurriculumFormsLimit.setText(null);
         } else {
             String code = course.getCourseCode();
             String[] parts = code.split("-");
@@ -118,6 +131,7 @@ public class CurriculumForms {
             txfCurriculumFormsSections.setText(String.valueOf(course.getSections()));
             txfCurriculumFormsName.setText(course.getCourseName());
             txfCurriculumFormsUnits.setText(String.valueOf(course.getUnits()));
+            txfCurriculumFormsLimit.setText(String.valueOf(course.getLimit()));
         }
     }
 }

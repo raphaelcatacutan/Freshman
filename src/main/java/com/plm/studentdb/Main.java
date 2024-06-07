@@ -17,6 +17,7 @@ public class Main extends Application {
         stage.setTitle("Computer Science Student Record Admin System");
         stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("assets/icons/plm-logo.png"))));
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

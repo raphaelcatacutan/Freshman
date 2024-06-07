@@ -51,20 +51,21 @@ public class DBAdd {
         }
     }
 
-    public static Course addCourseRecord(String courseCode, int units, int sections, String courseName) {
-        String insertQuery = "INSERT INTO course (course_code, units, sections, course_name) VALUES (?, ?, ?, ?)";
+    public static Course addCourseRecord(String courseCode, int units, int sections, String courseName, int limit) {
+        String insertQuery = "INSERT INTO course (course_code, units, sections, course_name, st_limit) VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, courseCode);
             pstmt.setInt(2, units);
             pstmt.setInt(3, sections);
             pstmt.setString(4, courseName);
+            pstmt.setInt(5, limit);
             pstmt.executeUpdate();
 
             try (ResultSet rs = pstmt.getGeneratedKeys()) {
                 rs.next();
                 int id = rs.getInt(1);
-                Course course = new Course(id, courseCode, units, sections, courseName);
+                Course course = new Course(id, courseCode, units, sections, courseName, limit);
                 return course;
             }
 

@@ -44,17 +44,18 @@ public class DBEdit {
         }
     }
 
-    public static Course editCourseRecord(int id, String courseCode, int units, int sections, String courseName) {
-        String updateQuery = "UPDATE course SET course_code=?, units=?, sections=?, course_name=? WHERE id=?";
+    public static Course editCourseRecord(int id, String courseCode, int units, int sections, String courseName, int limit) {
+        String updateQuery = "UPDATE course SET course_code=?, units=?, sections=?, course_name=?, st_limit =? WHERE id=?";
         try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
             pstmt.setString(1, courseCode);
             pstmt.setInt(2, units);
             pstmt.setInt(3, sections);
             pstmt.setString(4, courseName);
-            pstmt.setInt(5, id);
+            pstmt.setInt(5, limit);
+            pstmt.setInt(6, id);
             pstmt.executeUpdate();
 
-            Course course = new Course(id, courseCode, units, sections, courseName);
+            Course course = new Course(id, courseCode, units, sections, courseName, limit);
             return course;
 
         } catch (SQLException e) {
@@ -77,6 +78,20 @@ public class DBEdit {
             Class enrolled = new Class(id, studentNumber, courseCode, section, year, semester, grade);
             return enrolled;
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void editClassRecord(String studentNumber, String courseCode, int year, int semester, double grade) {
+        String updateQuery = "UPDATE classes SET grade=? WHERE student_number=? AND course_code=? AND year=? AND semester=?";
+        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
+            pstmt.setDouble(1, grade);
+            pstmt.setString(2, studentNumber);
+            pstmt.setString(3, courseCode);
+            pstmt.setInt(4, year);
+            pstmt.setInt(5, semester);
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
