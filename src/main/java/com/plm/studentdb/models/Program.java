@@ -1,42 +1,40 @@
 package com.plm.studentdb.models;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Program {
-    private final IntegerProperty id;
-    private final StringProperty collegeName;
-    private final StringProperty program;
+    private final StringProperty programID;
+    private final StringProperty programName;
+    private final StringProperty college;
 
-    public Program(int id, String collegeName, String program) {
-        this.id = new SimpleIntegerProperty(id);
-        this.collegeName = new SimpleStringProperty(collegeName);
-        this.program = new SimpleStringProperty(program);
+    public Program(String programID, String programName, String college) {
+        this.programID = new SimpleStringProperty(programID);
+        this.programName = new SimpleStringProperty(programName);
+        this.college = new SimpleStringProperty(college);
     }
 
-    public int getId() {
-        return id.get();
+    public String getProgramID() {
+        return programID.get();
     }
 
-    public IntegerProperty idProperty() {
-        return id;
+    public StringProperty programIDProperty() {
+        return programID;
     }
 
-    public String getCollegeName() {
-        return collegeName.get();
+    public String getProgramName() {
+        return programName.get();
     }
 
-    public StringProperty collegeNameProperty() {
-        return collegeName;
+    public StringProperty programNameProperty() {
+        return programName;
     }
 
-    public String getProgram() {
-        return program.get();
+    public String getCollege() {
+        return college.get();
     }
 
-    public StringProperty programProperty() {
-        return program;
+    public StringProperty collegeProperty() {
+        return college;
     }
 }

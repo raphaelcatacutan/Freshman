@@ -6,46 +6,54 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Course {
-    private final IntegerProperty id;
-    private final StringProperty courseCode;
+    private final IntegerProperty courseID;
+    private final StringProperty courseName;
+    private final IntegerProperty year;
+    private final IntegerProperty semester;
     private final IntegerProperty units;
     private final IntegerProperty sections;
-    private final StringProperty courseName;
+    private final IntegerProperty capacity;
 
-    private final IntegerProperty limit;
-
-    public Course(int id, String courseCode, int units, int sections, String courseName, int limit) {
-        this.id = new SimpleIntegerProperty(id);
-        this.courseCode = new SimpleStringProperty(courseCode);
+    public Course(int courseID, String courseName, int year, int semester, int units, int sections, int capacity) {
+        this.courseID = new SimpleIntegerProperty(courseID);
+        this.courseName = new SimpleStringProperty(courseName);
+        this.year = new SimpleIntegerProperty(year);
+        this.semester = new SimpleIntegerProperty(semester);
         this.units = new SimpleIntegerProperty(units);
         this.sections = new SimpleIntegerProperty(sections);
-        this.courseName = new SimpleStringProperty(courseName);
-        this.limit = new SimpleIntegerProperty(limit);
+        this.capacity = new SimpleIntegerProperty(capacity);
     }
 
-    public int getLimit() {
-        return limit.get();
+    public int getCourseID() {
+        return courseID.get();
     }
 
-    public IntegerProperty limitProperty() {
-        return limit;
+    public IntegerProperty courseIDProperty() {
+        return courseID;
     }
 
-
-    public int getId() {
-        return id.get();
+    public String getCourseName() {
+        return courseName.get();
     }
 
-    public IntegerProperty idProperty() {
-        return id;
+    public StringProperty courseNameProperty() {
+        return courseName;
     }
 
-    public String getCourseCode() {
-        return courseCode.get();
+    public int getYear() {
+        return year.get();
     }
 
-    public StringProperty courseCodeProperty() {
-        return courseCode;
+    public IntegerProperty yearProperty() {
+        return year;
+    }
+
+    public int getSemester() {
+        return semester.get();
+    }
+
+    public IntegerProperty semesterProperty() {
+        return semester;
     }
 
     public int getUnits() {
@@ -64,11 +72,11 @@ public class Course {
         return sections;
     }
 
-    public String getCourseName() {
-        return courseName.get();
+    public int getCapacity() {
+        return capacity.get();
     }
 
-    public StringProperty courseNameProperty() {
-        return courseName;
+    public IntegerProperty capacityProperty() {
+        return capacity;
     }
 }

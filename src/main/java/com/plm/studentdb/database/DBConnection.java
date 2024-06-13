@@ -33,61 +33,69 @@ public class DBConnection {
         // Courses
         try (Statement stmt = connection.createStatement()) {
             String createCourseTableQuery = "CREATE TABLE IF NOT EXISTS course (" +
-                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                    "course_code VARCHAR(255) NOT NULL, " +
-                    "units INT NOT NULL, " +
-                    "sections INT NOT NULL, " +
-                    "st_limit INT NOT NULL, " +
-                    "course_name VARCHAR(255) NOT NULL" +
+                    "CourseID INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "CourseName VARCHAR(255) NOT NULL, " +
+                    "Year INT NOT NULL, " +
+                    "Semester INT NOT NULL, " +
+                    "Units INT NOT NULL, " +
+                    "Sections INT NOT NULL, " +
+                    "Capacity INT NOT NULL" +
                     ")";
             stmt.executeUpdate(createCourseTableQuery);
         }
-        // Classes
+
+        // Lessons
         try (Statement stmt = connection.createStatement()) {
-            String createClassesTableQuery = "CREATE TABLE IF NOT EXISTS classes (" +
-                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                    "student_number VARCHAR(255) NOT NULL, " +
-                    "course_code VARCHAR(255) NOT NULL, " +
-                    "section INT NOT NULL, " +
-                    "year INT NOT NULL, " +
-                    "semester INT NOT NULL, " +
-                    "grade DECIMAL(5,2) NOT NULL" +
+            String createClassesTableQuery = "CREATE TABLE IF NOT EXISTS lessons (" +
+                    "LessonID INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "StudentID INT NOT NULL, " +
+                    "CourseID INT NOT NULL, " +
+                    "Section INT NOT NULL, " +
+                    "Grade DECIMAL(5,2) NOT NULL, " +
+                    "FOREIGN KEY (StudentID) REFERENCES students(StudentID) ON DELETE CASCADE, " +
+                    "FOREIGN KEY (CourseID) REFERENCES course(CourseID) ON DELETE CASCADE" +
                     ")";
             stmt.executeUpdate(createClassesTableQuery);
         }
+
         // Accounts
         try (Statement stmt = connection.createStatement()) {
             String createAccountsTableQuery = "CREATE TABLE IF NOT EXISTS accounts (" +
-                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                    "username VARCHAR(255) NOT NULL, " +
-                    "password VARCHAR(255) NOT NULL, " +
-                    "program_access VARCHAR(255) NOT NULL" +
+                    "AccountID INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "Email VARCHAR(255) NOT NULL, " +
+                    "Password VARCHAR(255) NOT NULL, " +
+                    "Access VARCHAR(255) NOT NULL" +
                     ")";
             stmt.executeUpdate(createAccountsTableQuery);
         }
-        // Colleges
+
+        // Programs
         try (Statement stmt = connection.createStatement()) {
-            String createCollegeTableQuery = "CREATE TABLE IF NOT EXISTS college (" +
-                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                    "college_name VARCHAR(255) NOT NULL, " +
-                    "program VARCHAR(255) NOT NULL" +
+            String createProgramsTableQuery = "CREATE TABLE IF NOT EXISTS programs (" +
+                    "ProgramID VARCHAR(255) NOT NULL, " +
+                    "ProgramName VARCHAR(255) NOT NULL, " +
+                    "College VARCHAR(255) NOT NULL, " +
+                    "PRIMARY KEY (ProgramID)" +
                     ")";
-            stmt.executeUpdate(createCollegeTableQuery);
+            stmt.executeUpdate(createProgramsTableQuery);
         }
+
         // Students
         try (Statement stmt = connection.createStatement()) {
-            String createStudentTableQuery = "CREATE TABLE IF NOT EXISTS student (" +
-                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                    "full_name VARCHAR(255) NOT NULL, " +
-                    "student_id VARCHAR(255) UNIQUE NOT NULL, " +
-                    "program VARCHAR(255) NOT NULL, " +
-                    "year INT NOT NULL, " +
-                    "block INT NOT NULL, " +
-                    "email VARCHAR(255) NOT NULL" +
+            String createStudentTableQuery = "CREATE TABLE IF NOT EXISTS students (" +
+                    "StudentID INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "StudentName VARCHAR(255) NOT NULL, " +
+                    "ProgramID VARCHAR(255) NOT NULL, " +
+                    "Year INT NOT NULL, " +
+                    "Block INT NOT NULL, " +
+                    "Email VARCHAR(255) NOT NULL, " +
+                    "Password VARCHAR(255) NOT NULL, " +
+                    "FOREIGN KEY (ProgramID) REFERENCES programs(ProgramID) ON DELETE CASCADE" +
                     ")";
             stmt.executeUpdate(createStudentTableQuery);
         }
     }
+
 
     public static Connection getConnection() {
         return connection;
