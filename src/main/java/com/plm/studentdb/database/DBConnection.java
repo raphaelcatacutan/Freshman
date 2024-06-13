@@ -33,7 +33,7 @@ public class DBConnection {
         // Courses
         try (Statement stmt = connection.createStatement()) {
             String createCourseTableQuery = "CREATE TABLE IF NOT EXISTS course (" +
-                    "CourseID INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "CourseID VARCHAR(255) PRIMARY KEY, " +
                     "CourseName VARCHAR(255) NOT NULL, " +
                     "Year INT NOT NULL, " +
                     "Semester INT NOT NULL, " +
@@ -49,7 +49,7 @@ public class DBConnection {
             String createClassesTableQuery = "CREATE TABLE IF NOT EXISTS lessons (" +
                     "LessonID INT AUTO_INCREMENT PRIMARY KEY, " +
                     "StudentID INT NOT NULL, " +
-                    "CourseID INT NOT NULL, " +
+                    "CourseID VARCHAR(255) NOT NULL, " +
                     "Section INT NOT NULL, " +
                     "Grade DECIMAL(5,2) NOT NULL, " +
                     "FOREIGN KEY (StudentID) REFERENCES students(StudentID) ON DELETE CASCADE, " +

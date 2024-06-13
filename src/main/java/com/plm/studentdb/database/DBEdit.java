@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DBEdit {
-    public static Course editCourse(int courseID, String courseName, int year, int semester, int units, int sections, int capacity) throws SQLException {
+    public static Course editCourse(String courseID, String courseName, int year, int semester, int units, int sections, int capacity) throws SQLException {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("UPDATE course SET CourseName = ?, Year = ?, Semester = ?, Units = ?, Sections = ?, Capacity = ? WHERE CourseID = ?")) {
 
@@ -17,7 +17,7 @@ public class DBEdit {
             stmt.setInt(4, units);
             stmt.setInt(5, sections);
             stmt.setInt(6, capacity);
-            stmt.setInt(7, courseID);
+            stmt.setString(7, courseID);
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected == 0) {
@@ -28,12 +28,12 @@ public class DBEdit {
         }
     }
 
-    public static Lesson editLesson(int lessonID, int studentID, int courseID, int section, double grade) throws SQLException {
+    public static Lesson editLesson(int lessonID, int studentID, String courseID, int section, double grade) throws SQLException {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("UPDATE lessons SET StudentID = ?, CourseID = ?, Section = ?, Grade = ? WHERE LessonID = ?")) {
 
             stmt.setInt(1, studentID);
-            stmt.setInt(2, courseID);
+            stmt.setString(2, courseID);
             stmt.setInt(3, section);
             stmt.setDouble(4, grade);
             stmt.setInt(5, lessonID);

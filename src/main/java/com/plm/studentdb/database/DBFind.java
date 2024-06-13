@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBFind {
-    public static List<Course> findCourses(Integer courseID, String courseName, Integer year, Integer semester, Integer units, Integer sections, Integer capacity, String query) throws SQLException {
+    public static List<Course> findCourses(String courseID, String courseName, Integer year, Integer semester, Integer units, Integer sections, Integer capacity, String query) throws SQLException {
         StringBuilder sql = new StringBuilder("SELECT * FROM course WHERE 1=1 ");
         List<Object> params = new ArrayList<>();
 
@@ -59,7 +59,7 @@ public class DBFind {
         }
     }
 
-    public static List<Lesson> findLessons(Integer lessonID, Integer studentID, Integer courseID, Integer section, Double grade, String query) throws SQLException {
+    public static List<Lesson> findLessons(Integer lessonID, Integer studentID, String courseID, Integer section, Double grade, String query) throws SQLException {
         StringBuilder sql = new StringBuilder("SELECT * FROM lessons WHERE 1=1 ");
         List<Object> params = new ArrayList<>();
 

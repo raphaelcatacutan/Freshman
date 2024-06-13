@@ -9,11 +9,11 @@ import java.sql.SQLException;
 
 public class DBRemove {
 
-    public static void removeCourse(int courseID) throws SQLException {
+    public static void removeCourse(String courseID) throws SQLException {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("DELETE FROM course WHERE CourseID = ?")) {
 
-            stmt.setInt(1, courseID);
+            stmt.setString(1, courseID);
             stmt.executeUpdate();
         }
     }

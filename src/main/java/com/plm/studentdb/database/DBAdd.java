@@ -45,11 +45,11 @@ public class DBAdd {
     }
 
 
-    public static Course addCourse(int courseID, String courseName, int year, int semester, int units, int sections, int capacity) throws SQLException {
+    public static Course addCourse(String courseID, String courseName, int year, int semester, int units, int sections, int capacity) throws SQLException {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("INSERT INTO course (CourseID, CourseName, Year, Semester, Units, Sections, Capacity) VALUES (?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
-            stmt.setInt(1, courseID);
+            stmt.setString(1, courseID);
             stmt.setString(2, courseName);
             stmt.setInt(3, year);
             stmt.setInt(4, semester);
@@ -64,12 +64,12 @@ public class DBAdd {
     }
 
 
-    public static Lesson addLesson(int studentID, int courseID, int section, double grade) throws SQLException {
+    public static Lesson addLesson(int studentID, String courseID, int section, double grade) throws SQLException {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("INSERT INTO lessons (StudentID, CourseID, Section, Grade) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setInt(1, studentID);
-            stmt.setInt(2, courseID);
+            stmt.setString(2, courseID);
             stmt.setInt(3, section);
             stmt.setDouble(4, grade);
 
