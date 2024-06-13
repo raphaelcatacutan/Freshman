@@ -5,7 +5,7 @@ import com.plm.studentdb.models.*;
 import java.sql.*;
 
 public class DBAdd {
-    public static Student addStudent(int studentID, String studentName, String programID, int year, int block, String email, String password) throws SQLException {
+    public static Student addStudent(int studentID, String studentName, String programID, int year, int block, String email, String password) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("INSERT INTO students (StudentID, StudentName, ProgramID, Year, Block, Email, Password) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
 
@@ -20,10 +20,12 @@ public class DBAdd {
             stmt.executeUpdate();
 
             return new Student(studentID, studentName, programID, year, block, email, password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public static Account addAccount(String name, String email, String password, String access) throws SQLException {
+    public static Account addAccount(String name, String email, String password, String access) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("INSERT INTO accounts (Name, Email, Password, Access) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
@@ -41,11 +43,13 @@ public class DBAdd {
             } else {
                 throw new SQLException("Creating account failed, no ID obtained.");
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
 
-    public static Course addCourse(String courseID, String courseName, int year, int semester, int units, int sections, int capacity) throws SQLException {
+    public static Course addCourse(String courseID, String courseName, int year, int semester, int units, int sections, int capacity) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("INSERT INTO course (CourseID, CourseName, Year, Semester, Units, Sections, Capacity) VALUES (?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
@@ -60,11 +64,13 @@ public class DBAdd {
             stmt.executeUpdate();
 
             return new Course(courseID, courseName, year, semester, units, sections, capacity);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
 
-    public static Lesson addLesson(int studentID, String courseID, int section, double grade) throws SQLException {
+    public static Lesson addLesson(int studentID, String courseID, int section, double grade) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("INSERT INTO lessons (StudentID, CourseID, Section, Grade) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
@@ -82,11 +88,13 @@ public class DBAdd {
             } else {
                 throw new SQLException("Creating lesson failed, no ID obtained.");
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
 
-    public static Program addProgram(String programID, String programName, String college) throws SQLException {
+    public static Program addProgram(String programID, String programName, String college) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("INSERT INTO programs (ProgramID, ProgramName, College) VALUES (?, ?, ?)")) {
 
@@ -97,6 +105,8 @@ public class DBAdd {
             stmt.executeUpdate();
 
             return new Program(programID, programName, college);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
