@@ -3,7 +3,9 @@ package com.plm.studentdb.views;
 import com.plm.studentdb.database.DBAdd;
 import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBRemove;
-import com.plm.studentdb.database.DBView;
+import com.plm.studentdb.models.Course;
+import com.plm.studentdb.models.Lesson;
+import com.plm.studentdb.models.Student;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -38,27 +40,18 @@ public class CurriculumStudents {
 
         this.focusedCourse = focusedCourse;
 
-        String code = focusedCourse.getCourseCode();
-        String[] parts = code.split("-");
-        String yearSemesterPart = parts[0];
-        int year = Integer.parseInt(yearSemesterPart.substring(0, 4)); // Extract the 4th character for the year
-        int semester = Character.getNumericValue(yearSemesterPart.charAt(4)); // Extract the 5th character for the semester
-        String courseShort = parts[1];
-
-        List<Class> Classes = DBFind.findClass(courseShort, year, semester);
-        List<Student> students = DBView.viewStudentRecord();
+        List<Lesson> lessons = DBFind.findLessons(null, null, focusedCourse.getCourseID(), null, null, null);
+        List<Student> students = DBFind.findStudents(null, null, null, null, null, null, null, null);
         int numberOfStudents = 0;
 
         for (Student student: students) {
             boolean isEnrolled = false;
-            for (Class aClass: Classes) {
-                isEnrolled = Integer.parseInt(aClass.getStudentNumber()) == student.getStudentId();
-                if (isEnrolled) {
-                    numberOfStudents++;
-                    break;
-                };
+            for (Lesson lesson: lessons) {
+                if (lesson.getStudentID() != student.getStudentID()) continue;
+                numberOfStudents++;
+                break;
             }
-            CheckBox checkBox = generateStudentCheckBox(student.getName(), isEnrolled);
+            CheckBox checkBox = generateStudentCheckBox(student.getStudentName(), isEnrolled);
             checkBox.setUserData(student);
             vbxCurriculumStudentsList.getChildren().add(checkBox);
         }
@@ -74,8 +67,8 @@ public class CurriculumStudents {
             CheckBox checkbox = (CheckBox) v;
             if (checkbox.isSelected()) selected++;
         }
-        if (selected > focusedCourse.getLimit()) {
-            Dialogs.mainMessageDialog.show("Limit Reached", "Number of student enrolled in limited to " + focusedCourse.getLimit() + " students");
+        if (selected > focusedCourse.getCapacity()) {
+            Dialogs.mainMessageDialog.show("Limit Reached", "Number of student enrolled in limited to " + focusedCourse.getCapacity() + " students");
             return;
         }
 
@@ -84,22 +77,15 @@ public class CurriculumStudents {
             CheckBox checkbox = (CheckBox) v;
             Student student = (Student) checkbox.getUserData();
 
-            String code = focusedCourse.getCourseCode();
-            String[] parts = code.split("-");
-            String yearSemesterPart = parts[0];
-            int year = Integer.parseInt(yearSemesterPart.substring(0, 4)); // Extract the 4th character for the year
-            int semester = Character.getNumericValue(yearSemesterPart.charAt(4)); // Extract the 5th character for the semester
-            String courseShort = parts[1];
-
-            List<Class> classes = DBFind.findClass(String.valueOf(student.getStudentId()), courseShort, year, semester);
+            List<Lesson> classes = DBFind.findLessons(null, student.getStudentID(), focusedCourse.getCourseID(), null, null, null);
 
             if (checkbox.isSelected()) {
                 if (!classes.isEmpty()) continue;
-                DBAdd.addClassRecord(String.valueOf(student.getStudentId()), courseShort, section, year, semester, 0.0);
+                DBAdd.addLesson(student.getStudentID(), focusedCourse.getCourseID(), section, 0.0);
             }
             else {
                 if (classes.isEmpty()) continue;
-                DBRemove.removeClassRecord(classes.getFirst().getId());
+                DBRemove.removeLesson(classes.getFirst().getLessonID());
             }
         }
 

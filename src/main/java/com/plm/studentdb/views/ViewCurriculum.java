@@ -1,7 +1,7 @@
 package com.plm.studentdb.views;
 
 import com.plm.studentdb.database.DBFind;
-import com.plm.studentdb.database.DBView;
+import com.plm.studentdb.models.Course;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -37,7 +37,7 @@ public class ViewCurriculum {
 
     @FXML
     public void initialize() {
-        List<Course> courses = DBView.viewCourseRecord();
+        List<Course> courses = DBFind.findCourses(null, null, null, null, null, null, null, null);
 
         for (Course course: courses) {
             VBox vbox = createCourseVBox(course);
@@ -63,7 +63,9 @@ public class ViewCurriculum {
         String input = txfCourseSearch.getText();
         flwViewCurriculumList.getChildren().clear();
 
-        List<Course> courses = input.isEmpty() ? DBView.viewCourseRecord() : DBFind.findLikeCourse(input);
+        List<Course> courses = input.isEmpty() ?
+                DBFind.findCourses(null, null, null, null, null, null, null, null) :
+                DBFind.findCourses(null, "%" + input + "%", null, null, null, null, null, null);
 
         for (Course course: courses) {
             VBox vbox = createCourseVBox(course);
@@ -101,7 +103,7 @@ public class ViewCurriculum {
         label1.setFont(new Font("Century Gothic Bold", 21.0));
         label1.setPadding(new Insets(10.0, 10.0, 10.0, 10.0));
 
-        Label label2 = new Label(course.getCourseCode());
+        Label label2 = new Label(course.getCourseID());
         label2.getStyleClass().add("label-text");
         label2.setFont(new Font("Century Gothic Bold", 26.0));
 

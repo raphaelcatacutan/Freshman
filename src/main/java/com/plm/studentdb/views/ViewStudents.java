@@ -1,7 +1,6 @@
 package com.plm.studentdb.views;
 
 import com.plm.studentdb.database.DBFind;
-import com.plm.studentdb.database.DBView;
 import com.plm.studentdb.models.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -80,7 +79,7 @@ public class ViewStudents {
     }
 
     private void getData() {
-        studentsListTable.setAll(DBView.viewStudentRecord());
+        studentsListTable.setAll(DBFind.findStudents(null, null, null, null, null, null, null, null));
     }
 
     @FXML private void search(KeyEvent event) {

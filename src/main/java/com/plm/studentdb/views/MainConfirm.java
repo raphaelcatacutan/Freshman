@@ -1,10 +1,7 @@
 package com.plm.studentdb.views;
 
-import com.plm.studentdb.database.DBRemove;
-import com.plm.studentdb.database.DBView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class MainConfirm {

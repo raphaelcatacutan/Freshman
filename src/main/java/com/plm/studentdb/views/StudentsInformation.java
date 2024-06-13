@@ -4,6 +4,7 @@ import com.plm.studentdb.database.DBAdd;
 import com.plm.studentdb.database.DBEdit;
 import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBRemove;
+import com.plm.studentdb.models.Lesson;
 import com.plm.studentdb.models.Student;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -67,34 +68,30 @@ public class StudentsInformation {
     }
 
     @FXML void confirmForm() {
-        String full_name = txfStudentInformationName.getText();
-        int student_id = Integer.parseInt(txfStudentInformationID.getText());
+        String studentName = txfStudentInformationName.getText();
+        int studentID = Integer.parseInt(txfStudentInformationID.getText());
         String program = txfStudentInformationProgram.getText();
         String email = txfStudentInformationEmail.getText();
         String yearBlock = txfStudentInformationYearBlock.getText();
         int year = Integer.parseInt(yearBlock.split("-")[0]);
         int block = Integer.parseInt(yearBlock.split("-")[1]);
+        String password = txfStudentInformationID.getText();
 
         if (isAdding) {
-            Student student = DBAdd.addStudentRecord(student_id, full_name, program, year, block, email);
+            Student student = DBAdd.addStudent(studentID, studentName, program, year, block, email, password);
 
             ViewStudents.studentsListTable.add(student);
             Dialogs.mainMessageDialog.show("Adding Successful", "The entered data has been successfully added to the database.");
         } else {
-            Student student = DBEdit.editStudentRecord(focusedStudent.getId(), student_id, full_name, program, year, block, email);
+            Student student = DBEdit.editStudent(focusedStudent.getStudentID(), studentName, program, year, block, email, focusedStudent.getPassword());
             ViewStudents.studentsListTable.remove(focusedStudent);
             ViewStudents.studentsListTable.add(student);
             Dialogs.mainMessageDialog.show("Editing Successful", "The student data has been successfully updated to the database.");
 
             for (Node node: flwStudentsInformationGrades.getChildren()) {
-                HBox hbox = (HBox) node;
-                String courseCode = ((Label) hbox.lookup("#courseCode")).getText();
-                String yearSection = ((Label) hbox.lookup("#yearSection")).getText();
-                String yearSem = yearSection.split(" - ")[0];
-                int courseYear = Integer.parseInt(yearSem.substring(0, 4));
-                int courseSem = Integer.parseInt(yearSem.substring(4, 5));
-                double grade = Double.parseDouble(((TextField) hbox.lookup("#grades")).getText());
-                DBEdit.editClassRecord(String.valueOf(focusedStudent.getStudentId()), courseCode, courseYear, courseSem, grade);
+                Lesson lesson = (Lesson) node.getUserData();
+                double grade = Double.parseDouble(((TextField) node.lookup("#grades")).getText());
+                DBEdit.editLesson(lesson.getLessonID(), focusedStudent.getStudentID(), lesson.getCourseID(), lesson.getSection(), grade);
             }
 
         }
@@ -104,7 +101,7 @@ public class StudentsInformation {
 
     @FXML void deleteStudent() {
         Runnable delete = () -> {
-            DBRemove.removeStudent(focusedStudent.get());
+            DBRemove.removeStudent(focusedStudent.getStudentID());
             ViewStudents.studentsListTable.remove(focusedStudent);
             closeForms();
         };
@@ -121,9 +118,9 @@ public class StudentsInformation {
             txfStudentInformationGradeYearSem.clear();
             flwStudentsInformationGrades.getChildren().clear();
         } else {
-            txfStudentInformationName.setText(student.getName());
-            txfStudentInformationID.setText(String.valueOf(student.getStudentId()));
-            txfStudentInformationProgram.setText(student.getProgram());
+            txfStudentInformationName.setText(student.getStudentName());
+            txfStudentInformationID.setText(String.valueOf(student.getStudentID()));
+            txfStudentInformationProgram.setText(student.getProgramID());
             txfStudentInformationEmail.setText(student.getEmail());
             txfStudentInformationYearBlock.setText(student.getYear() + "-" + student.getBlock());
             txfStudentInformationGradeYearSem.clear();
@@ -145,13 +142,13 @@ public class StudentsInformation {
         double totalUnits = 0;
         double gwa;
 
-        List<Class> classes = DBFind.findClass(focusedStudent.getStudentId(), year, semester);
-        for (Class aClass: classes) {
-            HBox grade = generateClassHBox(aClass);
+        List<Lesson> lessons = DBFind.findLessons(null, focusedStudent.getStudentID(), year + "" + semester + "%", null, null, null);
+        for (Lesson lesson: lessons) {
+            HBox grade = generateClassHBox(lesson);
             flwStudentsInformationGrades.getChildren().add(grade);
-            if (aClass.getCourseCode().contains("NSTP")) continue;
-            int units = DBFind.findCourse(aClass.getYear() + "" + aClass.getSemester() + "-" + aClass.getCourseCode()).getFirst().getUnits();
-            totalGrade += aClass.getGrade() * units;
+            if (lesson.getCourseID().contains("NSTP")) continue;
+            int units = DBFind.findCourses(lesson.getCourseID(), null, null, null, null, null, null, null).getFirst().getUnits();
+            totalGrade += lesson.getGrade() * units;
             totalUnits += units;
         }
         gwa = totalGrade / totalUnits;
@@ -159,7 +156,7 @@ public class StudentsInformation {
         lblStudentInformationStatus.setText(gwa <= 3.00 || Double.isNaN(gwa) ? "Regular" : "Irregular");
     }
 
-    public static HBox generateClassHBox(Class enrolled) {
+    public static HBox generateClassHBox(Lesson lesson) {
         HBox hBox = new HBox();
         hBox.setAlignment(javafx.geometry.Pos.BOTTOM_CENTER);
         hBox.setLayoutX(361.0);
@@ -167,20 +164,21 @@ public class StudentsInformation {
         hBox.setPrefHeight(140.0);
         hBox.setPrefWidth(283.0);
         hBox.setStyle("-fx-background-color: #f4f4f4; -fx-background-radius: 20;");
+        hBox.setUserData(lesson);
 
         VBox vBox = new VBox();
         vBox.setAlignment(javafx.geometry.Pos.CENTER);
         vBox.setPrefHeight(184.0);
         vBox.setPrefWidth(184.0);
 
-        Label label1 = new Label(enrolled.getCourseCode());
+        Label label1 = new Label(lesson.getCourseID());
         label1.setGraphicTextGap(5.0);
         label1.setPrefWidth(270.0);
         label1.getStyleClass().add("label-text");
         label1.setId("courseCode");
         label1.setFont(new Font("Century Gothic Bold", 25.0));
 
-        Label label2 = new Label(enrolled.getYear() + "" + enrolled.getSemester() + " - Section " + enrolled.getSection());
+        Label label2 = new Label("Change this");
         label2.setGraphicTextGap(5.0);
         label2.setLayoutX(220.0);
         label2.setLayoutY(84.0);
@@ -191,7 +189,7 @@ public class StudentsInformation {
         vBox.getChildren().addAll(label1, label2);
         vBox.setCursor(javafx.scene.Cursor.HAND);
 
-        TextField textField = new TextField(String.valueOf(enrolled.getGrade()));
+        TextField textField = new TextField(String.valueOf(lesson.getGrade()));
         textField.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
         textField.setPrefHeight(62.0);
         textField.setPrefWidth(119.0);

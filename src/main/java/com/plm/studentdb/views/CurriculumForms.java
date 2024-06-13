@@ -3,6 +3,7 @@ package com.plm.studentdb.views;
 import com.plm.studentdb.database.DBAdd;
 import com.plm.studentdb.database.DBEdit;
 import com.plm.studentdb.database.DBRemove;
+import com.plm.studentdb.models.Course;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -42,14 +43,14 @@ public class CurriculumForms {
     void confirmForm() {
         int year = Integer.parseInt(txfCurriculumFormsYear.getText());
         int semester = Integer.parseInt(txfCurriculumFormsSemester.getText());
-        String courseCode = year + "" + semester + "-" + txfCurriculumFormsCode.getText();
+        String courseCode = txfCurriculumFormsCode.getText();
         int sections = Integer.parseInt(txfCurriculumFormsSections.getText());
         String name = txfCurriculumFormsName.getText();
         int units = Integer.parseInt(txfCurriculumFormsUnits.getText());
-        int limit = Integer.parseInt(txfCurriculumFormsLimit.getText());
+        int capacity = Integer.parseInt(txfCurriculumFormsLimit.getText());
 
         if (isAdding) {
-            Course course = DBAdd.addCourseRecord(courseCode, units, sections, name, limit);
+            Course course = DBAdd.addCourse(courseCode, name, year, semester, units, sections, capacity);
 
             VBox vbox = ViewCurriculum.createCourseVBox(course);
             flwCurriculumFormList.getChildren().add(vbox);
@@ -59,7 +60,7 @@ public class CurriculumForms {
 
             Dialogs.mainMessageDialog.show("Adding Successful", "The entered data has been successfully added to the database.");
         } else {
-            Course course = DBEdit.editCourseRecord(focusedCourse.getId(), courseCode, units, sections, name, limit);
+            Course course = DBEdit.editCourse(focusedCourse.getCourseID(), name, year, semester, units, sections, capacity);
             flwCurriculumFormList.getChildren().remove(focusedVBox);
 
             VBox vbox = ViewCurriculum.createCourseVBox(course);
@@ -77,7 +78,7 @@ public class CurriculumForms {
     @FXML
     public void deleteForm() {
         Runnable delete = () -> {
-            DBRemove.removeCourseRecord(focusedCourse.getId());
+            DBRemove.removeCourse(focusedCourse.getCourseID());
             flwCurriculumFormList.getChildren().remove(focusedVBox);
             closeForms();
         };
@@ -117,20 +118,13 @@ public class CurriculumForms {
             txfCurriculumFormsUnits.setText(null);
             txfCurriculumFormsLimit.setText(null);
         } else {
-            String code = course.getCourseCode();
-            String[] parts = code.split("-");
-            String yearSemesterPart = parts[0];
-            int year = Integer.parseInt(yearSemesterPart.substring(0, 4)); // Extract the 4th character for the year
-            int semester = Character.getNumericValue(yearSemesterPart.charAt(4)); // Extract the 5th character for the semester
-            String courseShort = parts[1];
-
-            txfCurriculumFormsYear.setText(String.valueOf(year));
-            txfCurriculumFormsSemester.setText(String.valueOf(semester));
-            txfCurriculumFormsCode.setText(courseShort);
+            txfCurriculumFormsYear.setText(String.valueOf(course.getYear()));
+            txfCurriculumFormsSemester.setText(String.valueOf(course.getSemester()));
+            txfCurriculumFormsCode.setText(course.getCourseName());
             txfCurriculumFormsSections.setText(String.valueOf(course.getSections()));
             txfCurriculumFormsName.setText(course.getCourseName());
             txfCurriculumFormsUnits.setText(String.valueOf(course.getUnits()));
-            txfCurriculumFormsLimit.setText(String.valueOf(course.getLimit()));
+            txfCurriculumFormsLimit.setText(String.valueOf(course.getCapacity()));
         }
     }
 }
