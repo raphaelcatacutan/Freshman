@@ -1,4 +1,4 @@
 package com.plm.studentdb.views;
 
-public class ViewSettings {
+public class ViewDatabase {
 }

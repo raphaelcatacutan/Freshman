@@ -37,6 +37,11 @@
                   <fx:include fx:id="viewReports" source="view-reports.fxml" />
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="anpViewDatabase" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <fx:include fx:id="viewDatabase" source="view-database.fxml" />
+               </children>
+            </AnchorPane>
          </children>
       </StackPane>
       <HBox alignment="CENTER_RIGHT" layoutX="30.399999618530273" layoutY="30.399999618530273" spacing="15.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
@@ -110,6 +115,17 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
+                        <Label alignment="CENTER" graphicTextGap="10.0" layoutX="401.0" layoutY="16.0" onMouseClicked="#navigateDatabase" prefWidth="120.0" style="-fx-background-radius: 5;" text="Database">
+                           <font>
+                              <Font name="Century Gothic" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
                      </children>
                   </HBox>
                </children>
@@ -122,6 +138,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <Pane layoutX="444.0" layoutY="10.0" prefHeight="42.0" prefWidth="21.0" />
          </children>
       </HBox>
    </children>

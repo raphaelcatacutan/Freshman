@@ -15,11 +15,13 @@ public class MainView {
     @FXML Parent viewStudents;
     @FXML Parent viewCurriculum;
     @FXML Parent viewReports;
+    @FXML Parent viewDatabase;
 
     @FXML AnchorPane anpViewDashboard;
     @FXML AnchorPane anpViewStudents;
     @FXML AnchorPane anpViewCurriculum;
     @FXML AnchorPane anpViewReports;
+    @FXML AnchorPane anpViewDatabase;
 
     @FXML ViewDashboard viewDashboardController;
     @FXML ViewStudents viewStudentsController;
@@ -30,11 +32,11 @@ public class MainView {
 
 
 
-    AnchorPane[] views = new AnchorPane[3];
+    AnchorPane[] views = new AnchorPane[5];
     AnchorPane currentView = anpViewDashboard;
 
     @FXML void initialize() {
-        views = new AnchorPane[]{anpViewDashboard, anpViewStudents, anpViewCurriculum, anpViewReports};
+        views = new AnchorPane[]{anpViewDashboard, anpViewStudents, anpViewCurriculum, anpViewReports, anpViewDatabase};
 
         navigateDashboard();
 
@@ -56,22 +58,27 @@ public class MainView {
     @FXML void navigateDashboard() {
         navigationViewTransition(anpViewDashboard);
         if (viewStudentsController.studentsInformation.isVisible()) AppAnimations.popdown(viewStudentsController.studentsInformation, 0);
-        AppAnimations.navigationBarTransition(pneNavigationIndicator, -195);
+        AppAnimations.navigationBarTransition(pneNavigationIndicator, -260);
     }
 
     @FXML void navigateStudents() {
         navigationViewTransition(anpViewStudents);
-        AppAnimations.navigationBarTransition(pneNavigationIndicator, -68);
+        AppAnimations.navigationBarTransition(pneNavigationIndicator, -130);
     }
 
     @FXML void navigateCurriculum() {
         navigationViewTransition(anpViewCurriculum);
-        AppAnimations.navigationBarTransition(pneNavigationIndicator, 64);
+        AppAnimations.navigationBarTransition(pneNavigationIndicator, 0);
     }
 
     @FXML void navigateReports() {
         navigationViewTransition(anpViewReports);
-        AppAnimations.navigationBarTransition(pneNavigationIndicator, 195);
+        AppAnimations.navigationBarTransition(pneNavigationIndicator, 130);
+    }
+
+    @FXML void navigateDatabase() {
+        navigationViewTransition(anpViewDatabase);
+        AppAnimations.navigationBarTransition(pneNavigationIndicator, 260);
     }
 
     @FXML void logout() {

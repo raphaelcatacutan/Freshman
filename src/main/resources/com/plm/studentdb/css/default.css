@@ -1,5 +1,5 @@
 
-TextField, TextArea, PasswordField {
+.text-field, .text-area, .password-field {
     -fx-context-menu: none;
     -fx-prompt-text-fill: #9c9a9a;
     -fx-text-fill: #0e5995;
