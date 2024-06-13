@@ -1,5 +1,8 @@
 package com.plm.studentdb.models;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,19 +13,20 @@ public class Mapper {
     public static List<Student> generateStudentObservable(ResultSet resultSet) throws SQLException {
         List<Student> students = new ArrayList<>();
         while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            int studentId = resultSet.getInt("student_id");
-            String name = resultSet.getString("full_name");
-            String program = resultSet.getString("program");
-            int year = resultSet.getInt("year");
-            int block = resultSet.getInt("block");
-            String email = resultSet.getString("email");
+            int studentID = resultSet.getInt("StudentID");
+            String studentName = resultSet.getString("StudentName");
+            String programID = resultSet.getString("ProgramID");
+            int year = resultSet.getInt("Year");
+            int block = resultSet.getInt("Block");
+            String email = resultSet.getString("Email");
+            String password = resultSet.getString("Password");
 
-            Student student = new Student(id, studentId, name, program, year, block, email);
+            Student student = new Student(studentID, studentName, programID, year, block, email, password);
             students.add(student);
         }
         return students;
     }
+
 
     public static List<Account> generateAccountObservable(ResultSet resultSet) throws SQLException {
         List<Account> accounts = new ArrayList<>();
@@ -41,40 +45,39 @@ public class Mapper {
     public static List<Course> generateCourseObservable(ResultSet resultSet) throws SQLException {
         List<Course> courses = new ArrayList<>();
         while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            String courseCode = resultSet.getString("course_code");
-            int units = resultSet.getInt("units");
-            int sections = resultSet.getInt("sections");
-            String courseName = resultSet.getString("course_name");
-            int limit = resultSet.getInt("st_limit");
+            int courseID = resultSet.getInt("CourseID");
+            String courseName = resultSet.getString("CourseName");
+            int year = resultSet.getInt("Year");
+            int semester = resultSet.getInt("Semester");
+            int units = resultSet.getInt("Units");
+            int sections = resultSet.getInt("Sections");
+            int capacity = resultSet.getInt("Capacity");
 
-            Course course = new Course(id, courseCode, units, sections, courseName, limit);
+            Course course = new Course(courseID, courseName, year, semester, units, sections, capacity);
             courses.add(course);
         }
         return courses;
     }
 
-    public static List<Class> generateClassObservable(ResultSet resultSet) throws SQLException {
-        List<Class> enrolledList = new ArrayList<>();
+    public static List<Lesson> generateLessonObservable(ResultSet resultSet) throws SQLException {
+        List<Lesson> lessons = new ArrayList<>();
         while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            String studentNumber = resultSet.getString("student_number");
-            String courseCode = resultSet.getString("course_code");
-            int section = resultSet.getInt("section");
-            int year = resultSet.getInt("year");
-            int semester = resultSet.getInt("semester");
-            double grade = resultSet.getDouble("grade");
+            int lessonID = resultSet.getInt("LessonID");
+            int studentID = resultSet.getInt("StudentID");
+            int courseID = resultSet.getInt("CourseID");
+            int section = resultSet.getInt("Section");
+            double grade = resultSet.getDouble("Grade");
 
-            Class enrolled = new Class(id, studentNumber, courseCode, section, year, semester, grade);
-            enrolledList.add(enrolled);
+            Lesson lesson = new Lesson(lessonID, studentID, courseID, section, grade);
+            lessons.add(lesson);
         }
-        return enrolledList;
+        return lessons;
     }
 
     public static List<Program> generateProgramObservable(ResultSet resultSet) throws SQLException {
         List<Program> programs = new ArrayList<>();
         while (resultSet.next()) {
-            int id = resultSet.getInt("id");
+            String id = resultSet.getString("id");
             String collegeName = resultSet.getString("college_name");
             String program = resultSet.getString("program");
 

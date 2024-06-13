@@ -1,115 +1,105 @@
 package com.plm.studentdb.database;
 
 import com.plm.studentdb.models.*;
-import com.plm.studentdb.models.Class;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DBEdit {
-    public static Student editStudentRecord(int id, int studentId, String name, String program, int year, int block, String email) {
-        String updateQuery = "UPDATE studentdb.student SET student_id=?, full_name=?, program=?, year=?, block=?, email=? WHERE id=?";
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
-            pstmt.setInt(1, studentId);
-            pstmt.setString(2, name);
-            pstmt.setString(3, program);
-            pstmt.setInt(4, year);
-            pstmt.setInt(5, block);
-            pstmt.setString(6, email);
-            pstmt.setInt(7, id);
-            pstmt.executeUpdate();
+    public static Course editCourse(int courseID, String courseName, int year, int semester, int units, int sections, int capacity) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("UPDATE course SET CourseName = ?, Year = ?, Semester = ?, Units = ?, Sections = ?, Capacity = ? WHERE CourseID = ?")) {
 
-            Student student = new Student(id, studentId, name, program, year, block, email);
-            return student;
+            stmt.setString(1, courseName);
+            stmt.setInt(2, year);
+            stmt.setInt(3, semester);
+            stmt.setInt(4, units);
+            stmt.setInt(5, sections);
+            stmt.setInt(6, capacity);
+            stmt.setInt(7, courseID);
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new SQLException("Editing course failed, no rows affected.");
+            }
+
+            return new Course(courseID, courseName, year, semester, units, sections, capacity);
         }
     }
 
-    public static Account editAccountRecord(int id, String username, String password, String programAccess) {
-        String updateQuery = "UPDATE accounts SET username=?, password=?, program_access=? WHERE id=?";
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
-            pstmt.setString(1, username);
-            pstmt.setString(2, password);
-            pstmt.setString(3, programAccess);
-            pstmt.setInt(4, id);
-            pstmt.executeUpdate();
+    public static Lesson editLesson(int lessonID, int studentID, int courseID, int section, double grade) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("UPDATE lessons SET StudentID = ?, CourseID = ?, Section = ?, Grade = ? WHERE LessonID = ?")) {
 
-            Account account = new Account(id, username, password, programAccess);
-            return account;
+            stmt.setInt(1, studentID);
+            stmt.setInt(2, courseID);
+            stmt.setInt(3, section);
+            stmt.setDouble(4, grade);
+            stmt.setInt(5, lessonID);
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new SQLException("Editing lesson failed, no rows affected.");
+            }
+
+            return new Lesson(lessonID, studentID, courseID, section, grade);
         }
     }
 
-    public static Course editCourseRecord(int id, String courseCode, int units, int sections, String courseName, int limit) {
-        String updateQuery = "UPDATE course SET course_code=?, units=?, sections=?, course_name=?, st_limit =? WHERE id=?";
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
-            pstmt.setString(1, courseCode);
-            pstmt.setInt(2, units);
-            pstmt.setInt(3, sections);
-            pstmt.setString(4, courseName);
-            pstmt.setInt(5, limit);
-            pstmt.setInt(6, id);
-            pstmt.executeUpdate();
+    public static Student editStudent(int studentID, String studentName, String programID, int year, int block, String email, String password) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("UPDATE students SET StudentName = ?, ProgramID = ?, Year = ?, Block = ?, Email = ?, Password = ? WHERE StudentID = ?")) {
 
-            Course course = new Course(id, courseCode, units, sections, courseName, limit);
-            return course;
+            stmt.setString(1, studentName);
+            stmt.setString(2, programID);
+            stmt.setInt(3, year);
+            stmt.setInt(4, block);
+            stmt.setString(5, email);
+            stmt.setString(6, password);
+            stmt.setInt(7, studentID);
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new SQLException("Editing student failed, no rows affected.");
+            }
+
+            return new Student(studentID, studentName, programID, year, block, email, password);
         }
     }
 
-    public static Class editClassRecord(int id, String studentNumber, String courseCode, int section, int year, int semester, double grade) {
-        String updateQuery = "UPDATE classes SET student_number=?, course_code=?, section=?, year=?, semester=?, grade=? WHERE id=?";
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
-            pstmt.setString(1, studentNumber);
-            pstmt.setString(2, courseCode);
-            pstmt.setInt(3, section);
-            pstmt.setInt(4, year);
-            pstmt.setInt(5, semester);
-            pstmt.setDouble(6, grade);
-            pstmt.setInt(7, id);
-            pstmt.executeUpdate();
+    public static Account editAccount(int accountID, String email, String password, String access) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("UPDATE accounts SET Email = ?, Password = ?, Access = ? WHERE AccountID = ?")) {
 
-            Class enrolled = new Class(id, studentNumber, courseCode, section, year, semester, grade);
-            return enrolled;
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            stmt.setString(3, access);
+            stmt.setInt(4, accountID);
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new SQLException("Editing account failed, no rows affected.");
+            }
+
+            return new Account(accountID, email, password, access);
         }
     }
 
-    public static void editClassRecord(String studentNumber, String courseCode, int year, int semester, double grade) {
-        String updateQuery = "UPDATE classes SET grade=? WHERE student_number=? AND course_code=? AND year=? AND semester=?";
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
-            pstmt.setDouble(1, grade);
-            pstmt.setString(2, studentNumber);
-            pstmt.setString(3, courseCode);
-            pstmt.setInt(4, year);
-            pstmt.setInt(5, semester);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    public static Program editProgram(String programID, String programName, String college) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("UPDATE programs SET ProgramName = ?, College = ? WHERE ProgramID = ?")) {
 
-    public static Program editProgramRecord(int id, String collegeName, String program) {
-        String updateQuery = "UPDATE college SET college_name=?, program=? WHERE id=?";
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(updateQuery)) {
-            pstmt.setString(1, collegeName);
-            pstmt.setString(2, program);
-            pstmt.setInt(3, id);
-            pstmt.executeUpdate();
+            stmt.setString(1, programName);
+            stmt.setString(2, college);
+            stmt.setString(3, programID);
 
-            Program college = new Program(id, collegeName, program);
-            return college;
+            int rowsAffected = stmt.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new SQLException("Editing program failed, no rows affected.");
+            }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return new Program(programID, programName, college);
         }
     }
 }

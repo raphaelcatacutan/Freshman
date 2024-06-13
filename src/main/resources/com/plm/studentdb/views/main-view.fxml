@@ -99,13 +99,16 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
-                        <Label alignment="CENTER" graphicTextGap="10.0" prefWidth="120.0" style="-fx-background-radius: 5;" text="Reports" visible="false">
+                        <Label alignment="CENTER" graphicTextGap="10.0" onMouseClicked="#navigateReports" prefWidth="120.0" style="-fx-background-radius: 5;" text="Reports">
                            <font>
                               <Font name="Century Gothic" size="13.0" />
                            </font>
                            <padding>
                               <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
                            </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
                      </children>
                   </HBox>

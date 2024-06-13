@@ -1,6 +1,5 @@
 package com.plm.studentdb.database;
 import com.plm.studentdb.models.*;
-import com.plm.studentdb.models.Class;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

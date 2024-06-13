@@ -4,7 +4,6 @@ import com.plm.studentdb.database.DBAdd;
 import com.plm.studentdb.database.DBEdit;
 import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBRemove;
-import com.plm.studentdb.models.Class;
 import com.plm.studentdb.models.Student;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -105,7 +104,7 @@ public class StudentsInformation {
 
     @FXML void deleteStudent() {
         Runnable delete = () -> {
-            DBRemove.removeStudentRecord(focusedStudent.getId());
+            DBRemove.removeStudent(focusedStudent.get());
             ViewStudents.studentsListTable.remove(focusedStudent);
             closeForms();
         };

@@ -1,120 +1,102 @@
 package com.plm.studentdb.database;
 
 import com.plm.studentdb.models.*;
-import com.plm.studentdb.models.Class;
 
 import java.sql.*;
 
 public class DBAdd {
-    public static Student addStudentRecord(int studentId, String name, String program, int year, int block, String email) {
-        String insertQuery = "INSERT INTO studentdb.student (student_id, full_name, program, year, block, email) VALUES (?, ?, ?, ?, ?, ?)";
+    public static Student addStudent(int studentID, String studentName, String programID, int year, int block, String email, String password) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("INSERT INTO students (StudentID, StudentName, ProgramID, Year, Block, Email, Password) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
 
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
-            pstmt.setInt(1, studentId);
-            pstmt.setString(2, name);
-            pstmt.setString(3, program);
-            pstmt.setInt(4, year);
-            pstmt.setInt(5, block);
-            pstmt.setString(6, email);
-            pstmt.executeUpdate();
+            stmt.setInt(1, studentID);
+            stmt.setString(2, studentName);
+            stmt.setString(3, programID);
+            stmt.setInt(4, year);
+            stmt.setInt(5, block);
+            stmt.setString(6, email);
+            stmt.setString(7, password);
 
-            try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                rs.next();
-                int id = rs.getInt("GENERATED_KEY");
-                Student student = new Student(id, studentId, name, program, year, block, email);
-                return student;
-            }
+            stmt.executeUpdate();
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return new Student(studentID, studentName, programID, year, block, email, password);
         }
     }
 
-    public static Account addAccountRecord(String username, String password, String programAccess) {
-        String insertQuery = "INSERT INTO accounts (username, password, program_access) VALUES (?, ?, ?)";
+    public static Account addAccount(String email, String password, String access) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("INSERT INTO accounts (Email, Password, Access) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
-            pstmt.setString(1, username);
-            pstmt.setString(2, password);
-            pstmt.setString(3, programAccess);
-            pstmt.executeUpdate();
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            stmt.setString(3, access);
 
-            try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                rs.next();
-                int id = rs.getInt(1);
-                Account account = new Account(id, username, password, programAccess);
-                return account;
+            stmt.executeUpdate();
+
+            ResultSet generatedKeys = stmt.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int accountID = generatedKeys.getInt(1);
+                return new Account(accountID, email, password, access);
+            } else {
+                throw new SQLException("Creating account failed, no ID obtained.");
             }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
-    public static Course addCourseRecord(String courseCode, int units, int sections, String courseName, int limit) {
-        String insertQuery = "INSERT INTO course (course_code, units, sections, course_name, st_limit) VALUES (?, ?, ?, ?, ?)";
 
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
-            pstmt.setString(1, courseCode);
-            pstmt.setInt(2, units);
-            pstmt.setInt(3, sections);
-            pstmt.setString(4, courseName);
-            pstmt.setInt(5, limit);
-            pstmt.executeUpdate();
+    public static Course addCourse(int courseID, String courseName, int year, int semester, int units, int sections, int capacity) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("INSERT INTO course (CourseID, CourseName, Year, Semester, Units, Sections, Capacity) VALUES (?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
-            try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                rs.next();
-                int id = rs.getInt(1);
-                Course course = new Course(id, courseCode, units, sections, courseName, limit);
-                return course;
-            }
+            stmt.setInt(1, courseID);
+            stmt.setString(2, courseName);
+            stmt.setInt(3, year);
+            stmt.setInt(4, semester);
+            stmt.setInt(5, units);
+            stmt.setInt(6, sections);
+            stmt.setInt(7, capacity);
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            stmt.executeUpdate();
+
+            return new Course(courseID, courseName, year, semester, units, sections, capacity);
         }
     }
 
-    public static Class addClassRecord(String studentNumber, String courseCode, int section, int year, int semester, double grade) {
-        String insertQuery = "INSERT INTO classes (student_number, course_code, section, year, semester, grade) VALUES (?, ?, ?, ?, ?, ?)";
 
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
-            pstmt.setString(1, studentNumber);
-            pstmt.setString(2, courseCode);
-            pstmt.setInt(3, section);
-            pstmt.setInt(4, year);
-            pstmt.setInt(5, semester);
-            pstmt.setDouble(6, grade);
-            pstmt.executeUpdate();
+    public static Lesson addLesson(int studentID, int courseID, int section, double grade) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("INSERT INTO lessons (StudentID, CourseID, Section, Grade) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
-            try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                rs.next();
-                int id = rs.getInt(1);
-                Class enrolled = new Class(id, studentNumber, courseCode, section, year, semester, grade);
-                return enrolled;
+            stmt.setInt(1, studentID);
+            stmt.setInt(2, courseID);
+            stmt.setInt(3, section);
+            stmt.setDouble(4, grade);
+
+            stmt.executeUpdate();
+
+            ResultSet generatedKeys = stmt.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int lessonID = generatedKeys.getInt(1);
+                return new Lesson(lessonID, studentID, courseID, section, grade);
+            } else {
+                throw new SQLException("Creating lesson failed, no ID obtained.");
             }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
     }
 
-    public static Program addProgramRecord(String collegeName, String program) {
-        String insertQuery = "INSERT INTO college (college_name, program) VALUES (?, ?)";
 
-        try (PreparedStatement pstmt = DBConnection.getConnection().prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
-            pstmt.setString(1, collegeName);
-            pstmt.setString(2, program);
-            pstmt.executeUpdate();
+    public static Program addProgram(String programID, String programName, String college) throws SQLException {
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement("INSERT INTO programs (ProgramID, ProgramName, College) VALUES (?, ?, ?)")) {
 
-            try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                rs.next();
-                int id = rs.getInt(1);
-                Program college = new Program(id, collegeName, program);
-                return college;
-            }
+            stmt.setString(1, programID);
+            stmt.setString(2, programName);
+            stmt.setString(3, college);
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            stmt.executeUpdate();
+
+            return new Program(programID, programName, college);
         }
     }
+
 }

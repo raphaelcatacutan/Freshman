@@ -2,8 +2,6 @@ package com.plm.studentdb.views;
 
 import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBView;
-import com.plm.studentdb.models.Course;
-import com.plm.studentdb.models.Student;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

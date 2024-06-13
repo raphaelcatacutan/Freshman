@@ -9,7 +9,7 @@ public class DBConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
-    private static final String DATABASE_NAME = "studentdb";
+    private static final String DATABASE_NAME = "studentdb2";
     private static Connection connection;
 
     static {
@@ -99,16 +99,5 @@ public class DBConnection {
 
     public static Connection getConnection() {
         return connection;
-    }
-
-    public static void main(String[] args) {
-        if (DBConnection.getConnection() != null) {
-            System.out.println("Connection to database established successfully!");
-        } else {
-            System.out.println("Failed to establish connection to database.");
-        }
-        for (int i = 0; i < 10; i++) {
-            DBRandom.generateAndAddRandomStudent();
-        }
     }
 }

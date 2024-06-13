@@ -31,17 +31,17 @@ public class ViewStudents {
 
         TableColumn<Student, Integer> idColumn = new TableColumn<>("ID");
         idColumn.setPrefWidth(100);
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("StudentID"));
         idColumn.minWidthProperty().bind(tbvStudents.widthProperty().multiply(0.17));
 
         TableColumn<Student, String> nameColumn = new TableColumn<>("Name");
         nameColumn.setPrefWidth(100);
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("StudentName"));
         nameColumn.minWidthProperty().bind(tbvStudents.widthProperty().multiply(0.25));
 
         TableColumn<Student, String> courseColumn = new TableColumn<>("Program");
         courseColumn.setPrefWidth(100);
-        courseColumn.setCellValueFactory(new PropertyValueFactory<>("program"));
+        courseColumn.setCellValueFactory(new PropertyValueFactory<>("ProgramID"));
         courseColumn.minWidthProperty().bind(tbvStudents.widthProperty().multiply(0.24));
 
         TableColumn<Student, Integer> yearColumn = new TableColumn<>("Year");
@@ -86,7 +86,7 @@ public class ViewStudents {
     @FXML private void search(KeyEvent event) {
         if (event.getCode() != KeyCode.ENTER) return;
         String input = txfStudentsSearch.getText();
-        List<Student> students = DBFind.findStudentRecord(input);
+        List<Student> students = DBFind.findStudents(input);
         studentsListTable.setAll(students);
     }
 

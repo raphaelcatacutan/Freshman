@@ -3,7 +3,6 @@ package com.plm.studentdb.views;
 import com.plm.studentdb.database.DBAdd;
 import com.plm.studentdb.database.DBEdit;
 import com.plm.studentdb.database.DBRemove;
-import com.plm.studentdb.models.Course;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;

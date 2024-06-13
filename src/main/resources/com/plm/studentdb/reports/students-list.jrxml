@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PLM-INTERM-STUDENT-RECORD-STUDENTS" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="350de608-1cc9-41af-ab80-d6c5c6d8e42e">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PLM-Student-Record"/>
+	<subDataset name="PLM-Student-Record-Students" uuid="a499916a-a772-4718-8a8d-30b9efa341a6">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PLM-Student-Record"/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<queryString>
+			<![CDATA[SELECT * FROM studentdb.student]]>
+		</queryString>
+		<field name="id" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="id"/>
+			<property name="com.jaspersoft.studio.field.label" value="id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+		</field>
+		<field name="full_name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="full_name"/>
+			<property name="com.jaspersoft.studio.field.label" value="full_name"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+		</field>
+		<field name="student_id" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="student_id"/>
+			<property name="com.jaspersoft.studio.field.label" value="student_id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+		</field>
+		<field name="program" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="program"/>
+			<property name="com.jaspersoft.studio.field.label" value="program"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+		</field>
+		<field name="year" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="year"/>
+			<property name="com.jaspersoft.studio.field.label" value="year"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+		</field>
+		<field name="block" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="block"/>
+			<property name="com.jaspersoft.studio.field.label" value="block"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+		</field>
+		<field name="email" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="email"/>
+			<property name="com.jaspersoft.studio.field.label" value="email"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+		</field>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM studentdb.student]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="full_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="full_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="full_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="student_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="student_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="student_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="program" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="program"/>
+		<property name="com.jaspersoft.studio.field.label" value="program"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="year" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="year"/>
+		<property name="com.jaspersoft.studio.field.label" value="year"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="block" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="block"/>
+		<property name="com.jaspersoft.studio.field.label" value="block"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="20" width="211" height="51" uuid="d990732b-bd60-4671-96c5-95f9564b54c0"/>
+				<text><![CDATA[Title Here]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="230" splitType="Stretch">
+			<componentElement>
+				<reportElement x="251" y="78" width="120" height="40" uuid="ffe08aad-460a-48e2-9138-4fb93aae7ebc"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="PLM-Student-Record-Students" uuid="a8c7171f-038e-45f1-a2d3-315272b3b6c1">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="40" width="120">
+						<textField>
+							<reportElement x="10" y="0" width="100" height="30" uuid="b37b9736-0455-41a1-92c7-88eb29a44111"/>
+							<textFieldExpression><![CDATA[$F{full_name} + $F{student_id}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,177 +1,262 @@
 package com.plm.studentdb.database;
-import com.plm.studentdb.models.Course;
-import com.plm.studentdb.models.Class;
-import com.plm.studentdb.models.Mapper;
-import com.plm.studentdb.models.Student;
+import com.plm.studentdb.models.*;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DBFind {
-    public static Student findStudentRecord(int studentId){
-        // Check if the student ID exists in the database
-        String selectQuery = "SELECT * FROM student WHERE student_id = ?";
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            p.setInt(1, studentId);
+    public static List<Course> findCourses(Integer courseID, String courseName, Integer year, Integer semester, Integer units, Integer sections, Integer capacity, String query) throws SQLException {
+        StringBuilder sql = new StringBuilder("SELECT * FROM course WHERE 1=1 ");
+        List<Object> params = new ArrayList<>();
 
-            try (ResultSet rs = p.executeQuery();) {
-                List<Student> students = Mapper.generateStudentObservable(rs);
-                if (!students.isEmpty()) return students.getFirst();
-                else return null;
+        if (courseID != null) {
+            sql.append("AND CourseID = ? ");
+            params.add(courseID);
+        }
+        if (courseName != null) {
+            sql.append("AND CourseName = ? ");
+            params.add(courseName);
+        }
+        if (year != null) {
+            sql.append("AND Year = ? ");
+            params.add(year);
+        }
+        if (semester != null) {
+            sql.append("AND Semester = ? ");
+            params.add(semester);
+        }
+        if (units != null) {
+            sql.append("AND Units = ? ");
+            params.add(units);
+        }
+        if (sections != null) {
+            sql.append("AND Sections = ? ");
+            params.add(sections);
+        }
+        if (capacity != null) {
+            sql.append("AND Capacity = ? ");
+            params.add(capacity);
+        }
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql.toString())) {
+
+            for (int i = 0; i < params.size(); i++) {
+                Object param = params.get(i);
+                if (param instanceof Integer) {
+                    stmt.setInt(i + 1, (Integer) param);
+                } else if (param instanceof String) {
+                    stmt.setString(i + 1, (String) param);
+                }
             }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error fetching student record: " + e.getMessage());
+
+            ResultSet resultSet = stmt.executeQuery();
+            return Mapper.generateCourseObservable(resultSet);
         }
     }
 
-    public static List<Student> findStudentRecord(String studentInfo) {
-        String selectQuery = "SELECT * FROM student WHERE ";
+    public static List<Lesson> findLessons(Integer lessonID, Integer studentID, Integer courseID, Integer section, Double grade, String query) throws SQLException {
+        StringBuilder sql = new StringBuilder("SELECT * FROM lessons WHERE 1=1 ");
+        List<Object> params = new ArrayList<>();
 
-        if (studentInfo.contains("@")) {
-            selectQuery += "email LIKE ?";
-        } else if (studentInfo.matches("\\d-\\d")) {
-            String[] parts = studentInfo.split("-");
-            selectQuery += "year = ? AND block = ?";
-        } else if (studentInfo.matches("\\d+")) {
-            selectQuery += "student_id LIKE ?";
-        } else {
-            selectQuery += "(full_name LIKE ? OR program LIKE ?)";
+        if (lessonID != null) {
+            sql.append("AND LessonID = ? ");
+            params.add(lessonID);
+        }
+        if (studentID != null) {
+            sql.append("AND StudentID = ? ");
+            params.add(studentID);
+        }
+        if (courseID != null) {
+            sql.append("AND CourseID = ? ");
+            params.add(courseID);
+        }
+        if (section != null) {
+            sql.append("AND Section = ? ");
+            params.add(section);
+        }
+        if (grade != null) {
+            sql.append("AND Grade = ? ");
+            params.add(grade);
         }
 
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            if (studentInfo.contains("@")) {
-                p.setString(1, "%" + studentInfo + "%");
-            } else if (studentInfo.matches("\\d-\\d")) {
-                String[] parts = studentInfo.split("-");
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql.toString())) {
+
+            for (int i = 0; i < params.size(); i++) {
+                Object param = params.get(i);
+                if (param instanceof Integer) {
+                    stmt.setInt(i + 1, (Integer) param);
+                } else if (param instanceof Double) {
+                    stmt.setDouble(i + 1, (Double) param);
+                }
+            }
+
+            ResultSet resultSet = stmt.executeQuery();
+            return Mapper.generateLessonObservable(resultSet);
+        }
+    }
+
+    public static List<Student> findStudents(Integer studentID, String studentName, String programID, Integer year, Integer block, String email, String password, String query) throws SQLException {
+        StringBuilder sql = new StringBuilder("SELECT * FROM students WHERE 1=1 ");
+        List<Object> params = new ArrayList<>();
+
+        if (studentID != null) {
+            sql.append("AND StudentID = ? ");
+            params.add(studentID);
+        }
+        if (studentName != null) {
+            sql.append("AND StudentName = ? ");
+            params.add(studentName);
+        }
+        if (programID != null) {
+            sql.append("AND ProgramID = ? ");
+            params.add(programID);
+        }
+        if (year != null) {
+            sql.append("AND Year = ? ");
+            params.add(year);
+        }
+        if (block != null) {
+            sql.append("AND Block = ? ");
+            params.add(block);
+        }
+        if (email != null) {
+            sql.append("AND Email = ? ");
+            params.add(email);
+        }
+        if (password != null) {
+            sql.append("AND Password = ? ");
+            params.add(password);
+        }
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql.toString())) {
+
+            for (int i = 0; i < params.size(); i++) {
+                Object param = params.get(i);
+                if (param instanceof Integer) {
+                    stmt.setInt(i + 1, (Integer) param);
+                } else if (param instanceof String) {
+                    stmt.setString(i + 1, (String) param);
+                }
+            }
+
+            ResultSet resultSet = stmt.executeQuery();
+            return Mapper.generateStudentObservable(resultSet);
+        }
+    }
+
+    public static List<Account> findAccounts(Integer accountID, String email, String password, String access, String query) throws SQLException {
+        StringBuilder sql = new StringBuilder("SELECT * FROM accounts WHERE 1=1 ");
+        List<Object> params = new ArrayList<>();
+
+        if (accountID != null) {
+            sql.append("AND AccountID = ? ");
+            params.add(accountID);
+        }
+        if (email != null) {
+            sql.append("AND Email = ? ");
+            params.add(email);
+        }
+        if (password != null) {
+            sql.append("AND Password = ? ");
+            params.add(password);
+        }
+        if (access != null) {
+            sql.append("AND Access = ? ");
+            params.add(access);
+        }
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql.toString())) {
+
+            for (int i = 0; i < params.size(); i++) {
+                Object param = params.get(i);
+                if (param instanceof Integer) {
+                    stmt.setInt(i + 1, (Integer) param);
+                } else if (param instanceof String) {
+                    stmt.setString(i + 1, (String) param);
+                }
+            }
+
+            ResultSet resultSet = stmt.executeQuery();
+            return Mapper.generateAccountObservable(resultSet);
+        }
+    }
+
+    public static List<Program> findPrograms(String programID, String programName, String college, String query) throws SQLException {
+        StringBuilder sql = new StringBuilder("SELECT * FROM programs WHERE 1=1 ");
+        List<Object> params = new ArrayList<>();
+
+        if (programID != null) {
+            sql.append("AND ProgramID = ? ");
+            params.add(programID);
+        }
+        if (programName != null) {
+            sql.append("AND ProgramName = ? ");
+            params.add(programName);
+        }
+        if (college != null) {
+            sql.append("AND College = ? ");
+            params.add(college);
+        }
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql.toString())) {
+
+            for (int i = 0; i < params.size(); i++) {
+                Object param = params.get(i);
+                if (param instanceof String) {
+                    stmt.setString(i + 1, (String) param);
+                }
+            }
+
+            ResultSet resultSet = stmt.executeQuery();
+            return Mapper.generateProgramObservable(resultSet);
+        }
+    }
+
+
+    public static List<Student> findStudents(String query) {
+        String selectQuery = "SELECT * FROM students WHERE ";
+
+        if (query.contains("@")) {
+            selectQuery += "Email LIKE ?";
+        } else if (query.matches("\\d+-\\d+")) {
+            String[] parts = query.split("-");
+            selectQuery += "Year = ? AND Block = ?";
+        } else if (query.matches("\\d+")) {
+            selectQuery += "StudentID LIKE ?";
+        } else {
+            selectQuery += "(StudentName LIKE ? OR ProgramID LIKE ?)";
+        }
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement p = connection.prepareStatement(selectQuery)) {
+
+            if (query.contains("@")) {
+                p.setString(1, "%" + query + "%");
+            } else if (query.matches("\\d+-\\d+")) {
+                String[] parts = query.split("-");
                 p.setInt(1, Integer.parseInt(parts[0]));
                 p.setInt(2, Integer.parseInt(parts[1]));
-            } else if (studentInfo.matches("\\d+")) {
-                p.setString(1, studentInfo + "%");
+            } else if (query.matches("\\d+")) {
+                p.setString(1, query + "%");
             } else {
-                p.setString(1, "%" + studentInfo + "%");
-                p.setString(2, "%" + studentInfo + "%");
+                p.setString(1, "%" + query + "%");
+                p.setString(2, "%" + query + "%");
             }
 
             try (ResultSet rs = p.executeQuery()) {
-                List<Student> students = Mapper.generateStudentObservable(rs);
-                return students;
+                return Mapper.generateStudentObservable(rs);
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error fetching student record: " + e.getMessage());
-        }
-    }
-
-    public static List<Class> findClass(String student_number) {
-        String selectQuery = "SELECT * FROM classes WHERE student_number = ?";
-
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            p.setString(1, student_number);
-
-            try (ResultSet rs = p.executeQuery()) {
-                List<Class> enrolled = Mapper.generateClassObservable(rs);
-                return enrolled;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
-        }
-    }
-
-    public static List<Class> findClass(int student_id, int year, int semester) {
-        String selectQuery = "SELECT * FROM classes WHERE student_number = ? AND year = ? AND semester = ?";
-
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            p.setInt(1, student_id);
-            p.setInt(2, year);
-            p.setInt(3, semester);
-
-            try (ResultSet rs = p.executeQuery()) {
-                List<Class> enrolled = Mapper.generateClassObservable(rs);
-                return enrolled;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
-        }
-    }
-
-    public static List<Class> findClass(String code, int year, int semester) {
-        String selectQuery = "SELECT * FROM classes WHERE course_code = ? AND year = ? AND semester = ?";
-
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            p.setString(1, code);
-            p.setInt(2, year);
-            p.setInt(3, semester);
-
-            try (ResultSet rs = p.executeQuery()) {
-                List<Class> classes = Mapper.generateClassObservable(rs);
-                return classes;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
-        }
-    }
-
-    public static Class findClass(int id) {
-        String selectQuery = "SELECT * FROM classes WHERE id = ?";
-
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            p.setInt(1, id);
-
-            try (ResultSet rs = p.executeQuery()) {
-                List<Class> classes = Mapper.generateClassObservable(rs);
-                return classes.getFirst();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
-        }
-    }
-
-    public static List<Class> findClass(String student_number, String code, int year, int semester) {
-        String selectQuery = "SELECT * FROM classes WHERE student_number = ? AND course_code = ? AND year = ? AND semester = ?";
-
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            p.setString(1, student_number);
-            p.setString(2, code);
-            p.setInt(3, year);
-            p.setInt(4,semester);
-
-            try (ResultSet rs = p.executeQuery()) {
-                List<Class> classes = Mapper.generateClassObservable(rs);
-                return classes;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
-        }
-    }
-
-    public static List<Course> findCourse(String courseCode) {
-        String selectQuery = "SELECT * FROM course WHERE course_code = ?";
-
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            p.setString(1, courseCode);
-
-            try (ResultSet rs = p.executeQuery()) {
-                List<Course> courses = Mapper.generateCourseObservable(rs);
-                return courses;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
-        }
-    }
-
-    public static List<Course> findLikeCourse(String courseCode) {
-        String selectQuery = "SELECT * FROM course WHERE course_code LIKE ?";
-
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
-            p.setString(1, "%" + courseCode + "%");
-
-            try (ResultSet rs = p.executeQuery()) {
-                List<Course> courses = Mapper.generateCourseObservable(rs);
-                return courses;
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error fetching enrolled record: " + e.getMessage());
         }
     }
 }

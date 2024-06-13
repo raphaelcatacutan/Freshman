@@ -23,4 +23,60 @@ public class Student {
         this.email = new SimpleStringProperty(email);
         this.password = new SimpleStringProperty(password);
     }
+
+    public int getStudentID() {
+        return studentID.get();
+    }
+
+    public IntegerProperty studentIDProperty() {
+        return studentID;
+    }
+
+    public String getStudentName() {
+        return studentName.get();
+    }
+
+    public StringProperty studentNameProperty() {
+        return studentName;
+    }
+
+    public String getProgramID() {
+        return programID.get();
+    }
+
+    public StringProperty programIDProperty() {
+        return programID;
+    }
+
+    public int getYear() {
+        return year.get();
+    }
+
+    public IntegerProperty yearProperty() {
+        return year;
+    }
+
+    public int getBlock() {
+        return block.get();
+    }
+
+    public IntegerProperty blockProperty() {
+        return block;
+    }
+
+    public String getEmail() {
+        return email.get();
+    }
+
+    public StringProperty emailProperty() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password.get();
+    }
+
+    public StringProperty passwordProperty() {
+        return password;
+    }
 }
