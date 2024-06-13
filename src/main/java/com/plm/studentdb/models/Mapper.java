@@ -31,21 +31,23 @@ public class Mapper {
     public static List<Account> generateAccountObservable(ResultSet resultSet) throws SQLException {
         List<Account> accounts = new ArrayList<>();
         while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            String username = resultSet.getString("username");
-            String password = resultSet.getString("password");
-            String programAccess = resultSet.getString("program_access");
+            int accountID = resultSet.getInt("AccountID");
+            String name = resultSet.getString("Name");
+            String email = resultSet.getString("Email");
+            String password = resultSet.getString("Password");
+            String access = resultSet.getString("Access");
 
-            Account account = new Account(id, username, password, programAccess);
+            Account account = new Account(accountID, name, email, password, access);
             accounts.add(account);
         }
         return accounts;
     }
 
+
     public static List<Course> generateCourseObservable(ResultSet resultSet) throws SQLException {
         List<Course> courses = new ArrayList<>();
         while (resultSet.next()) {
-            int courseID = resultSet.getInt("CourseID");
+            String courseID = resultSet.getString("CourseID");
             String courseName = resultSet.getString("CourseName");
             int year = resultSet.getInt("Year");
             int semester = resultSet.getInt("Semester");
@@ -64,7 +66,7 @@ public class Mapper {
         while (resultSet.next()) {
             int lessonID = resultSet.getInt("LessonID");
             int studentID = resultSet.getInt("StudentID");
-            int courseID = resultSet.getInt("CourseID");
+            String courseID = resultSet.getString("CourseID");
             int section = resultSet.getInt("Section");
             double grade = resultSet.getDouble("Grade");
 
