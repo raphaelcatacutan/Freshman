@@ -1,21 +1,18 @@
 package com.plm.studentdb.models;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.*;
 
 public class Lesson {
     private final IntegerProperty lessonID;
     private final IntegerProperty studentID;
-    private final IntegerProperty courseID;
+    private final StringProperty courseID;
     private final IntegerProperty section;
     private final DoubleProperty grade;
 
-    public Lesson(int lessonID, int studentID, int courseID, int section, double grade) {
+    public Lesson(int lessonID, int studentID, String courseID, int section, double grade) {
         this.lessonID = new SimpleIntegerProperty(lessonID);
         this.studentID = new SimpleIntegerProperty(studentID);
-        this.courseID = new SimpleIntegerProperty(courseID);
+        this.courseID = new SimpleStringProperty(courseID);
         this.section = new SimpleIntegerProperty(section);
         this.grade = new SimpleDoubleProperty(grade);
     }
@@ -36,11 +33,11 @@ public class Lesson {
         return studentID;
     }
 
-    public int getCourseID() {
+    public String getCourseID() {
         return courseID.get();
     }
 
-    public IntegerProperty courseIDProperty() {
+    public StringProperty courseIDProperty() {
         return courseID;
     }
 
