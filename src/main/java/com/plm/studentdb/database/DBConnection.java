@@ -44,20 +44,6 @@ public class DBConnection {
             stmt.executeUpdate(createCourseTableQuery);
         }
 
-        // Lessons
-        try (Statement stmt = connection.createStatement()) {
-            String createClassesTableQuery = "CREATE TABLE IF NOT EXISTS lessons (" +
-                    "LessonID INT AUTO_INCREMENT PRIMARY KEY, " +
-                    "StudentID INT NOT NULL, " +
-                    "CourseID VARCHAR(255) NOT NULL, " +
-                    "Section INT NOT NULL, " +
-                    "Grade DECIMAL(5,2) NOT NULL, " +
-                    "FOREIGN KEY (StudentID) REFERENCES students(StudentID) ON DELETE CASCADE, " +
-                    "FOREIGN KEY (CourseID) REFERENCES course(CourseID) ON DELETE CASCADE" +
-                    ")";
-            stmt.executeUpdate(createClassesTableQuery);
-        }
-
         // Accounts
         try (Statement stmt = connection.createStatement()) {
             String createAccountsTableQuery = "CREATE TABLE IF NOT EXISTS accounts (" +
@@ -94,6 +80,20 @@ public class DBConnection {
                     "FOREIGN KEY (ProgramID) REFERENCES programs(ProgramID) ON DELETE CASCADE" +
                     ")";
             stmt.executeUpdate(createStudentTableQuery);
+        }
+
+        // Lessons
+        try (Statement stmt = connection.createStatement()) {
+            String createClassesTableQuery = "CREATE TABLE IF NOT EXISTS lessons (" +
+                    "LessonID INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "StudentID INT NOT NULL, " +
+                    "CourseID VARCHAR(255) NOT NULL, " +
+                    "Section INT NOT NULL, " +
+                    "Grade DECIMAL(5,2) NOT NULL, " +
+                    "FOREIGN KEY (StudentID) REFERENCES students(StudentID) ON DELETE CASCADE, " +
+                    "FOREIGN KEY (CourseID) REFERENCES course(CourseID) ON DELETE CASCADE" +
+                    ")";
+            stmt.executeUpdate(createClassesTableQuery);
         }
     }
 
