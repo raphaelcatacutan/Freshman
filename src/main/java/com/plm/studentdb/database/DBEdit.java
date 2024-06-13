@@ -5,9 +5,10 @@ import com.plm.studentdb.models.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Types;
 
 public class DBEdit {
-    public static Course editCourse(String courseID, String courseName, int year, int semester, int units, int sections, int capacity) throws SQLException {
+    public static Course editCourse(String courseID, String courseName, int year, int semester, int units, int sections, int capacity) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("UPDATE course SET CourseName = ?, Year = ?, Semester = ?, Units = ?, Sections = ?, Capacity = ? WHERE CourseID = ?")) {
 
@@ -25,10 +26,12 @@ public class DBEdit {
             }
 
             return new Course(courseID, courseName, year, semester, units, sections, capacity);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public static Lesson editLesson(int lessonID, int studentID, String courseID, int section, double grade) throws SQLException {
+    public static Lesson editLesson(int lessonID, int studentID, String courseID, int section, double grade) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("UPDATE lessons SET StudentID = ?, CourseID = ?, Section = ?, Grade = ? WHERE LessonID = ?")) {
 
@@ -44,10 +47,12 @@ public class DBEdit {
             }
 
             return new Lesson(lessonID, studentID, courseID, section, grade);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public static Student editStudent(int studentID, String studentName, String programID, int year, int block, String email, String password) throws SQLException {
+    public static Student editStudent(int studentID, String studentName, String programID, int year, int block, String email, String password) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("UPDATE students SET StudentName = ?, ProgramID = ?, Year = ?, Block = ?, Email = ?, Password = ? WHERE StudentID = ?")) {
 
@@ -57,6 +62,7 @@ public class DBEdit {
             stmt.setInt(4, block);
             stmt.setString(5, email);
             stmt.setString(6, password);
+            stmt.setNull(6, Types.VARCHAR);
             stmt.setInt(7, studentID);
 
             int rowsAffected = stmt.executeUpdate();
@@ -65,10 +71,12 @@ public class DBEdit {
             }
 
             return new Student(studentID, studentName, programID, year, block, email, password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public static Account editAccount(int accountID, String name, String email, String password, String access) throws SQLException {
+    public static Account editAccount(int accountID, String name, String email, String password, String access) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("UPDATE accounts SET Name = ?, Email = ?, Password = ?, Access = ? WHERE AccountID = ?")) {
 
@@ -84,10 +92,12 @@ public class DBEdit {
             }
 
             return new Account(accountID, name, email, password, access);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public static Program editProgram(String programID, String programName, String college) throws SQLException {
+    public static Program editProgram(String programID, String programName, String college) {
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement stmt = connection.prepareStatement("UPDATE programs SET ProgramName = ?, College = ? WHERE ProgramID = ?")) {
 
@@ -101,6 +111,8 @@ public class DBEdit {
             }
 
             return new Program(programID, programName, college);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }
