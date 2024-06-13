@@ -68,21 +68,22 @@ public class DBEdit {
         }
     }
 
-    public static Account editAccount(int accountID, String email, String password, String access) throws SQLException {
+    public static Account editAccount(int accountID, String name, String email, String password, String access) throws SQLException {
         try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("UPDATE accounts SET Email = ?, Password = ?, Access = ? WHERE AccountID = ?")) {
+             PreparedStatement stmt = connection.prepareStatement("UPDATE accounts SET Name = ?, Email = ?, Password = ?, Access = ? WHERE AccountID = ?")) {
 
-            stmt.setString(1, email);
-            stmt.setString(2, password);
-            stmt.setString(3, access);
-            stmt.setInt(4, accountID);
+            stmt.setString(1, name);
+            stmt.setString(2, email);
+            stmt.setString(3, password);
+            stmt.setString(4, access);
+            stmt.setInt(5, accountID);
 
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected == 0) {
                 throw new SQLException("Editing account failed, no rows affected.");
             }
 
-            return new Account(accountID, email, password, access);
+            return new Account(accountID, name, email, password, access);
         }
     }
 

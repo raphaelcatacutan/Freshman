@@ -62,6 +62,7 @@ public class DBConnection {
         try (Statement stmt = connection.createStatement()) {
             String createAccountsTableQuery = "CREATE TABLE IF NOT EXISTS accounts (" +
                     "AccountID INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "Name VARCHAR(255) NOT NULL, " +
                     "Email VARCHAR(255) NOT NULL, " +
                     "Password VARCHAR(255) NOT NULL, " +
                     "Access VARCHAR(255) NOT NULL" +

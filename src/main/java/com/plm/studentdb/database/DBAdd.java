@@ -23,20 +23,21 @@ public class DBAdd {
         }
     }
 
-    public static Account addAccount(String email, String password, String access) throws SQLException {
+    public static Account addAccount(String name, String email, String password, String access) throws SQLException {
         try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("INSERT INTO accounts (Email, Password, Access) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement stmt = connection.prepareStatement("INSERT INTO accounts (Name, Email, Password, Access) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
-            stmt.setString(1, email);
-            stmt.setString(2, password);
-            stmt.setString(3, access);
+            stmt.setString(1, name);
+            stmt.setString(2, email);
+            stmt.setString(3, password);
+            stmt.setString(4, access);
 
             stmt.executeUpdate();
 
             ResultSet generatedKeys = stmt.getGeneratedKeys();
             if (generatedKeys.next()) {
                 int accountID = generatedKeys.getInt(1);
-                return new Account(accountID, email, password, access);
+                return new Account(accountID, name, email, password, access);
             } else {
                 throw new SQLException("Creating account failed, no ID obtained.");
             }

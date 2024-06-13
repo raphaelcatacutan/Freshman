@@ -151,13 +151,17 @@ public class DBFind {
         }
     }
 
-    public static List<Account> findAccounts(Integer accountID, String email, String password, String access, String query) throws SQLException {
+    public static List<Account> findAccounts(Integer accountID, String name, String email, String password, String access, String query) throws SQLException {
         StringBuilder sql = new StringBuilder("SELECT * FROM accounts WHERE 1=1 ");
         List<Object> params = new ArrayList<>();
 
         if (accountID != null) {
             sql.append("AND AccountID = ? ");
             params.add(accountID);
+        }
+        if (name != null) {
+            sql.append("AND Name = ? ");
+            params.add(name);
         }
         if (email != null) {
             sql.append("AND Email = ? ");
