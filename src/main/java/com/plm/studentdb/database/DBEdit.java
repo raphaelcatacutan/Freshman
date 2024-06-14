@@ -9,8 +9,7 @@ import java.sql.Types;
 
 public class DBEdit {
     public static Course editCourse(String courseID, String courseName, int year, int semester, int units, int sections, int capacity) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("UPDATE course SET CourseName = ?, Year = ?, Semester = ?, Units = ?, Sections = ?, Capacity = ? WHERE CourseID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("UPDATE course SET CourseName = ?, Year = ?, Semester = ?, Units = ?, Sections = ?, Capacity = ? WHERE CourseID = ?")) {
 
             stmt.setString(1, courseName);
             stmt.setInt(2, year);
@@ -32,8 +31,7 @@ public class DBEdit {
     }
 
     public static Lesson editLesson(int lessonID, int studentID, String courseID, int section, double grade) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("UPDATE lessons SET StudentID = ?, CourseID = ?, Section = ?, Grade = ? WHERE LessonID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("UPDATE lessons SET StudentID = ?, CourseID = ?, Section = ?, Grade = ? WHERE LessonID = ?")) {
 
             stmt.setInt(1, studentID);
             stmt.setString(2, courseID);
@@ -53,8 +51,7 @@ public class DBEdit {
     }
 
     public static Student editStudent(int studentID, String studentName, String programID, int year, int block, String email, String password) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("UPDATE students SET StudentName = ?, ProgramID = ?, Year = ?, Block = ?, Email = ?, Password = ? WHERE StudentID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("UPDATE students SET StudentName = ?, ProgramID = ?, Year = ?, Block = ?, Email = ?, Password = ? WHERE StudentID = ?")) {
 
             stmt.setString(1, studentName);
             stmt.setString(2, programID);
@@ -77,8 +74,7 @@ public class DBEdit {
     }
 
     public static Account editAccount(int accountID, String name, String email, String password, String access) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("UPDATE accounts SET Name = ?, Email = ?, Password = ?, Access = ? WHERE AccountID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("UPDATE accounts SET Name = ?, Email = ?, Password = ?, Access = ? WHERE AccountID = ?")) {
 
             stmt.setString(1, name);
             stmt.setString(2, email);
@@ -98,8 +94,7 @@ public class DBEdit {
     }
 
     public static Program editProgram(String programID, String programName, String college) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("UPDATE programs SET ProgramName = ?, College = ? WHERE ProgramID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("UPDATE programs SET ProgramName = ?, College = ? WHERE ProgramID = ?")) {
 
             stmt.setString(1, programName);
             stmt.setString(2, college);
