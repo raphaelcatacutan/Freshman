@@ -79,12 +79,12 @@ public class Mapper {
     public static List<Program> generateProgramObservable(ResultSet resultSet) throws SQLException {
         List<Program> programs = new ArrayList<>();
         while (resultSet.next()) {
-            String id = resultSet.getString("id");
-            String collegeName = resultSet.getString("college_name");
-            String program = resultSet.getString("program");
+            String programID = resultSet.getString("ProgramID");
+            String programName = resultSet.getString("ProgramName");
+            String college = resultSet.getString("College");
 
-            Program college = new Program(id, collegeName, program);
-            programs.add(college);
+            Program program = new Program(programID, programName, college);
+            programs.add(program);
         }
         return programs;
     }

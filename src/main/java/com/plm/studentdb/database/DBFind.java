@@ -91,6 +91,8 @@ public class DBFind {
                 Object param = params.get(i);
                 if (param instanceof Integer) {
                     stmt.setInt(i + 1, (Integer) param);
+                } else if (param instanceof  String) {
+                    stmt.setString(i + 1, (String) param);
                 } else if (param instanceof Double) {
                     stmt.setDouble(i + 1, (Double) param);
                 }

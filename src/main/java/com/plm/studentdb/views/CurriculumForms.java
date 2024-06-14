@@ -120,7 +120,7 @@ public class CurriculumForms {
         } else {
             txfCurriculumFormsYear.setText(String.valueOf(course.getYear()));
             txfCurriculumFormsSemester.setText(String.valueOf(course.getSemester()));
-            txfCurriculumFormsCode.setText(course.getCourseName());
+            txfCurriculumFormsCode.setText(course.getCourseID());
             txfCurriculumFormsSections.setText(String.valueOf(course.getSections()));
             txfCurriculumFormsName.setText(course.getCourseName());
             txfCurriculumFormsUnits.setText(String.valueOf(course.getUnits()));
