@@ -24,12 +24,12 @@
                <children>
                   <Text fill="#2d3038" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" textAlignment="CENTER">
                      <font>
-                        <Font name="Century Gothic Bold" size="72.0" />
+                        <Font name="Century Gothic" size="49.0" />
                      </font>
                   </Text>
-                  <Text fill="#0d5087" layoutX="70.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" textAlignment="CENTER">
+                  <Text fill="#0d5087" layoutX="70.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's Sign in" textAlignment="CENTER">
                      <font>
-                        <Font name="Century Gothic Bold" size="71.0" />
+                        <Font name="Century Gothic Bold" size="69.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="-30.0" />
@@ -90,7 +90,7 @@
                         </DropShadow>
                      </effect>
                   </HBox>
-                  <Button fx:id="logInButton" alignment="CENTER" mnemonicParsing="false" onAction="#logInButton" prefHeight="53.0" prefWidth="185.0" style="-fx-background-color: #0F5996; -fx-background-radius: 10;" text="Log in" textFill="WHITE">
+                  <Button fx:id="logInButton" alignment="CENTER" mnemonicParsing="false" onAction="#login" prefHeight="53.0" prefWidth="185.0" style="-fx-background-color: #0F5996; -fx-background-radius: 10;" text="Log in" textFill="WHITE">
                      <effect>
                         <DropShadow offsetY="4.0">
                            <color>
@@ -128,15 +128,7 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <Label text="Computer Science Department " wrapText="true">
-                     <font>
-                        <Font name="Century Gothic" size="26.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Label>
-                  <Label layoutX="80.0" layoutY="592.0" text="Student Record Admin System" wrapText="true">
+                  <Label layoutX="80.0" layoutY="592.0" text="Student Record Management" wrapText="true">
                      <font>
                         <Font name="Century Gothic" size="26.0" />
                      </font>

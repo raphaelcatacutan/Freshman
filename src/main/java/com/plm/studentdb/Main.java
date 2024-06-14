@@ -14,7 +14,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/app-main.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Computer Science Student Record Admin System");
+        stage.setTitle("Student Record Management");
         stage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getResourceAsStream("assets/icons/plm-logo.png"))));
         stage.setScene(scene);
         stage.setResizable(false);
