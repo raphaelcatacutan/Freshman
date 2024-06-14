@@ -43,7 +43,7 @@ public class ViewReports  {
         pdfView.setShowToolBar(false);
         pdfView.setShowThumbnails(true);
         pdfView.setShowSearchResults(false);
-        pdfView.setShowAll(false);
+        pdfView.setShowAll(true);
 
         anpPDFView.getChildren().add(pdfView);
         AnchorPane.setBottomAnchor(pdfView, 0.0);
@@ -73,9 +73,9 @@ public class ViewReports  {
 
     @FXML
     public void clearFilters() {
+        mnbBlock.setText("Block");
         mnbProgram.setText("Program");
         mnbYear.setText("Year");
-        mnbBlock.setText("Block");
 
         program = null;
         year = null;
