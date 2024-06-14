@@ -1,7 +1,10 @@
 package com.plm.studentdb.views;
 
 import com.plm.studentdb.Main;
+import com.plm.studentdb.database.DBAdd;
+import com.plm.studentdb.database.DBEdit;
 import com.plm.studentdb.database.DBFind;
+import com.plm.studentdb.database.DBRemove;
 import com.plm.studentdb.models.Account;
 import com.plm.studentdb.models.Program;
 import javafx.collections.FXCollections;
@@ -27,9 +30,9 @@ public class ViewDatabase {
     @FXML ListView<Program> lsvProgramsList;
     @FXML ListView<Account> lsvAccountsList;
 
+
     public static ObservableList<Program> programsListView = FXCollections.observableArrayList();
     public static ObservableList<Account> accountsListView = FXCollections.observableArrayList();
-
 
     @FXML
     public void initialize() {
@@ -47,7 +50,6 @@ public class ViewDatabase {
             }
             @Override
             public void updateSelected(boolean selected) {
-                // Override to prevent selection on item click
                 if (selected) {
                     getListView().getSelectionModel().clearSelection();
                 }
@@ -61,17 +63,51 @@ public class ViewDatabase {
             }
             @Override
             public void updateSelected(boolean selected) {
-                // Override to prevent selection on item click
                 if (selected) {
                     getListView().getSelectionModel().clearSelection();
                 }
             }
         });
+
+
+    }
+
+    @FXML
+    public void addProgram() {
+        boolean isAdding = false;
+        for (Program p : programsListView) {
+            if (!Objects.equals(p.getProgramID(), "NULL")) continue;
+            isAdding = true;
+            break;
+        }
+        if (isAdding) {
+            Dialogs.mainMessageDialog.show("Invalid Action", "You have an unsaved program item. Please save it before adding a new one.");
+            return;
+        };
+        Program program = DBAdd.addProgram("NULL", "NULL", "NULL");
+        programsListView.addFirst(program);
+    }
+
+    @FXML
+    public void addAccount() {
+        boolean isAdding = false;
+        for (Account a : accountsListView) {
+            if (!Objects.equals(a.getName(), "NULL")) continue;
+            isAdding = true;
+            break;
+        }
+        if (isAdding) {
+            Dialogs.mainMessageDialog.show("Invalid Action", "You have an unsaved account item. Please save it before adding a new one.");
+            return;
+        };
+        Account account = DBAdd.addAccount("NULL", "NULL", "NULL", "NULL");
+        accountsListView.addFirst(account);
     }
 
     public VBox createProgramVBox(Program program) {
         // Create the VBox
         VBox vbox = new VBox();
+        vbox.setUserData(program);
         vbox.setAlignment(javafx.geometry.Pos.TOP_RIGHT);
         vbox.setPrefHeight(174.0);
         vbox.setPrefWidth(490.0);
@@ -186,7 +222,8 @@ public class ViewDatabase {
         textField1.setPrefHeight(26.0);
         textField1.setPrefWidth(173.0);
         textField1.setPromptText("BSCS");
-        textField1.setText(program.getProgramID());
+        textField1.setText(Objects.equals(program.getProgramID(), "NULL") ? "" : program.getProgramID());
+        textField1.setDisable(!Objects.equals(program.getProgramID(), "NULL"));
         textField1.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         textField1.setFont(new Font("Century Gothic", 13.0));
         textField1.setPadding(new Insets(15.0));
@@ -206,7 +243,7 @@ public class ViewDatabase {
         textField2.setPrefHeight(26.0);
         textField2.setPrefWidth(441.0);
         textField2.setPromptText("Bachelor of Science in Computer Science");
-        textField2.setText(program.getProgramName());
+        textField2.setText(Objects.equals(program.getProgramName(), "NULL") ? "" : program.getProgramName());
         textField2.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         textField2.setFont(new Font("Century Gothic", 13.0));
         textField2.setPadding(new Insets(15.0));
@@ -226,7 +263,7 @@ public class ViewDatabase {
 
         TextField textField3 = new TextField();
         textField3.setPromptText("College of Information Systems and Technology Management");
-        textField3.setText(program.getCollege());
+        textField3.setText(Objects.equals(program.getCollege(), "NULL") ? "" : program.getCollege());
         textField3.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         textField3.setFont(new Font("Century Gothic", 13.0));
         textField3.setPadding(new Insets(15.0));
@@ -235,12 +272,40 @@ public class ViewDatabase {
 
         vbox.getChildren().addAll(hbox1, hbox2, vbox3);
 
+        button1.setOnMouseClicked(ev -> {
+            // Delete
+            Dialogs.mainConfirmDialog.show("Confirm Deletion", "Are you sure you want to delete this program from the database?", () -> {
+                DBRemove.removeProgram(program.getProgramID());
+                programsListView.remove(program);
+            });
+        });
+        button2.setOnMouseClicked(ev -> {
+            // Edit
+            String programID = textField1.getText();
+            String programName = textField2.getText();
+            String college = textField3.getText();
+
+            if (programID.isEmpty()) {
+                Dialogs.mainMessageDialog.show("Invalid Action", "Enter a valid Program ID to proceed with the intended action.");
+                return;
+            };
+            Program addedProgram = DBAdd.addProgram(programID, programName, college);
+            DBRemove.removeProgram("NULL");
+            programsListView.remove(program);
+            programsListView.addFirst(addedProgram);
+
+            vbox.setUserData(addedProgram);
+
+            Dialogs.mainMessageDialog.show("Program Saved", programID + " is saved in the Database. ProgramID is now read-only");
+        });
+
         return vbox;
     }
 
     public VBox createAccountVBox(Account account) {
         // Root VBox
         VBox root = new VBox();
+        root.setUserData(account);
         root.setPrefHeight(367.0);
         root.setPrefWidth(340.0);
         root.setSpacing(10.0);
@@ -402,6 +467,31 @@ public class ViewDatabase {
         root.setPadding(new Insets(30.0));
         root.setEffect(new DropShadow(20.0, Color.rgb(0, 0, 0, 0.1)));
         root.setCursor(Cursor.DEFAULT);
+
+        button1.setOnMouseClicked(ev -> {
+            // Delete
+            Dialogs.mainConfirmDialog.show("Confirm Deletion", "Are you sure you want to delete this account from the database?", () -> {
+                DBRemove.removeAccount(account.getAccountID());
+                accountsListView.remove(account);
+            });
+        });
+        button2.setOnMouseClicked(ev -> {
+            String name = nameField.getText();
+            String email = emailField.getText();
+            String password = passwordField.getText();
+            String access = collegeAccessField.getText();
+
+            Account addedAccount = DBAdd.addAccount(name, email, password, access);
+            Account removedAccount = DBFind.findAccounts(null, "NULL","NULL", "NULL", "NULL", null).getFirst();
+            DBRemove.removeAccount(removedAccount.getAccountID());
+            accountsListView.remove(account);
+            accountsListView.addFirst(addedAccount);
+
+            root.setUserData(addedAccount);
+
+            Dialogs.mainMessageDialog.show("Account Saved", name + " is saved in the Database with access to " + access);
+
+        });
 
         return root;
     }

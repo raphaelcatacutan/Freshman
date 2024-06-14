@@ -42,7 +42,7 @@
                                  </padding>
                               </Label>
                               <Pane prefHeight="14.0" prefWidth="156.0" HBox.hgrow="ALWAYS" />
-                              <Button alignment="CENTER" graphicTextGap="8.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" style="-fx-background-color: #98FF98; -fx-background-radius: 10;" text="Add" textAlignment="CENTER" textFill="#2e7a31">
+                              <Button alignment="CENTER" graphicTextGap="8.0" mnemonicParsing="false" onMouseClicked="#addProgram" prefHeight="35.0" prefWidth="97.0" style="-fx-background-color: #98FF98; -fx-background-radius: 10;" text="Add" textAlignment="CENTER" textFill="#2e7a31">
                                  <font>
                                     <Font name="Century Gothic" size="13.0" />
                                  </font>
@@ -84,7 +84,7 @@
                                  </padding>
                               </Label>
                               <Pane prefHeight="46.0" prefWidth="81.0" HBox.hgrow="ALWAYS" />
-                              <Button alignment="CENTER" graphicTextGap="8.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" style="-fx-background-color: #98FF98; -fx-background-radius: 10;" text="Add" textAlignment="CENTER" textFill="#2e7a31">
+                              <Button alignment="CENTER" graphicTextGap="8.0" mnemonicParsing="false" onMouseClicked="#addAccount" prefHeight="35.0" prefWidth="97.0" style="-fx-background-color: #98FF98; -fx-background-radius: 10;" text="Add" textAlignment="CENTER" textFill="#2e7a31">
                                  <font>
                                     <Font name="Century Gothic" size="13.0" />
                                  </font>

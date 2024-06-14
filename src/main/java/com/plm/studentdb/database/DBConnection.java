@@ -1,9 +1,13 @@
 package com.plm.studentdb.database;
 
+import com.plm.studentdb.models.Account;
+import com.plm.studentdb.models.Program;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class DBConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/";
@@ -95,6 +99,13 @@ public class DBConnection {
                     ")";
             stmt.executeUpdate(createClassesTableQuery);
         }
+
+        List<Account> account = DBFind.findAccounts(null, "NULL", "NULL", "NULL", "NULL", null);
+        List<Program> program = DBFind.findPrograms("NULL", "NULL", "NULL", null);
+
+        if (!account.isEmpty()) DBRemove.removeAccount(account.getFirst().getAccountID());
+        if (!program.isEmpty()) DBRemove.removeProgram(program.getFirst().getProgramID());
+
     }
 
 

@@ -10,8 +10,7 @@ import java.sql.SQLException;
 public class DBRemove {
 
     public static void removeCourse(String courseID) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("DELETE FROM course WHERE CourseID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("DELETE FROM course WHERE CourseID = ?")) {
 
             stmt.setString(1, courseID);
             stmt.executeUpdate();
@@ -21,8 +20,7 @@ public class DBRemove {
     }
 
     public static void removeLesson(int lessonID) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("DELETE FROM lessons WHERE LessonID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("DELETE FROM lessons WHERE LessonID = ?")) {
 
             stmt.setInt(1, lessonID);
             stmt.executeUpdate();
@@ -32,8 +30,7 @@ public class DBRemove {
     }
 
     public static void removeStudent(int studentID) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("DELETE FROM students WHERE StudentID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("DELETE FROM students WHERE StudentID = ?")) {
 
             stmt.setInt(1, studentID);
             stmt.executeUpdate();
@@ -43,8 +40,7 @@ public class DBRemove {
     }
 
     public static void removeAccount(int accountID) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("DELETE FROM accounts WHERE AccountID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("DELETE FROM accounts WHERE AccountID = ?")) {
 
             stmt.setInt(1, accountID);
             stmt.executeUpdate();
@@ -54,8 +50,7 @@ public class DBRemove {
     }
 
     public static void removeProgram(String programID) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("DELETE FROM programs WHERE ProgramID = ?")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("DELETE FROM programs WHERE ProgramID = ?")) {
 
             stmt.setString(1, programID);
             stmt.executeUpdate();
