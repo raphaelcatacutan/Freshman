@@ -1,5 +1,6 @@
 package com.plm.studentdb.database;
 import com.plm.studentdb.models.*;
+import com.plm.studentdb.utils.ProgramConstants;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -139,6 +140,17 @@ public class DBFind {
             params.add(password);
         }
 
+        // Access
+        if (!ProgramConstants.accountAccess.isEmpty() && !ProgramConstants.accountAccess.contains("STUDENT") && !ProgramConstants.accountAccess.contains("ADMIN")) {
+            sql.append("AND (1=1 ");
+            for (String access: ProgramConstants.accountAccess) {
+                sql.append("OR ProgramID = ? ");
+                params.add(access);
+            }
+            sql.append(")");
+        }
+
+
         try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement(sql.toString())) {
 
             for (int i = 0; i < params.size(); i++) {
@@ -149,6 +161,8 @@ public class DBFind {
                     stmt.setString(i + 1, (String) param);
                 }
             }
+
+            System.out.println(sql);
 
             try (ResultSet resultSet = stmt.executeQuery()) {
                 return Mapper.generateStudentObservable(resultSet);
@@ -219,6 +233,16 @@ public class DBFind {
             params.add(college);
         }
 
+        // Access
+        if (!ProgramConstants.accountAccess.isEmpty() && !ProgramConstants.accountAccess.contains("STUDENT") && !ProgramConstants.accountAccess.contains("ADMIN")) {
+            sql.append("AND (1=1 ");
+            for (String access: ProgramConstants.accountAccess) {
+                sql.append("OR ProgramID = ? ");
+                params.add(access);
+            }
+            sql.append(")");
+        }
+
         try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement(sql.toString())) {
 
             for (int i = 0; i < params.size(); i++) {
@@ -238,19 +262,31 @@ public class DBFind {
 
 
     public static List<Student> findStudents(String query) {
-        String selectQuery = "SELECT * FROM students WHERE ";
+        StringBuilder sql = new StringBuilder("SELECT * FROM students WHERE ");
+        List<Object> params = new ArrayList<>();
 
         if (query.contains("@")) {
-            selectQuery += "Email LIKE ?";
+            sql.append("Email LIKE ?");
         } else if (query.matches("\\d+-\\d+")) {
-            selectQuery += "Year = ? AND Block = ?";
+            sql.append("Year = ? AND Block = ?");
         } else if (query.matches("\\d+")) {
-            selectQuery += "StudentID LIKE ?";
+            sql.append("StudentID LIKE ?");
         } else {
-            selectQuery += "(StudentName LIKE ? OR ProgramID LIKE ?)";
+            sql.append("(StudentName LIKE ? OR ProgramID LIKE ?)");
         }
 
-        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(selectQuery)) {
+        // Access
+        if (!ProgramConstants.accountAccess.isEmpty() && !ProgramConstants.accountAccess.contains("STUDENT") && !ProgramConstants.accountAccess.contains("ADMIN")) {
+            sql.append("AND (1=1 ");
+            for (String access: ProgramConstants.accountAccess) {
+                sql.append("OR ProgramID = ? ");
+                params.add(access);
+            }
+            sql.append(")");
+        }
+
+
+        try (PreparedStatement p = DBConnection.getConnection().prepareStatement(String.valueOf(sql))) {
 
             if (query.contains("@")) {
                 p.setString(1, "%" + query + "%");
@@ -263,6 +299,13 @@ public class DBFind {
             } else {
                 p.setString(1, "%" + query + "%");
                 p.setString(2, "%" + query + "%");
+            }
+
+            for (int i = 0; i < params.size(); i++) {
+                Object param = params.get(i);
+                if (param instanceof String) {
+                    p.setString(i + 1, (String) param);
+                }
             }
 
             try (ResultSet rs = p.executeQuery()) {
