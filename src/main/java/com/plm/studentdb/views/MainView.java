@@ -1,5 +1,6 @@
 package com.plm.studentdb.views;
 
+import com.plm.studentdb.utils.ProgramConstants;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
@@ -76,8 +77,12 @@ public class MainView {
     }
 
     @FXML void navigateDatabase() {
-        navigationViewTransition(anpViewDatabase);
-        AppAnimations.navigationBarTransition(pneNavigationIndicator, 260);
+        if (ProgramConstants.accountAccess.contains("ALL")) {
+            AppAnimations.navigationBarTransition(pneNavigationIndicator, 260);
+            navigationViewTransition(anpViewDatabase);
+        } else {
+            Dialogs.mainMessageDialog.show("Invalid Action", "Your Account requires an ADMIN Access to Open Database. Request access to the administrator or use an admin account");
+        }
     }
 
     @FXML void logout() {
