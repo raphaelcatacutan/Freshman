@@ -27,10 +27,9 @@ public class MainView {
     @FXML ViewStudents viewStudentsController;
     @FXML ViewCurriculum viewCurriculumController;
     @FXML ViewReports viewReportsController;
+    @FXML ViewDatabase viewDatabaseController;
 
     public Parent mainLogin;
-
-
 
     AnchorPane[] views = new AnchorPane[5];
     AnchorPane currentView = anpViewDashboard;
@@ -52,7 +51,6 @@ public class MainView {
             viewCurriculumController.curriculumFormsController.showForms(null, null, true, 0.8);
         });
 
-
     }
 
     @FXML void navigateDashboard() {
@@ -73,6 +71,7 @@ public class MainView {
 
     @FXML void navigateReports() {
         navigationViewTransition(anpViewReports);
+        viewReportsController.onNavigate();
         AppAnimations.navigationBarTransition(pneNavigationIndicator, 130);
     }
 
