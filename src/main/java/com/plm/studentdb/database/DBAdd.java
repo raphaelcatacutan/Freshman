@@ -6,8 +6,7 @@ import java.sql.*;
 
 public class DBAdd {
     public static Student addStudent(int studentID, String studentName, String programID, int year, int block, String email, String password) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("INSERT INTO students (StudentID, StudentName, ProgramID, Year, Block, Email, Password) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("INSERT INTO students (StudentID, StudentName, ProgramID, Year, Block, Email, Password) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
 
             stmt.setInt(1, studentID);
             stmt.setString(2, studentName);
@@ -26,8 +25,7 @@ public class DBAdd {
     }
 
     public static Account addAccount(String name, String email, String password, String access) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("INSERT INTO accounts (Name, Email, Password, Access) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("INSERT INTO accounts (Name, Email, Password, Access) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, name);
             stmt.setString(2, email);
@@ -50,8 +48,7 @@ public class DBAdd {
 
 
     public static Course addCourse(String courseID, String courseName, int year, int semester, int units, int sections, int capacity) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("INSERT INTO course (CourseID, CourseName, Year, Semester, Units, Sections, Capacity) VALUES (?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("INSERT INTO course (CourseID, CourseName, Year, Semester, Units, Sections, Capacity) VALUES (?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, courseID);
             stmt.setString(2, courseName);
@@ -71,8 +68,7 @@ public class DBAdd {
 
 
     public static Lesson addLesson(int studentID, String courseID, int section, double grade) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("INSERT INTO lessons (StudentID, CourseID, Section, Grade) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("INSERT INTO lessons (StudentID, CourseID, Section, Grade) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setInt(1, studentID);
             stmt.setString(2, courseID);
@@ -95,8 +91,7 @@ public class DBAdd {
 
 
     public static Program addProgram(String programID, String programName, String college) {
-        try (Connection connection = DBConnection.getConnection();
-             PreparedStatement stmt = connection.prepareStatement("INSERT INTO programs (ProgramID, ProgramName, College) VALUES (?, ?, ?)")) {
+        try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement("INSERT INTO programs (ProgramID, ProgramName, College) VALUES (?, ?, ?)")) {
 
             stmt.setString(1, programID);
             stmt.setString(2, programName);
