@@ -1,0 +1,37 @@
+.list-view {
+    -fx-background-color: transparent;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: black; /* Adjust text color */
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: black; /* Adjust text color for selected item */
+}
+
+.list-view .list-cell:empty {
+    -fx-background-color: transparent;
+}
+
+.list-view .list-cell:selected .text {
+    -fx-background-color: transparent;
+}
+
+.list-view .virtual-flow {
+    -fx-background-color: transparent;
+}
+.list-view .scroll-bar:horizontal {
+    -fx-padding: 0;
+    -fx-opacity: 0; /* Hide horizontal scroll bar */
+}
+
+.list-view .virtual-flow .clipped-container {
+    -fx-background-color: transparent;
+}
+
+.list-view .virtual-flow .virtual-flow-content {
+    -fx-background-color: transparent;
+}
