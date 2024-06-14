@@ -26,7 +26,6 @@ public class AppMain {
         Dialogs.mainConfirmDialog = mainConfirmController;
 
         Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
-            System.err.println("An error occurred in thread " + thread.getName() + ": " + throwable.getMessage());
             throwable.printStackTrace();
 
             Dialogs.mainMessageDialog.show("Unexpected Error", "Make sure all the details you have entered are valid.");
