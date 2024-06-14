@@ -68,7 +68,7 @@ public class ViewStudents {
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty()) {
                     Student student = row.getItem();
-                    studentsInformationController.showForms(student, 0.2, false);
+                    studentsInformationController.showForms(student, 0.2, false, false);
                 }
             });
             return row;
@@ -78,7 +78,7 @@ public class ViewStudents {
         getData();
     }
 
-    private void getData() {
+    public void getData() {
         studentsListTable.setAll(DBFind.findStudents(null, null, null, null, null, null, null, null));
     }
 
@@ -95,7 +95,7 @@ public class ViewStudents {
     }
 
     @FXML private void showInformation() {
-        studentsInformationController.showForms(null, 0.2, true);
+        studentsInformationController.showForms(null, 0.2, true, false);
     }
 
 }

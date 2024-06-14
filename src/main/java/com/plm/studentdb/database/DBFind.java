@@ -141,8 +141,8 @@ public class DBFind {
         }
 
         // Access
-        if (!ProgramConstants.accountAccess.isEmpty() && !ProgramConstants.accountAccess.contains("STUDENT") && !ProgramConstants.accountAccess.contains("ADMIN")) {
-            sql.append("AND (1=1 ");
+        if (!ProgramConstants.accountAccess.isEmpty() && !ProgramConstants.accountAccess.contains("STUDENT") && !ProgramConstants.accountAccess.contains("ALL")) {
+            sql.append("AND (1=0 ");
             for (String access: ProgramConstants.accountAccess) {
                 sql.append("OR ProgramID = ? ");
                 params.add(access);
@@ -150,9 +150,7 @@ public class DBFind {
             sql.append(")");
         }
 
-
         try (PreparedStatement stmt = DBConnection.getConnection().prepareStatement(sql.toString())) {
-
             for (int i = 0; i < params.size(); i++) {
                 Object param = params.get(i);
                 if (param instanceof Integer) {
@@ -161,8 +159,6 @@ public class DBFind {
                     stmt.setString(i + 1, (String) param);
                 }
             }
-
-            System.out.println(sql);
 
             try (ResultSet resultSet = stmt.executeQuery()) {
                 return Mapper.generateStudentObservable(resultSet);
@@ -234,8 +230,8 @@ public class DBFind {
         }
 
         // Access
-        if (!ProgramConstants.accountAccess.isEmpty() && !ProgramConstants.accountAccess.contains("STUDENT") && !ProgramConstants.accountAccess.contains("ADMIN")) {
-            sql.append("AND (1=1 ");
+        if (!ProgramConstants.accountAccess.isEmpty() && !ProgramConstants.accountAccess.contains("STUDENT") && !ProgramConstants.accountAccess.contains("ALL")) {
+            sql.append("AND (1=0 ");
             for (String access: ProgramConstants.accountAccess) {
                 sql.append("OR ProgramID = ? ");
                 params.add(access);
@@ -276,8 +272,8 @@ public class DBFind {
         }
 
         // Access
-        if (!ProgramConstants.accountAccess.isEmpty() && !ProgramConstants.accountAccess.contains("STUDENT") && !ProgramConstants.accountAccess.contains("ADMIN")) {
-            sql.append("AND (1=1 ");
+        if (!ProgramConstants.accountAccess.isEmpty() && !ProgramConstants.accountAccess.contains("STUDENT") && !ProgramConstants.accountAccess.contains("ALL")) {
+            sql.append("AND (1=0 ");
             for (String access: ProgramConstants.accountAccess) {
                 sql.append("OR ProgramID = ? ");
                 params.add(access);

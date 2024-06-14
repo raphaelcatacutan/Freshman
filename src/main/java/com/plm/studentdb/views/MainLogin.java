@@ -7,7 +7,6 @@ import com.plm.studentdb.models.Student;
 import com.plm.studentdb.utils.ProgramConstants;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
@@ -19,13 +18,10 @@ public class MainLogin {
     @FXML private AnchorPane anpMainLogin;
     @FXML private TextField txfUserEmail;
     @FXML private PasswordField txfUserPassword;
-    @FXML public Button logInButton;
-
-    private final String predefinedUsername = "admin@plmcs.edu.ph"; //old: admin@plm.edu.ph
-    private final String predefinedPassword = "PLMCS@admin2024"; //old: 123456
 
     public Parent mainView;
     public Pane pneBackgroundFade;
+    public MainView mainViewController;
 
     @FXML public void initialize() {
         txfUserEmail.requestFocus();
@@ -57,6 +53,9 @@ public class MainLogin {
             }
 
             byPassLogin = true;
+
+            mainViewController.hbxNavigationBar.setVisible(true);
+            mainViewController.pneNavigationIndicator.setVisible(true);
         }
         else if (!students.isEmpty()) {
             Student student = students.getFirst();
@@ -64,6 +63,16 @@ public class MainLogin {
             ProgramConstants.accountName = student.getStudentName();
             ProgramConstants.accountAccess.add("STUDENT");
             byPassLogin = true;
+
+            // Students Access View
+            mainView.toFront();
+            anpMainLogin.toBack();
+
+            mainViewController.hbxNavigationBar.setVisible(false);
+            mainViewController.pneNavigationIndicator.setVisible(false);
+            mainViewController.navigateStudents();
+            mainViewController.viewStudentsController.studentsInformationController.showForms(student, 0, false, true);
+
         }
 
         if (byPassLogin) {

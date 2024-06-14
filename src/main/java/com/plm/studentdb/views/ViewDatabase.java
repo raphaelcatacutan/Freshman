@@ -7,6 +7,7 @@ import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBRemove;
 import com.plm.studentdb.models.Account;
 import com.plm.studentdb.models.Program;
+import com.plm.studentdb.utils.ProgramConstants;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,6 +24,7 @@ import javafx.scene.paint.Color;
 
 import javafx.scene.text.Font;
 
+import java.util.List;
 import java.util.Objects;
 
 public class ViewDatabase {
@@ -68,8 +70,6 @@ public class ViewDatabase {
                 }
             }
         });
-
-
     }
 
     @FXML
@@ -102,6 +102,12 @@ public class ViewDatabase {
         };
         Account account = DBAdd.addAccount("NULL", "NULL", "NULL", "NULL");
         accountsListView.addFirst(account);
+    }
+
+    public void getData() {
+        // if (!ProgramConstants.accountAccess.contains("ADMIN")) return;
+        programsListView.setAll(DBFind.findPrograms(null, null, null, null));
+        accountsListView.setAll(DBFind.findAccounts(null, null, null, null, null, null));
     }
 
     public VBox createProgramVBox(Program program) {
@@ -222,7 +228,7 @@ public class ViewDatabase {
         textField1.setPrefHeight(26.0);
         textField1.setPrefWidth(173.0);
         textField1.setPromptText("BSCS");
-        textField1.setText(Objects.equals(program.getProgramID(), "NULL") ? "" : program.getProgramID());
+        if (!Objects.equals(program.getProgramID(), "NULL")) textField1.setText(program.getProgramID());
         textField1.setDisable(!Objects.equals(program.getProgramID(), "NULL"));
         textField1.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         textField1.setFont(new Font("Century Gothic", 13.0));
@@ -243,7 +249,7 @@ public class ViewDatabase {
         textField2.setPrefHeight(26.0);
         textField2.setPrefWidth(441.0);
         textField2.setPromptText("Bachelor of Science in Computer Science");
-        textField2.setText(Objects.equals(program.getProgramName(), "NULL") ? "" : program.getProgramName());
+        if (!Objects.equals(program.getProgramName(), "NULL")) textField2.setText(program.getProgramName());
         textField2.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         textField2.setFont(new Font("Century Gothic", 13.0));
         textField2.setPadding(new Insets(15.0));
@@ -263,7 +269,7 @@ public class ViewDatabase {
 
         TextField textField3 = new TextField();
         textField3.setPromptText("College of Information Systems and Technology Management");
-        textField3.setText(Objects.equals(program.getCollege(), "NULL") ? "" : program.getCollege());
+        if (!Objects.equals(program.getCollege(), "NULL")) textField3.setText(program.getCollege());
         textField3.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         textField3.setFont(new Font("Century Gothic", 13.0));
         textField3.setPadding(new Insets(15.0));
@@ -404,7 +410,7 @@ public class ViewDatabase {
         nameField.setPrefHeight(26.0);
         nameField.setPrefWidth(173.0);
         nameField.setPromptText("Dela Cruz, Juan");
-        nameField.setText(account.getName());
+        if (!Objects.equals(account.getName(), "NULL")) nameField.setText(account.getName());
         nameField.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         nameField.setFont(Font.font("Century Gothic", 13.0));
         nameField.setPadding(new Insets(15.0));
@@ -422,7 +428,7 @@ public class ViewDatabase {
         emailField.setPrefHeight(26.0);
         emailField.setPrefWidth(441.0);
         emailField.setPromptText("jdelacruz@gmail.com");
-        emailField.setText(account.getEmail());
+        if (!Objects.equals(account.getEmail(), "NULL")) emailField.setText(account.getEmail());
         emailField.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         emailField.setFont(Font.font("Century Gothic", 13.0));
         emailField.setPadding(new Insets(15.0));
@@ -438,7 +444,7 @@ public class ViewDatabase {
         vbox3.getChildren().add(passwordLabel);
         PasswordField passwordField = new PasswordField();
         passwordField.setPromptText("admin");
-        passwordField.setText(account.getPassword());
+        if (!Objects.equals(account.getPassword(), "NULL")) passwordField.setText(account.getPassword());
         passwordField.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         passwordField.setFont(Font.font("Century Gothic", 13.0));
         passwordField.setPadding(new Insets(15.0));
@@ -455,8 +461,8 @@ public class ViewDatabase {
         collegeAccessLabel.getStyleClass().add("label-text");
         vbox4.getChildren().add(collegeAccessLabel);
         TextField collegeAccessField = new TextField();
-        collegeAccessField.setPromptText("All");
-        collegeAccessField.setText(account.getAccess());
+        collegeAccessField.setPromptText("ALL");
+        if (!Objects.equals(account.getAccess(), "NULL")) collegeAccessField.setText(account.getAccess());
         collegeAccessField.setStyle("-fx-background-color: #e8e8e8; -fx-background-radius: 10;");
         collegeAccessField.setFont(Font.font("Century Gothic", 13.0));
         collegeAccessField.setPadding(new Insets(15.0));
@@ -482,8 +488,11 @@ public class ViewDatabase {
             String access = collegeAccessField.getText();
 
             Account addedAccount = DBAdd.addAccount(name, email, password, access);
-            Account removedAccount = DBFind.findAccounts(null, "NULL","NULL", "NULL", "NULL", null).getFirst();
-            DBRemove.removeAccount(removedAccount.getAccountID());
+            List<Account> accounts = DBFind.findAccounts(null, "NULL", "NULL", "NULL", "NULL", null);
+            if (!accounts.isEmpty()) {
+                Account removedAccount = accounts.getFirst();
+                DBRemove.removeAccount(removedAccount.getAccountID());
+            }
             accountsListView.remove(account);
             accountsListView.addFirst(addedAccount);
 

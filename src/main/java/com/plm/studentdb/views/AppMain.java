@@ -22,6 +22,7 @@ public class AppMain {
         mainLoginController.mainView = mainView;
         mainViewController.mainLogin = mainLogin;
         mainLoginController.pneBackgroundFade = pneBackgroundFade;
+        mainLoginController.mainViewController = mainViewController;
         Dialogs.mainMessageDialog = mainMessageController;
         Dialogs.mainConfirmDialog = mainConfirmController;
 

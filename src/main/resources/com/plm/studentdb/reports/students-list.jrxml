@@ -122,9 +122,9 @@
 		</band>
 	</title>
 	<summary>
-		<band height="230" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<componentElement>
-				<reportElement x="251" y="78" width="120" height="40" uuid="ffe08aad-460a-48e2-9138-4fb93aae7ebc"/>
+				<reportElement x="230" y="20" width="120" height="40" uuid="ffe08aad-460a-48e2-9138-4fb93aae7ebc"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="Students" uuid="a8c7171f-038e-45f1-a2d3-315272b3b6c1">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>

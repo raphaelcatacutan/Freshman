@@ -4,31 +4,34 @@ import com.plm.studentdb.utils.ProgramConstants;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 public class MainView {
-    @FXML AnchorPane anpMainView;
-    @FXML StackPane stkViews;
-    @FXML Pane pneNavigationIndicator;
+    @FXML public AnchorPane anpMainView;
+    @FXML public StackPane stkViews;
+    @FXML public Pane pneNavigationIndicator;
 
-    @FXML Parent viewDashboard;
-    @FXML Parent viewStudents;
-    @FXML Parent viewCurriculum;
-    @FXML Parent viewReports;
-    @FXML Parent viewDatabase;
+    @FXML public Parent viewDashboard;
+    @FXML public Parent viewStudents;
+    @FXML public Parent viewCurriculum;
+    @FXML public Parent viewReports;
+    @FXML public Parent viewDatabase;
 
-    @FXML AnchorPane anpViewDashboard;
-    @FXML AnchorPane anpViewStudents;
-    @FXML AnchorPane anpViewCurriculum;
-    @FXML AnchorPane anpViewReports;
-    @FXML AnchorPane anpViewDatabase;
+    @FXML public AnchorPane anpViewDashboard;
+    @FXML public AnchorPane anpViewStudents;
+    @FXML public AnchorPane anpViewCurriculum;
+    @FXML public AnchorPane anpViewReports;
+    @FXML public AnchorPane anpViewDatabase;
 
-    @FXML ViewDashboard viewDashboardController;
-    @FXML ViewStudents viewStudentsController;
-    @FXML ViewCurriculum viewCurriculumController;
-    @FXML ViewReports viewReportsController;
-    @FXML ViewDatabase viewDatabaseController;
+    @FXML public ViewDashboard viewDashboardController;
+    @FXML public ViewStudents viewStudentsController;
+    @FXML public ViewCurriculum viewCurriculumController;
+    @FXML public ViewReports viewReportsController;
+    @FXML public ViewDatabase viewDatabaseController;
+
+    @FXML public HBox hbxNavigationBar;
 
     public Parent mainLogin;
 
@@ -42,7 +45,7 @@ public class MainView {
 
         viewDashboardController.stkDashboardQuickAdd.setOnMouseClicked(ev -> {
             navigateStudents();
-            viewStudentsController.studentsInformationController.showForms(null, 0.8, true);
+            viewStudentsController.studentsInformationController.showForms(null, 0.8, true, false);
         });
         viewDashboardController.stkDashboardQuickView.setOnMouseClicked(ev -> {
             navigateStudents();
@@ -62,6 +65,7 @@ public class MainView {
 
     @FXML void navigateStudents() {
         navigationViewTransition(anpViewStudents);
+        viewStudentsController.getData();
         AppAnimations.navigationBarTransition(pneNavigationIndicator, -130);
     }
 
@@ -72,7 +76,7 @@ public class MainView {
 
     @FXML void navigateReports() {
         navigationViewTransition(anpViewReports);
-        viewReportsController.onNavigate();
+        viewReportsController.getData();
         AppAnimations.navigationBarTransition(pneNavigationIndicator, 130);
     }
 

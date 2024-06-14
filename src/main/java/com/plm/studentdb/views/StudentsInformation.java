@@ -37,21 +37,25 @@ public class StudentsInformation {
     @FXML TextField txfStudentInformationEmail;
     @FXML TextField txfStudentInformationYearBlock;
 
-    @FXML Button studentsInfromationDelete;
+    @FXML Button studentsInformationDelete;
+    @FXML Button studentsInformationSave;
 
-    @FXML TextField txfStudentInformationGradeYearSem;
+    @FXML TextField txfStudentInformationGradeYearSem; // Intentionally Separated
     @FXML Label lblStudentInformationGWA;
     @FXML Label lblStudentInformationStatus;
+    @FXML AnchorPane studentsInformationClose;
 
     public boolean isAdding = true;
     public Student focusedStudent;
 
-    void showForms(Student student, double delay, boolean isAdding) {
-        preFillForm(student);
+    void showForms(Student student, double delay, boolean isAdding, boolean isViewing) {
+        preFillForm(student, isViewing);
         scrStudentsInformation.setVvalue(0);
         AppAnimations.popup(anpStudentsInformation, delay);
         this.isAdding = isAdding;
-        studentsInfromationDelete.setVisible(!isAdding);
+        studentsInformationDelete.setVisible(!isAdding && !isViewing);
+        studentsInformationSave.setVisible(!isViewing);
+        studentsInformationClose.setVisible(!isViewing);
         if (isAdding) focusedStudent = null;
         else focusedStudent = student;
     }
@@ -63,7 +67,7 @@ public class StudentsInformation {
 
     @FXML
     void closeForms() {
-        preFillForm(null);
+        preFillForm(null, true);
         AppAnimations.popdown(anpStudentsInformation, 0);
     }
 
@@ -108,24 +112,29 @@ public class StudentsInformation {
         Dialogs.mainConfirmDialog.show("Delete a Student", "Are you sure you want to delete this student from the database?", delete);
     }
 
-    public void preFillForm(Student student) {
+    public void preFillForm(Student student, boolean isViewing) {
         if (student == null) {
             txfStudentInformationName.setText(null);
             txfStudentInformationID.setText(null);
             txfStudentInformationProgram.setText(null);
             txfStudentInformationEmail.setText(null);
             txfStudentInformationYearBlock.setText(null);
-            txfStudentInformationGradeYearSem.clear();
-            flwStudentsInformationGrades.getChildren().clear();
         } else {
             txfStudentInformationName.setText(student.getStudentName());
             txfStudentInformationID.setText(String.valueOf(student.getStudentID()));
             txfStudentInformationProgram.setText(student.getProgramID());
             txfStudentInformationEmail.setText(student.getEmail());
             txfStudentInformationYearBlock.setText(student.getYear() + "-" + student.getBlock());
-            txfStudentInformationGradeYearSem.clear();
-            flwStudentsInformationGrades.getChildren().clear();
         }
+
+        txfStudentInformationName.setEditable(!isViewing);
+        txfStudentInformationID.setEditable(!isViewing);
+        txfStudentInformationProgram.setEditable(!isViewing);
+        txfStudentInformationEmail.setEditable(!isViewing);
+        txfStudentInformationYearBlock.setEditable(!isViewing);
+
+        txfStudentInformationGradeYearSem.setText("");
+        flwStudentsInformationGrades.getChildren().clear();
     }
 
     @FXML

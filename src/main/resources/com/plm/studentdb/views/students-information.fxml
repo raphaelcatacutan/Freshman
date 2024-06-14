@@ -25,7 +25,7 @@
          <children>
             <StackPane alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1151.0">
                <children>
-                  <AnchorPane style="-fx-background-color: #e9e9e9; -fx-background-radius: 20;">
+                  <AnchorPane style="-fx-background-color: #dedede; -fx-background-radius: 20;">
                      <children>
                         <ScrollPane fx:id="scrStudentsInformation" hbarPolicy="NEVER" layoutX="32.8" layoutY="31.200000000000003" prefHeight="566.0" prefWidth="1108.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="21.0">
                            <content>
@@ -127,7 +127,7 @@
                                           </VBox>
                                           <VBox spacing="10.0">
                                              <children>
-                                                <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#confirmForm" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #98FB98; -fx-background-radius: 5;" text="Save" textFill="#077634">
+                                                <Button fx:id="studentsInformationSave" alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#confirmForm" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #98FB98; -fx-background-radius: 5;" text="Save" textFill="#077634">
                                                    <font>
                                                       <Font name="Century Gothic Bold" size="13.0" />
                                                    </font>
@@ -152,7 +152,7 @@
                                                       </DropShadow>
                                                    </effect>
                                                 </Button>
-                                                <Button fx:id="studentsInfromationDelete" alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#deleteStudent" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #f39595; -fx-background-radius: 5;" text="Delete" textFill="#a62300">
+                                                <Button fx:id="studentsInformationDelete" alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#deleteStudent" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #f39595; -fx-background-radius: 5;" text="Delete" textFill="#a62300">
                                                    <font>
                                                       <Font name="Century Gothic Bold" size="13.0" />
                                                    </font>
@@ -258,9 +258,9 @@
                         </ScrollPane>
                      </children>
                      <effect>
-                        <DropShadow height="55.25" radius="31.590000000000003" width="73.11">
+                        <DropShadow height="20.0" radius="9.5" width="20.0">
                            <color>
-                              <Color opacity="0.1952887773513794" />
+                              <Color opacity="0.10106384009122849" />
                            </color>
                         </DropShadow>
                      </effect>
@@ -271,7 +271,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </AnchorPane>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeForms" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #dedede; -fx-background-radius: 50;">
+                  <AnchorPane fx:id="studentsInformationClose" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeForms" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #dedede; -fx-background-radius: 50;">
                      <children>
                         <ImageView fitHeight="11.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <image>

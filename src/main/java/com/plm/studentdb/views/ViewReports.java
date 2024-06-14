@@ -104,6 +104,23 @@ public class ViewReports  {
 
     }
 
+    public void getData() {
+        clearFilters();
+        mnbProgram.getItems().clear();
+        List<Program> programs = DBFind.findPrograms(null, null, null, null);
+        for (Program p: programs) {
+            MenuItem e = new MenuItem(p.getProgramID());
+            e.setOnAction(i -> {
+                mnbProgram.setText(e.getText());
+                mnbProgram.setTextFill(Color.web("#000080"));
+                mnbProgram.getParent().requestFocus();
+                program = e.getText();
+                generateOfficerReport();
+            });
+            mnbProgram.getItems().add(e);
+        }
+    }
+
     public void generateOfficerReport() {
         Map<String, String> queries = new HashMap<>();
 
@@ -135,22 +152,6 @@ public class ViewReports  {
 
     }
 
-    public void onNavigate() {
-        clearFilters();
-        mnbProgram.getItems().clear();
-        List<Program> programs = DBFind.findPrograms(null, null, null, null);
-        for (Program p: programs) {
-            MenuItem e = new MenuItem(p.getProgramID());
-            e.setOnAction(i -> {
-                mnbProgram.setText(e.getText());
-                mnbProgram.setTextFill(Color.web("#000080"));
-                mnbProgram.getParent().requestFocus();
-                program = e.getText();
-                generateOfficerReport();
-            });
-            mnbProgram.getItems().add(e);
-        }
-    }
 }
 
 

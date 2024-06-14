@@ -62,7 +62,7 @@
             <StackPane>
                <children>
                   <Pane fx:id="pneNavigationIndicator" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="119.0" style="-fx-background-color: #74a3d1; -fx-background-radius: 5;" />
-                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                  <HBox fx:id="hbxNavigationBar" alignment="CENTER_LEFT" spacing="10.0">
                      <children>
                         <Label alignment="CENTER" graphicTextGap="10.0" onMouseClicked="#navigateDashboard" prefWidth="120.0" text="Dashboard">
                            <font>
