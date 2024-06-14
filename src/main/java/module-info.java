@@ -4,6 +4,7 @@ module com.plm.studentdb {
     requires java.sql;
     requires mysql.connector.j;
     requires java.desktop;
+    requires com.dlsc.pdfviewfx;
 
 
     opens com.plm.studentdb to javafx.fxml;

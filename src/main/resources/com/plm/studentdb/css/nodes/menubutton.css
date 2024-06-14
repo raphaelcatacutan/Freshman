@@ -1,0 +1,30 @@
+.menu-button {
+    -fx-background-color: #dedede;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Century Gothic';
+    -fx-background-radius: 10px;
+}
+
+.menu-button:focused {
+    -fx-background-color: #4b77b5;
+}
+
+.menu-button .arrow {
+    -fx-background-color: #707070;
+}
+
+.menu-button .context-menu {
+    -fx-background-color: #74a3d1;
+    -fx-padding: 10px;
+    -fx-border-insets: 5px;
+    -fx-background-radius: 10px;
+}
+
+.menu-button .menu-item {
+    -fx-background-color: #74a3d1;
+    -fx-padding: 8px;
+}
+
+.menu-button .menu-item:hover {
+    -fx-background-color: #74a3d1;
+}
