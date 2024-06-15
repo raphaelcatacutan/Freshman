@@ -1,6 +1,5 @@
 package com.plm.studentdb.views;
 
-import com.plm.studentdb.utils.ProgramConstants;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
@@ -17,19 +16,19 @@ public class MainView {
     @FXML public Parent viewStudents;
     @FXML public Parent viewCurriculum;
     @FXML public Parent viewReports;
-    @FXML public Parent viewDatabase;
+    @FXML public Parent viewSettings;
 
     @FXML public AnchorPane anpViewDashboard;
     @FXML public AnchorPane anpViewStudents;
     @FXML public AnchorPane anpViewCurriculum;
     @FXML public AnchorPane anpViewReports;
-    @FXML public AnchorPane anpViewDatabase;
+    @FXML public AnchorPane anpViewSettings;
 
     @FXML public ViewDashboard viewDashboardController;
     @FXML public ViewStudents viewStudentsController;
     @FXML public ViewCurriculum viewCurriculumController;
     @FXML public ViewReports viewReportsController;
-    @FXML public ViewDatabase viewDatabaseController;
+    @FXML public ViewSettings viewSettingsController;
 
     @FXML public HBox hbxNavigationBar;
 
@@ -39,7 +38,7 @@ public class MainView {
     AnchorPane currentView = anpViewDashboard;
 
     @FXML void initialize() {
-        views = new AnchorPane[]{anpViewDashboard, anpViewStudents, anpViewCurriculum, anpViewReports, anpViewDatabase};
+        views = new AnchorPane[]{anpViewDashboard, anpViewStudents, anpViewCurriculum, anpViewReports, anpViewSettings};
 
         navigateDashboard();
 
@@ -60,33 +59,28 @@ public class MainView {
     @FXML void navigateDashboard() {
         navigationViewTransition(anpViewDashboard);
         if (viewStudentsController.studentsInformation.isVisible()) AppAnimations.popdown(viewStudentsController.studentsInformation, 0);
-        AppAnimations.navigationBarTransition(pneNavigationIndicator, -260);
+        AppAnimations.navigationBarTransition(pneNavigationIndicator, -195);
     }
 
     @FXML void navigateStudents() {
         navigationViewTransition(anpViewStudents);
         viewStudentsController.getData();
-        AppAnimations.navigationBarTransition(pneNavigationIndicator, -130);
+        AppAnimations.navigationBarTransition(pneNavigationIndicator, -65);
     }
 
     @FXML void navigateCurriculum() {
         navigationViewTransition(anpViewCurriculum);
-        AppAnimations.navigationBarTransition(pneNavigationIndicator, 0);
+        AppAnimations.navigationBarTransition(pneNavigationIndicator, 65);
     }
 
     @FXML void navigateReports() {
         navigationViewTransition(anpViewReports);
         viewReportsController.getData();
-        AppAnimations.navigationBarTransition(pneNavigationIndicator, 130);
+        AppAnimations.navigationBarTransition(pneNavigationIndicator, 195);
     }
 
-    @FXML void navigateDatabase() {
-        if (ProgramConstants.accountAccess.contains("ALL")) {
-            AppAnimations.navigationBarTransition(pneNavigationIndicator, 260);
-            navigationViewTransition(anpViewDatabase);
-        } else {
-            Dialogs.mainMessageDialog.show("Invalid Action", "Your Account requires an ADMIN Access to Open Database. Request access to the administrator or use an admin account");
-        }
+    @FXML void navigateSettings() {
+        navigationViewTransition(anpViewSettings);
     }
 
     @FXML void logout() {

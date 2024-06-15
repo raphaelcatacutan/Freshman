@@ -2,12 +2,10 @@ package com.plm.studentdb.views;
 
 import com.plm.studentdb.Main;
 import com.plm.studentdb.database.DBAdd;
-import com.plm.studentdb.database.DBEdit;
 import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBRemove;
 import com.plm.studentdb.models.Account;
 import com.plm.studentdb.models.Program;
-import com.plm.studentdb.utils.ProgramConstants;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,7 +25,7 @@ import javafx.scene.text.Font;
 import java.util.List;
 import java.util.Objects;
 
-public class ViewDatabase {
+public class ViewSettings {
 
     @FXML ListView<Program> lsvProgramsList;
     @FXML ListView<Account> lsvAccountsList;
