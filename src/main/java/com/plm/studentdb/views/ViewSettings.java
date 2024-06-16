@@ -27,9 +27,13 @@ import java.util.Objects;
 
 public class ViewSettings {
 
-    @FXML ListView<Program> lsvProgramsList;
-    @FXML ListView<Account> lsvAccountsList;
-
+    @FXML public ListView<Program> lsvProgramsList;
+    @FXML public ListView<Account> lsvAccountsList;
+    @FXML public Button btnProgramsListAdd;
+    @FXML public Button btnAccountsListAdd;
+    @FXML public Label lblProgramsListMessage;
+    @FXML public Label lblAccountsListMessage;
+    @FXML public ImageView imvViewSettingsBack;
 
     public static ObservableList<Program> programsListView = FXCollections.observableArrayList();
     public static ObservableList<Account> accountsListView = FXCollections.observableArrayList();

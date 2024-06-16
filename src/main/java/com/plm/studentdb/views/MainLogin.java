@@ -64,10 +64,6 @@ public class MainLogin {
             ProgramConstants.accountAccess.add("STUDENT");
             byPassLogin = true;
 
-            // Students Access View
-            mainView.toFront();
-            anpMainLogin.toBack();
-
             mainViewController.hbxNavigationBar.setVisible(false);
             mainViewController.pneNavigationIndicator.setVisible(false);
             mainViewController.navigateStudents();
@@ -80,6 +76,16 @@ public class MainLogin {
             anpMainLogin.toBack();
             txfUserEmail.setText(null);
             txfUserPassword.setText(null);
+
+            // View Settings
+            boolean isAdmin = ProgramConstants.accountAccess.contains("ALL");
+            mainViewController.viewSettingsController.lsvProgramsList.setVisible(isAdmin);
+            mainViewController.viewSettingsController.lsvAccountsList.setVisible(isAdmin);
+            mainViewController.viewSettingsController.lblProgramsListMessage.setVisible(!isAdmin);
+            mainViewController.viewSettingsController.lblAccountsListMessage.setVisible(!isAdmin);
+            mainViewController.viewSettingsController.btnProgramsListAdd.setVisible(isAdmin);
+            mainViewController.viewSettingsController.btnAccountsListAdd.setVisible(isAdmin);
+
             AppAnimations.login();
             Dialogs.mainMessageDialog.close();
         } else {

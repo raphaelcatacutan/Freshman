@@ -36,6 +36,7 @@ public class MainView {
 
     AnchorPane[] views = new AnchorPane[5];
     AnchorPane currentView = anpViewDashboard;
+    AnchorPane lastView = anpViewDashboard;
 
     @FXML void initialize() {
         views = new AnchorPane[]{anpViewDashboard, anpViewStudents, anpViewCurriculum, anpViewReports, anpViewSettings};
@@ -52,6 +53,9 @@ public class MainView {
         viewDashboardController.stkDashboardQuickCourse.setOnMouseClicked(ev -> {
             navigateCurriculum();
             viewCurriculumController.curriculumFormsController.showForms(null, null, true, 0.8);
+        });
+        viewSettingsController.imvViewSettingsBack.setOnMouseClicked(ev -> {
+            navigationViewTransition(lastView);
         });
 
     }
@@ -101,6 +105,7 @@ public class MainView {
                 }
             }
         }
+        lastView = currentView;
         currentView = view;
     }
 }
