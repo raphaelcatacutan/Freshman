@@ -2,10 +2,8 @@ package com.plm.studentdb.database;
 
 import com.plm.studentdb.models.*;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Types;
 
 public class DBEdit {
     public static Course editCourse(String courseID, String courseName, int year, int semester, int units, int sections, int capacity) {
@@ -59,7 +57,6 @@ public class DBEdit {
             stmt.setInt(4, block);
             stmt.setString(5, email);
             stmt.setString(6, password);
-            stmt.setNull(6, Types.VARCHAR);
             stmt.setInt(7, studentID);
 
             int rowsAffected = stmt.executeUpdate();

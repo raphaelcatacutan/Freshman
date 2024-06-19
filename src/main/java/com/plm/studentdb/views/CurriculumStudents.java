@@ -48,6 +48,7 @@ public class CurriculumStudents {
             boolean isEnrolled = false;
             for (Lesson lesson: lessons) {
                 if (lesson.getStudentID() != student.getStudentID()) continue;
+                isEnrolled = true;
                 numberOfStudents++;
                 break;
             }
@@ -55,7 +56,7 @@ public class CurriculumStudents {
             checkBox.setUserData(student);
             vbxCurriculumStudentsList.getChildren().add(checkBox);
         }
-        curriculumStudentsNumber.setText("(" + numberOfStudents + ") of Students Enrolled");
+        curriculumStudentsNumber.setText("(" + numberOfStudents + ") Students Enrolled");
     }
 
     public void confirmForms() {
@@ -95,7 +96,6 @@ public class CurriculumStudents {
     public static CheckBox generateStudentCheckBox(String studentName, boolean isSelected) {
         CheckBox checkBox = new CheckBox(studentName);
         checkBox.setMnemonicParsing(false);
-        checkBox.setSelected(true);
         checkBox.setSelected(isSelected);
         checkBox.setFont(new Font("Century Gothic", 17.0));
         return checkBox;

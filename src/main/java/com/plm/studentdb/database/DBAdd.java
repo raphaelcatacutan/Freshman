@@ -2,7 +2,10 @@ package com.plm.studentdb.database;
 
 import com.plm.studentdb.models.*;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DBAdd {
     public static Student addStudent(int studentID, String studentName, String programID, int year, int block, String email, String password) {

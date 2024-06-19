@@ -71,6 +71,10 @@ public class AppAnimations {
 
     }
 
+    public static void logout() {
+
+    }
+    
     public static void navigateIn(AnchorPane view) {
         if (view.getOpacity() > 0) return;
         // Create FadeTransition for fading in

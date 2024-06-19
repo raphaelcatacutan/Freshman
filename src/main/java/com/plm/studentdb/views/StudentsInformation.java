@@ -6,8 +6,10 @@ import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.database.DBRemove;
 import com.plm.studentdb.models.Lesson;
 import com.plm.studentdb.models.Student;
+import com.plm.studentdb.utils.ProgramConstants;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -139,6 +141,7 @@ public class StudentsInformation {
 
     @FXML
     public void showGrades(KeyEvent event) {
+        flwStudentsInformationGrades.getChildren().clear();
         if (event.getCode() != KeyCode.ENTER) return;
         if (focusedStudent == null && isAdding) {
             Dialogs.mainMessageDialog.show("Invalid Action", "You can't check the grades of a student who hasn't been added to the database yet.");
@@ -167,7 +170,7 @@ public class StudentsInformation {
 
     public static HBox generateClassHBox(Lesson lesson) {
         HBox hBox = new HBox();
-        hBox.setAlignment(javafx.geometry.Pos.BOTTOM_CENTER);
+        hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setLayoutX(361.0);
         hBox.setLayoutY(40.0);
         hBox.setPrefHeight(140.0);
@@ -176,7 +179,7 @@ public class StudentsInformation {
         hBox.setUserData(lesson);
 
         VBox vBox = new VBox();
-        vBox.setAlignment(javafx.geometry.Pos.CENTER);
+        vBox.setAlignment(Pos.CENTER_LEFT);
         vBox.setPrefHeight(184.0);
         vBox.setPrefWidth(184.0);
 
@@ -185,9 +188,9 @@ public class StudentsInformation {
         label1.setPrefWidth(270.0);
         label1.getStyleClass().add("label-text");
         label1.setId("courseCode");
-        label1.setFont(new Font("Century Gothic Bold", 25.0));
+        label1.setFont(new Font("Century Gothic Bold", 17.0));
 
-        Label label2 = new Label("Change this");
+        Label label2 = new Label("Section " + lesson.getSection());
         label2.setGraphicTextGap(5.0);
         label2.setLayoutX(220.0);
         label2.setLayoutY(84.0);
@@ -195,20 +198,19 @@ public class StudentsInformation {
         label2.setId("yearSection");
         label2.setFont(new Font("Century Gothic", 14.0));
 
-        vBox.getChildren().addAll(label1, label2);
-        vBox.setCursor(javafx.scene.Cursor.HAND);
-
         TextField textField = new TextField(String.valueOf(lesson.getGrade()));
-        textField.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
+        textField.setEditable(!ProgramConstants.accountAccess.contains("STUDENT"));
+        textField.setAlignment(Pos.CENTER_LEFT);
         textField.setPrefHeight(62.0);
         textField.setPrefWidth(119.0);
         textField.setStyle("-fx-background-color: none;");
         textField.getStyleClass().add("label-text");
         textField.setId("grades");
-        textField.setFont(new Font("Century Gothic Bold", 34.0));
+        textField.setFont(new Font("Century Gothic Bold", 38.0));
         textField.setPadding(new Insets(5.0));
 
-        hBox.getChildren().addAll(vBox, textField);
+        vBox.getChildren().addAll(label1, label2, textField);
+        vBox.setCursor(javafx.scene.Cursor.HAND);
 
         DropShadow dropShadow = new DropShadow();
         dropShadow.setHeight(70.13);
@@ -216,6 +218,7 @@ public class StudentsInformation {
         dropShadow.setWidth(53.75);
         dropShadow.setColor(Color.color(0, 0, 0, 0.15805472433567047));
 
+        hBox.getChildren().add(vBox);
         hBox.setEffect(dropShadow);
         hBox.setPadding(new Insets(30.0));
 

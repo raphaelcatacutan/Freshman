@@ -1,12 +1,11 @@
 package com.plm.studentdb.views;
 
-import com.plm.studentdb.Main;
+import com.dlsc.pdfviewfx.PDFView;
 import com.plm.studentdb.database.DBFind;
 import com.plm.studentdb.models.Program;
 import com.plm.studentdb.utils.ProgramUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
-import com.dlsc.pdfviewfx.PDFView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -16,11 +15,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class ViewReports  {
 
@@ -93,11 +91,8 @@ public class ViewReports  {
     public void exportFile() {
         try {
             File current = new File(currentFile);
-            Path source = Paths.get(currentFile);
-            Path target = Paths.get(ProgramUtils.DOWNLOADS_DIRECTORY_PATH + current.getName());
 
-            Files.move(source, target);
-            Desktop.getDesktop().open(target.toFile());
+            Desktop.getDesktop().open(new File(currentFile));
         } catch (IOException e) {
             throw new RuntimeException("Failed to move file to Downloads folder", e);
         }

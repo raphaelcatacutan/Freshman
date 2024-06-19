@@ -10,9 +10,7 @@ import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
-import java.awt.*;
 import java.io.File;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
