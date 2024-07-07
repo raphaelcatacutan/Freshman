@@ -28,6 +28,7 @@ public class DBConnection {
             connection = DriverManager.getConnection(URL + DATABASE_NAME, USER, PASSWORD);
 
             initializeTables();
+            initializeAccount();
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
@@ -108,6 +109,11 @@ public class DBConnection {
 
     }
 
+    private static void initializeAccount() throws SQLException {
+        List<Account> accounts = DBFind.findAccounts(null, null, null, null, null, null);
+        if (!accounts.isEmpty()) return;
+        DBAdd.addAccount("Admin", "admin", "admin", "ALL");
+    }
 
     public static Connection getConnection() {
         return connection;
